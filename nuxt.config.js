@@ -1,6 +1,10 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  server: {
+    port: 3001, // default: 3000
+    host: 'localhost' // default: localhost
+  },
   /*
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
@@ -37,6 +41,8 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    { src: "~/plugins/localStorage.js", ssr: false },
+    { src: '~/plugins/flickity', ssr: false },
   ],
   /*
   ** Auto import components
@@ -56,6 +62,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    "@nuxtjs/dotenv",
   ],
   /*
   ** Axios module configuration
