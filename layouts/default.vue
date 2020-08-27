@@ -64,7 +64,6 @@ import { mapState } from 'vuex'
 export default {
   data() {
     return {
-      title: 'Marlon Resto Bar',
       clipped: false,
       drawer: false,
       fixed: false,
