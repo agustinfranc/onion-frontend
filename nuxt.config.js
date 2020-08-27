@@ -16,11 +16,18 @@ export default {
   */
   target: 'static',
   /*
+  ** Dinamic Routes
+  ** See https://nuxtjs.org/api/configuration-generate
+  */
+  generate: {
+    routes: ['/marlon']
+  },
+  /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
+    titleTemplate: '%s - ' + 'Onion',
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
@@ -35,6 +42,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '@/assets/css/main.scss',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -61,7 +69,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
+    //'@nuxtjs/pwa',
     "@nuxtjs/dotenv",
   ],
   /*

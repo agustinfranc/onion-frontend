@@ -17,3 +17,9 @@
     </v-flex>
   </v-layout>
 </template>
+
+<script>
+export default {
+  layout: 'blank',
+}
+</script>
