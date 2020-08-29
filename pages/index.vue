@@ -261,7 +261,7 @@
             >
               <div class="prising_header">
                 <h3>Carta QR</h3>
-                <span>GRATIS</span>
+                <span>GRATIS<span>*</span></span>
               </div>
               <ul>
                 <li>QR con Carta Digital</li>
@@ -272,6 +272,7 @@
                 <li>
                   <strong>Sin descargas!</strong>
                 </li>
+                <li style="color: #0181F5">* oferta por tiempo limitado</li>
               </ul>
               <!-- <div class="prising_bottom">
                             <a href="#" class="get_now prising_btn">Get Now</a>

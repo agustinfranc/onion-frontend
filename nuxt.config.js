@@ -16,6 +16,14 @@ export default {
   */
   target: 'static',
   /*
+  ** Environment Variables
+  ** See https://nuxtjs.org/api/configuration-env/
+  */
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3001',
+    apiUrl: process.env.API_URL || 'http://local.catalogo/api/',
+  },
+  /*
   ** Dinamic Routes
   ** See https://nuxtjs.org/api/configuration-generate
   */

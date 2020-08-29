@@ -3888,7 +3888,7 @@ h3 {
 }
 
 /* line 37, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_prising.scss */
-.prising_area .single_prising .prising_header span {
+.prising_area .single_prising .prising_header > span {
   font-size: 20px;
   font-weight: 500;
   color: #0181F5;
