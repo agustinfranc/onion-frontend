@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container v-if="rubros" :key="index">
+    <v-container v-if="rubros">
       <h3>{{rubros[0].nombre}}</h3>
 
       <v-divider class="my-5"></v-divider>
@@ -10,13 +10,13 @@
           <div
             class="carousel-cell"
             v-for="item in rubros[0].subrubros[0].productos"
-            :key="item.id"
+            :key="`${item.id}-carousel`"
           >
             <v-card class="mx-auto" min-height="370" max-width="400">
               <v-img
                 class="white--text align-end"
                 height="200px"
-                :src="`/img/${params.local}/${item.avatar}`"
+                :src="`${item.avatar_dirname}${item.avatar}`"
               ></v-img>
 
               <v-card-title class="text-truncate">{{ item.nombre }}</v-card-title>
@@ -39,7 +39,7 @@
             <h3>{{rubro.nombre}}</h3>
           </v-container>
 
-          <v-divider :key="index"></v-divider>
+          <v-divider></v-divider>
 
           <template v-for="(subrubro, index) in rubro.subrubros">
             <v-container v-if="index > 0" :key="subrubro.nombre">
@@ -48,11 +48,11 @@
 
             <v-list three-line :key="index">
               <template v-for="(item, index) in subrubro.productos">
-                <v-divider :key="item.nombre" v-if="index > 0"></v-divider>
+                <v-divider v-if="index > 0"></v-divider>
 
-                <v-list-item :key="item.nombre">
+                <v-list-item :key="`${index}-${item.nombre}`">
                   <v-list-item-avatar>
-                    <v-img :src="`/img/${params.local}/${item.avatar}`"></v-img>
+                    <v-img :src="`${item.avatar_dirname}${item.avatar}`"></v-img>
                   </v-list-item-avatar>
 
                   <v-list-item-content>
@@ -95,10 +95,7 @@ export default {
     await store.dispatch('saveTitle', params.local)
 
     try {
-      const url =
-        location.port != 3001
-          ? `${location.protocol}//backend.${location.hostname}/api/${params.local}/all`
-          : `${location.protocol}//local.catalogo/api/${params.local}/all`
+      const url = `${process.env.apiUrl}${params.local}/all`;
 
       const res = await $axios.$get(url)
 
