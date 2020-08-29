@@ -1,3 +1,7 @@
+.v-application a {
+  text-decoration: none;
+}
+
 .v-toolbar {
   .v-toolbar__image .v-image__image {
     filter: blur(4px);
@@ -10,14 +14,20 @@
   }
 }
 
-.v-tab {
-  padding: 0 !important;
+.v-tabs {
+  .v-tabs-slider-wrapper {
+    color: white !important;
+  }
 
-  .v-tab__personalized {
-    height: 48px;
-    display: inline-block;
-    line-height: 48px;
-    padding: 0 16px;
+  .v-tab {
+    padding: 0 !important;
+
+    .v-tab__personalized {
+      height: 48px;
+      display: inline-block;
+      line-height: 48px;
+      padding: 0 16px;
+    }
   }
 }
 
@@ -38,7 +48,7 @@
 }
 
 .text-truncate__three-lines {
-  -webkit-line-clamp: 3 !important;
+  -webkit-line-clamp: 5 !important;
 }
 
 .carousel-cell {
@@ -53,10 +63,11 @@
     min-width: 100px !important;
     width: 100px !important;
   }
+}
 
-  .v-list--three-line .v-list-item .v-list-item__subtitle, .v-list-item--three-line .v-list-item__subtitle {
-    -webkit-line-clamp: 3 !important;
-  }
+.v-list--three-line .v-list-item .v-list-item__subtitle,
+.v-list-item--three-line .v-list-item__subtitle {
+  -webkit-line-clamp: 5 !important;
 }
 
 .v-card {

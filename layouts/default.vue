@@ -36,9 +36,9 @@
               </nuxt-link>
             </template>-->
 
-            <v-tab v-for="rubro in rubros" :key="rubro.nombre" :href="'/marlon#' + rubro.nombre">
+            <v-tab color="#fff" class="white--text" v-for="rubro in rubros" :key="rubro.nombre" :href="'/marlon#' + rubro.nombre">
               <nuxt-link :to="'#' + rubro.nombre ">
-                <span class="v-tab__personalized">{{rubro.nombre}}</span>
+                <span class="v-tab__personalized white--text">{{rubro.nombre}}</span>
               </nuxt-link>
               <!-- {{rubro.nombre}} -->
             </v-tab>

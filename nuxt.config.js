@@ -27,12 +27,17 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    titleTemplate: '%s - ' + 'Onion',
-    title: process.env.npm_package_name || '',
+    titleTemplate: 'Onion',
+    title: 'Onion',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { name: 'og:title', content: 'Onion' },
+      { name: 'og:type', content: 'website' },
+      { name: 'og:host', content: 'https://onion.com.ar' },
+      { name: 'og:url', content: 'https://onion.com.ar' },
+      { name: 'og:description', content: 'Vendé Más Con Tu Tienda Online. Desde tu carta digital hasta tu App a medida' },
+      { hid: 'description', name: 'description', content: 'Vendé Más Con Tu Tienda Online. Desde tu carta digital hasta tu App a medida' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

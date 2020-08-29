@@ -11,13 +11,14 @@ export default {
   },
   head() {
     return {
-      titleTemplate: this.title,
+      //titleTemplate: this.title,
+      //title: this.title,
       meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
           hid: 'description',
           name: 'description',
-          content: 'My custom description',
+          content: 'Vendé Más Con Tu Tienda Online. Desde tu carta digital hasta tu App a medida',
         },
       ],
       script: [
