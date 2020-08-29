@@ -85,36 +85,29 @@ export default {
         autoPlay: true,
         // any options from Flickity can be used
       },
-      items: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }],
       params: null,
     }
   },
   async asyncData({ $axios, store, params }) {
     if (store.state.rubros) return { rubros: store.state.rubros }
 
-    await store.dispatch('saveTitle', params.local)
+    await store.dispatch('saveTitle', params.local);
 
     try {
       const url = `${process.env.apiUrl}${params.local}/all`;
 
-      const res = await $axios.$get(url)
+      const res = await $axios.$get(url);
 
-      await store.dispatch('saveRubros', res)
+      await store.dispatch('saveData', res);
 
-      console.log(res)
-
-      /* const articulos = await $axios.$get(
-        `${location.protocol}//${location.hostname}:${location.port}/json/articulos.json`
-      )
-      await store.dispatch('saveArticulos', articulos)
-      console.log('Axios Articulos', articulos) */
+      await store.dispatch('saveRubros', res.rubros);
 
       return {
-        rubros: res,
+        rubros: res.rubros,
         params: params,
       }
     } catch (error) {
-      console.log('Error:', error)
+      console.log('Error:', error);
     }
   },
 }

@@ -1,4 +1,5 @@
 export const state = () => ({
+  data: null,
   rubros: null,
   title: 'Vuetify.js',
 })
@@ -6,6 +7,9 @@ export const state = () => ({
 export const getters = {}
 
 export const mutations = {
+  SET_DATA(state, payload) {
+    state.data = payload
+  },
   SET_RUBROS(state, payload) {
     state.rubros = payload
   },
@@ -15,6 +19,9 @@ export const mutations = {
 }
 
 export const actions = {
+  saveData({ commit }, payload) {
+    commit('SET_DATA', payload)
+  },
   saveRubros({ commit }, payload) {
     commit('SET_RUBROS', payload)
   },

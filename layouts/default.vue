@@ -13,9 +13,10 @@
       </v-list>
     </v-navigation-drawer>-->
 
-    <v-app-bar fixed app prominent src="/img/marlon/background.jpg">
+    <v-app-bar fixed app prominent :src="`${data.assets_dirname}background.jpg`">
       <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" /> -->
-      <v-toolbar-title v-text="title" />
+
+      <!-- <v-toolbar-title v-text="title" /> -->
 
       <!-- <v-card>
         <v-tabs dark background-color="teal darken-3" show-arrows>
@@ -36,7 +37,7 @@
               </nuxt-link>
             </template>-->
 
-            <v-tab color="#fff" class="white--text" v-for="rubro in rubros" :key="rubro.nombre" :href="'/marlon#' + rubro.nombre">
+            <v-tab color="#fff" class="white--text" v-for="rubro in rubros" :key="rubro.nombre" :href="'#' + rubro.nombre">
               <nuxt-link :to="'#' + rubro.nombre ">
                 <span class="v-tab__personalized white--text">{{rubro.nombre}}</span>
               </nuxt-link>
@@ -88,7 +89,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['rubros', 'title']),
+    ...mapState(['data', 'rubros', 'title']),
   },
 }
 </script>
