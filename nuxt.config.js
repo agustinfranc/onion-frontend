@@ -109,7 +109,10 @@ export default {
           success: colors.green.accent3
         }
       }
-    }
+    },
+    icons: {
+      iconfont: "mdi",
+    },
   },
   /*
   ** Build configuration
