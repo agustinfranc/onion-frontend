@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-card class="overflow-hidden">
-      <v-app-bar app prominent shrink-on-scroll scroll-threshold="500" :src="`${data.assets_dirname}background.jpg`">
+    <v-card v-if="data" class="overflow-hidden">
+      <v-app-bar v-if="data.assets_dirname" app prominent shrink-on-scroll scroll-threshold="500" :src="`${data.assets_dirname}background.jpg`">
         <v-spacer></v-spacer>
 
         <!-- // ! Desarrollar barra de busqueda -->
@@ -41,7 +41,13 @@
       </div>
     </v-main>
     <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <div class="text-center">
+        <span>&copy; {{ new Date().getFullYear() }} |</span>
+        <span>
+           made with <v-icon>mdi-heart</v-icon> by 
+          <router-link :to="'/'"><span class="white--text">Onion</span></router-link>
+        </span>
+      </div>
     </v-footer>
   </v-app>
 </template>
