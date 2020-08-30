@@ -4,13 +4,17 @@
 
 .v-toolbar {
   .v-toolbar__image .v-image__image {
-    filter: blur(4px);
-    -webkit-filter: blur(4px);
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
   }
 
   .v-toolbar__extension {
     padding-left: 0 !important;
     padding-right: 0 !important;
+
+    .v-card {
+      width: 100%;
+    }
   }
 }
 
