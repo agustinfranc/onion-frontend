@@ -367,10 +367,10 @@
                 <div class="media-body">
                   <h3>Email</h3>
                   <a
-                    href="mailto:contacto@onion.com.ar"
+                    href="mailto:contacto@admin-onion.com.ar"
                     class="genric-btn info-border radius d-block d-md-inline-block"
                     style="margin-top: 10px;"
-                  >contacto@onion.com.ar</a>
+                  >contacto@admin-onion.com.ar</a>
                 </div>
               </div>
             </div>
@@ -452,7 +452,7 @@
                 <h3 class="footer_title">Contacto</h3>
                 <ul>
                   <li>
-                    <a href="mailto:contacto@onion.com.ar">contacto@onion.com.ar</a>
+                    <a href="mailto:contacto@admin-onion.com.ar">contacto@admin-onion.com.ar</a>
                   </li>
                   <li>
                     <a href="https://wa.me/5491154876345">+54 911 54876345</a>
