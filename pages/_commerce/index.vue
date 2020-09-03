@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container v-if="rubros">
+    <v-container v-if="rubros" :id="rubros[0].name">
       <h3>{{rubros[0].name}}</h3>
 
       <v-divider class="my-5"></v-divider>
@@ -21,7 +21,9 @@
 
               <v-card-title class="text-truncate">{{ item.name }}</v-card-title>
 
-              <v-card-subtitle class="pb-0 text-truncate__multiple-lines text-truncate__three-lines">{{ item.description }}</v-card-subtitle>
+              <v-card-subtitle
+                class="pb-0 text-truncate__multiple-lines text-truncate__three-lines"
+              >{{ item.description }}</v-card-subtitle>
 
               <v-card-text class="text--primary">
                 <p class="mt-1">${{ item.price }}</p>
@@ -34,7 +36,7 @@
 
     <template v-for="(rubro, index) in rubros">
       <template v-if="index > 0">
-        <div :key="rubro.name" :id="rubro.name" class="div-fix-for-tabs">
+        <div :key="rubro.name" :id="rubro.name">
           <v-container :key="rubro.name">
             <h3>{{rubro.name}}</h3>
           </v-container>
@@ -42,7 +44,7 @@
           <v-divider></v-divider>
 
           <template v-for="(subrubro, index) in rubro.subrubros">
-            <v-container v-if="index > 0" :key="subrubro.name">
+            <v-container v-if="index > 0" :id="subrubro.name" :key="subrubro.name">
               <span>{{subrubro.name}}</span>
             </v-container>
 
@@ -50,15 +52,20 @@
               <template v-for="(item, index) in subrubro.products">
                 <v-divider v-if="index > 0"></v-divider>
 
-                <v-list-item :key="`${index}-${item.name}`">
-                  <v-list-item-avatar>
+                <v-list-item :id="`${item.code}`" :key="`${index}-${item.name}`">
+                  <v-list-item-avatar v-if="item.avatar">
                     <v-img :src="`${item.avatar_dirname}${item.avatar}`"></v-img>
                   </v-list-item-avatar>
 
                   <v-list-item-content>
                     <v-list-item-title v-html="item.name"></v-list-item-title>
                     <v-list-item-subtitle v-html="item.description"></v-list-item-subtitle>
-                    <p class="mt-1 text-body-2">${{ item.price }}</p>
+                    <p v-if="item.price" class="mt-1 text-body-2">${{ item.price }}</p>
+                    <template v-for="hashtag in item.product_hashtags">
+                      <nuxt-link :key="hashtag.id" :to="`#${hashtag.to}`" @click.native="scrollTo(`#${hashtag.to}`)">
+                        <span class="mt-1 text-body-2">{{ hashtag.name }}</span>
+                      </nuxt-link>
+                    </template>
                   </v-list-item-content>
                 </v-list-item>
               </template>
@@ -88,26 +95,41 @@ export default {
       params: null,
     }
   },
+  mounted() {
+    if (this.$route.hash) {
+      setTimeout(() => this.scrollTo(this.$route.hash), 500)
+    }
+  },
+  methods: {
+    scrollTo: function (hashtag) {
+      const el = document.getElementById(this.$route.hash.slice(1))
+      console.log(hashtag)
+      console.log(el.offsetTop)
+      if (el) {
+        window.scrollTo(0, el.offsetTop)
+      }
+    },
+  },
   async asyncData({ $axios, store, params }) {
     if (store.state.rubros) return { rubros: store.state.rubros }
 
-    await store.dispatch('saveTitle', params.commerce);
+    await store.dispatch('saveTitle', params.commerce)
 
     try {
-      const url = `${process.env.apiUrl}${params.commerce}/all`;
+      const url = `${process.env.apiUrl}${params.commerce}/all`
 
-      const res = await $axios.$get(url);
+      const res = await $axios.$get(url)
 
-      await store.dispatch('saveData', res);
+      await store.dispatch('saveData', res)
 
-      await store.dispatch('saveRubros', res.rubros);
+      await store.dispatch('saveRubros', res.rubros)
 
       return {
         rubros: res.rubros,
         params: params,
       }
     } catch (error) {
-      console.log('Error:', error);
+      console.log('Error:', error)
     }
   },
 }

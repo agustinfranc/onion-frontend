@@ -1,7 +1,14 @@
 <template>
   <v-app>
     <v-card v-if="data" class="overflow-hidden">
-      <v-app-bar v-if="data.assets_dirname" app prominent shrink-on-scroll scroll-threshold="500" :src="`${data.assets_dirname}background.jpg`">
+      <v-app-bar
+        v-if="data.assets_dirname"
+        app
+        prominent
+        shrink-on-scroll
+        scroll-threshold="500"
+        :src="`${data.assets_dirname}background.jpg`"
+      >
         <v-spacer></v-spacer>
 
         <!-- // ! Desarrollar barra de busqueda -->
@@ -23,9 +30,8 @@
                 class="white--text"
                 v-for="rubro in rubros"
                 :key="rubro.nombre"
-                :href="'#' + rubro.name"
               >
-                <nuxt-link :to="'#' + rubro.name ">
+                <nuxt-link :to="`#${rubro.name}`" @click.native="scrollTo(`#${rubro.name}`)">
                   <span class="v-tab__personalized white--text">{{rubro.name}}</span>
                 </nuxt-link>
               </v-tab>
@@ -44,8 +50,11 @@
       <div class="text-center">
         <span>&copy; {{ new Date().getFullYear() }} |</span>
         <span>
-           made with <v-icon>mdi-heart</v-icon> by 
-          <router-link :to="'/'"><span class="white--text">Onion</span></router-link>
+          made with
+          <v-icon>mdi-heart</v-icon>by
+          <router-link :to="'/'">
+            <span class="white--text">Onion</span>
+          </router-link>
         </span>
       </div>
     </v-footer>
@@ -75,6 +84,16 @@ export default {
       ],
       miniVariant: false,
     }
+  },
+  methods: {
+    scrollTo: function (hashtag) {
+      const el = document.querySelector(hashtag);
+      console.log(el);
+      console.log(el.offsetTop)
+      if (el) {
+        window.scrollTo(0, el.offsetTop);
+      }
+    },
   },
   head() {
     return {
