@@ -50,7 +50,7 @@
 
             <v-list three-line :key="index">
               <template v-for="(item, index) in subrubro.products">
-                <v-divider v-if="index > 0"></v-divider>
+                <v-divider :key="`${index}-${item.name}_divider`" v-if="index > 0"></v-divider>
 
                 <v-list-item :id="`${item.code}`" :key="`${index}-${item.name}`">
                   <v-list-item-avatar v-if="item.avatar">
@@ -62,7 +62,11 @@
                     <v-list-item-subtitle v-html="item.description"></v-list-item-subtitle>
                     <p v-if="item.price" class="mt-1 text-body-2">${{ item.price }}</p>
                     <template v-for="hashtag in item.product_hashtags">
-                      <nuxt-link :key="hashtag.id" :to="`#${hashtag.to}`" @click.native="scrollTo(`#${hashtag.to}`)">
+                      <nuxt-link
+                        :key="hashtag.id"
+                        :to="`#${hashtag.to}`"
+                        @click.native="scrollTo(`#${hashtag.to}`)"
+                      >
                         <span class="mt-1 text-body-2">{{ hashtag.name }}</span>
                       </nuxt-link>
                     </template>
@@ -102,15 +106,25 @@ export default {
   },
   methods: {
     scrollTo: function (hashtag) {
-      const el = document.getElementById(this.$route.hash.slice(1))
-      console.log(hashtag)
-      console.log(el.offsetTop)
+      const el = document.getElementById(this.$route.hash.slice(1));
+      console.log(el);
       if (el) {
-        window.scrollTo(0, el.offsetTop)
+        console.log(el.offsetTop);
+        window.scrollTo(0, el.offsetTop);
       }
     },
   },
   async asyncData({ $axios, store, params }) {
+    switch (params.commerce) {
+      case 'newharbor':
+        location.href = 'https://www.newharbor.admin-onion.com.ar';
+        break;
+      case 'dakota':
+        location.href = 'https://www.dakota.admin-onion.com.ar';
+        break;
+      default:
+    }
+
     if (store.state.rubros) return { rubros: store.state.rubros }
 
     await store.dispatch('saveTitle', params.commerce)
