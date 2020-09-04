@@ -89,8 +89,8 @@ export default {
     scrollTo: function (hashtag) {
       const el = document.querySelector(hashtag);
       console.log(el);
-      console.log(el.offsetTop)
       if (el) {
+        console.log(el.offsetTop);
         window.scrollTo(0, el.offsetTop);
       }
     },
