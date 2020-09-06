@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container v-if="rubros" :id="rubros[0].name">
+    <v-container v-if="rubros" :id="rubros[0].link_name">
       <h3>{{rubros[0].name}}</h3>
 
       <v-divider class="my-5"></v-divider>
@@ -36,7 +36,7 @@
 
     <template v-for="(rubro, index) in rubros">
       <template v-if="index > 0">
-        <div :key="rubro.name" :id="rubro.name">
+        <div :key="rubro.name" :id="rubro.link_name">
           <v-container :key="rubro.name">
             <h3>{{rubro.name}}</h3>
           </v-container>
@@ -44,7 +44,7 @@
           <v-divider></v-divider>
 
           <template v-for="(subrubro, index) in rubro.subrubros">
-            <v-container v-if="index > 0" :id="subrubro.name" :key="subrubro.name">
+            <v-container v-if="index > 0" :id="subrubro.link_name" :key="subrubro.name">
               <span>{{subrubro.name}}</span>
             </v-container>
 
@@ -107,9 +107,7 @@ export default {
   methods: {
     scrollTo: function (hashtag) {
       const el = document.getElementById(this.$route.hash.slice(1));
-      console.log(el);
       if (el) {
-        console.log(el.offsetTop);
         window.scrollTo(0, el.offsetTop);
       }
     },
@@ -118,9 +116,6 @@ export default {
     switch (params.commerce) {
       case 'newharbor':
         location.href = 'https://www.newharbor.admin-onion.com.ar';
-        break;
-      case 'dakota':
-        location.href = 'https://www.dakota.admin-onion.com.ar';
         break;
       default:
     }
