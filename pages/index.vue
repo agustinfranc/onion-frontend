@@ -1,10 +1,5 @@
 <template>
   <div>
-    <!--[if lte IE 9]>
-              <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
-
-
     <!-- header-start -->
     <header>
       <div class="header-area">
@@ -42,11 +37,6 @@
                 </div>
               </div>
               <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                <!-- <div class="Appointment">
-                                  <div class="book_btn d-none d-lg-block">
-                                      <a  href="#">Download</a>
-                                  </div>
-                </div>-->
               </div>
               <div class="col-12">
                 <div class="mobile_menu d-block d-lg-none"></div>
@@ -79,7 +69,7 @@
                   data-wow-duration="1s"
                   data-wow-delay=".1s"
                 >
-                  <a href="#service_area_2" class="boxed-btn3">Comenzar</a>
+                  <a href="#contact_area" class="boxed-btn3">Contactanos</a>
                 </div>
               </div>
             </div>
@@ -261,7 +251,10 @@
             >
               <div class="prising_header">
                 <h3>Carta QR</h3>
-                <span>GRATIS<span>*</span></span>
+                <span>
+                  GRATIS
+                  <span>*</span>
+                </span>
               </div>
               <ul>
                 <li>QR con Carta Digital</li>
@@ -362,14 +355,14 @@
             <div class="d-flex justify-content-center">
               <div class="media contact-info w-100">
                 <span class="contact-info__icon">
-                  <i class="ti-email"></i>
+                  <v-icon class="mx-1" size="24px">mdi-email</v-icon>
                 </span>
                 <div class="media-body">
                   <h3>Email</h3>
                   <a
                     href="mailto:contacto@admin-onion.com.ar"
                     class="genric-btn info-border radius d-block d-md-inline-block"
-                    style="margin-top: 10px;"
+                    style="margin-top: 10px; padding: 0 4px;"
                   >contacto@admin-onion.com.ar</a>
                 </div>
               </div>
@@ -379,7 +372,7 @@
             <div class="d-flex justify-content-center">
               <div class="media contact-info w-100">
                 <span class="contact-info__icon">
-                  <i class="ti-tablet"></i>
+                  <v-icon class="mx-1" size="24px">mdi-whatsapp</v-icon>
                 </span>
                 <div class="media-body">
                   <h3>Telefono</h3>
@@ -409,26 +402,21 @@
                     <img src="img/logo.png" alt />
                   </a>
                 </div>
-                <p>De la App a tu mesa</p>
-                <!-- <div class="socail_links">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="ti-twitter-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                </div>-->
+                <p>Digitalizá tu comercio y anticipate a los nuevos protocolos</p>
+                <div class="socail_links">
+                  <ul>
+                    <li>
+                      <a href="https://www.facebook.com/onion.com.ar">
+                        <v-icon class="mx-1" size="24px">mdi-facebook</v-icon>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.instagram.com/onion.com.ar">
+                        <v-icon class="mx-1" size="24px">mdi-instagram</v-icon>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div class="col-xl-4 offset-xl-1 col-md-6 col-lg-2">
@@ -452,22 +440,23 @@
                 <h3 class="footer_title">Contacto</h3>
                 <ul>
                   <li>
+                    <v-icon dark color="white" class="mx-1" size="24px">mdi-email</v-icon>
                     <a href="mailto:contacto@admin-onion.com.ar">contacto@admin-onion.com.ar</a>
                   </li>
                   <li>
+                    <v-icon dark color="white" class="mx-1" size="24px">mdi-whatsapp</v-icon>
                     <a href="https://wa.me/5491154876345">+54 911 54876345</a>
+                  </li>
+                  <li>
+                    <v-icon dark color="white" class="mx-1" size="24px">mdi-linkedin</v-icon>
+                    <a href="https://www.linkedin.com/in/agustin-amato-449006143/?originalSubdomain=ar">Agustin Amato</a>
+                  </li>
+                  <li>
+                    <v-icon dark color="white" class="mx-1" size="24px">mdi-linkedin</v-icon>
+                    <a href="#">Nicolas Briamonte</a>
                   </li>
                 </ul>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="copy-right_text">
-        <div class="container">
-          <div class="footer_border"></div>
-          <div class="row">
-            <div class="col-xl-12">
             </div>
           </div>
         </div>

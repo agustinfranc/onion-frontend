@@ -25,13 +25,11 @@
             <v-tabs dark show-arrows>
               <v-tabs-slider></v-tabs-slider>
 
-              <v-tab
-                color="#fff"
-                class="white--text"
-                v-for="rubro in rubros"
-                :key="rubro.nombre"
-              >
-                <nuxt-link :to="`#${rubro.name}`" @click.native="scrollTo(`#${rubro.name}`)">
+              <v-tab color="#fff" class="white--text" v-for="rubro in rubros" :key="rubro.nombre">
+                <nuxt-link
+                  :to="`#${rubro.link_name}`"
+                  @click.native="scrollTo(`#${rubro.link_name}`)"
+                >
                   <span class="v-tab__personalized white--text">{{rubro.name}}</span>
                 </nuxt-link>
               </v-tab>
@@ -46,16 +44,25 @@
         <nuxt />
       </div>
     </v-main>
-    <v-footer :absolute="!fixed" app>
-      <div class="text-center">
-        <span>&copy; {{ new Date().getFullYear() }} |</span>
-        <span>
-          made with
-          <v-icon>mdi-heart</v-icon>by
-          <router-link :to="'/'">
-            <span class="white--text">Onion</span>
-          </router-link>
-        </span>
+    <v-footer app>
+      <div class="d-flex justify-space-between">
+        <div class="text-left">
+          <span>&copy; {{ new Date().getFullYear() }}</span>
+        </div>
+        <div class="text-center">
+          <span>
+            made with
+            <v-icon>mdi-heart</v-icon> by
+            <router-link :to="'/'">
+              <span class="white--text">Onion</span>
+            </router-link>
+          </span>
+        </div>
+        <div class="text-right">
+          <a v-for="icon in icons" :key="icon" :href="icon.to">
+            <v-icon class="mx-1" size="24px">{{ icon.name }}</v-icon>
+          </a>
+        </div>
       </div>
     </v-footer>
   </v-app>
@@ -69,7 +76,6 @@ export default {
     return {
       clipped: false,
       drawer: false,
-      fixed: false,
       items: [
         {
           icon: 'mdi-apps',
@@ -82,16 +88,21 @@ export default {
           to: '/inspire',
         },
       ],
+      icons: [
+        { name: 'mdi-facebook', to: 'https://www.facebook.com/onion.com.ar' },
+        {
+          name: 'mdi-instagram',
+          to: 'https://www.instagram.com/onion.com.ar/',
+        },
+      ],
       miniVariant: false,
     }
   },
   methods: {
     scrollTo: function (hashtag) {
-      const el = document.querySelector(hashtag);
-      console.log(el);
+      const el = document.querySelector(hashtag)
       if (el) {
-        console.log(el.offsetTop);
-        window.scrollTo(0, el.offsetTop);
+        window.scrollTo(0, el.offsetTop)
       }
     },
   },
