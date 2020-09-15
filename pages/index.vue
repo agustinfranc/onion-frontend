@@ -290,7 +290,7 @@
                 <li>Mostrá tu marca y tu logo</li>
                 <li>
                   Disponible para
-                  <strong>pedidos del salón y delivery</strong>
+                  <strong>pedidos del salón y/o delivery</strong>
                 </li>
                 <!-- <li>Autoadministrable</li> -->
                 <li>Gestor de pedidos para el cajero</li>
