@@ -243,66 +243,90 @@
           </div>
         </div>
         <div class="row no-gutters">
-          <div class="col-xl-6 col-md-6 px-3">
+          <div class="col-xl-4 col-md-6 px-3">
             <div
               class="single_prising text-center wow fadeInUp"
               data-wow-duration=".7s"
               data-wow-delay=".8s"
             >
               <div class="prising_header">
-                <h3>Carta QR</h3>
-                <span>
+                <h3>Gratis</h3>
+                <!-- <span>
                   GRATIS
                   <span>*</span>
-                </span>
+                </span> -->
               </div>
               <ul>
-                <li>QR con Carta Digital</li>
-                <li>Se muestra fotos, categorías, promociones</li>
+                <li>Carta Digital con QR</li>
+                <li>Se muestran fotos, categorías, promociones</li>
                 <li>Mostrá tu marca y tu logo</li>
                 <li>Colores a tu elección</li>
                 <li>Autoadministrable</li>
                 <li>
                   <strong>Sin descargas!</strong>
                 </li>
-                <li style="color: #0181F5">* oferta por tiempo limitado</li>
+                <!-- <li style="color: #0181F5">* consultar oferta por tiempo limitado</li> -->
               </ul>
-              <!-- <div class="prising_bottom">
-                            <a href="#" class="get_now prising_btn">Get Now</a>
-              </div>-->
+              <div class="prising_bottom">
+                <a href="#contact_area" class="genric-btn info radius">Contactanos</a>
+              </div>
             </div>
           </div>
-          <div class="col-xl-6 col-md-6 px-3">
+          <div class="col-xl-4 col-md-6 px-3">
             <div
               class="single_prising text-center wow fadeInUp"
               data-wow-duration=".7s"
               data-wow-delay=".8s"
             >
               <div class="prising_header green_header">
-                <h3>App Web de Pedidos</h3>
-                <span>$1000</span>
+                <h3>Inicial</h3>
+                <!-- <span>$1000</span> -->
               </div>
               <ul>
-                <li>App con Carta Digital QR</li>
+                <li>App Web de Pedidos con Carta Digital QR</li>
                 <!-- <li>Usá tu propio dominio</li> -->
                 <li>Se muestran fotos, categorías, promociones</li>
                 <!-- <li>Colores a tu elección </li> -->
                 <li>Mostrá tu marca y tu logo</li>
                 <li>
                   Disponible para
-                  <strong>pedidos del salón y delivery</strong>
+                  <strong>pedidos del salón y/o delivery</strong>
                 </li>
                 <!-- <li>Autoadministrable</li> -->
                 <li>Gestor de pedidos para el cajero</li>
+                <li>Integración con Whatsapp</li>
                 <li>
                   Integrada con plataforma de
                   <strong>pago</strong> confiable
                 </li>
                 <li>Evitá los porcentajes excesivos en comisiones</li>
               </ul>
-              <!-- <div class="prising_bottom">
-                            <a href="#contact_area" class="get_now prising_btn">Get Now</a>
-              </div>-->
+              <div class="prising_bottom">
+                <a href="#contact_area" class="genric-btn info radius">Contactanos</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6 px-3">
+            <div
+              class="single_prising text-center wow fadeInUp"
+              data-wow-duration=".7s"
+              data-wow-delay=".8s"
+            >
+              <div class="prising_header pink_header">
+                <h3>Profesional</h3>
+                <!-- <span>$1000</span> -->
+              </div>
+              <ul>
+                <li>Todo lo que ofrecemos en los dos planes anteriores mas:</li>
+                <li>Usá tu propio dominio</li>
+                <li>Reportes de consumo por usuario</li>
+                <li>Estadistica de Ventas</li>
+                <li>Reportes de Ventas Por Mozo y/o Moto</li>
+                <li>Informes diarios con el cierre del dia</li>
+              </ul>
+              <div class="prising_bottom">
+                <a href="#contact_area" class="genric-btn info radius">Contactanos</a>
+              </div>
             </div>
           </div>
         </div>
@@ -324,6 +348,10 @@
               <img width="120" src="img/gallery/tazones.png" alt />
               <img width="120" src="img/gallery/tunin.jpeg" alt />
               <img width="120" src="img/gallery/flambo.png" alt />
+              <img width="120" src="img/gallery/desembarco.jpg" alt />
+              <img width="120" src="img/gallery/dakota.jpg" alt />
+              <img width="120" src="img/gallery/marlon.jpg" alt />
+              <img width="120" src="img/gallery/new-harbor.png" alt />
             </div>
           </div>
         </div>
@@ -449,7 +477,7 @@
                   </li>
                   <li>
                     <v-icon dark color="white" class="mx-1" size="24px">mdi-linkedin</v-icon>
-                    <a href="https://www.linkedin.com/in/agustin-amato-449006143/?originalSubdomain=ar">Agustin Amato</a>
+                    <a href="https://www.linkedin.com/in/agustin-amato-449006143/?originalSubdomain=ar" target="_blank">Agustin Amato</a>
                   </li>
                   <li>
                     <v-icon dark color="white" class="mx-1" size="24px">mdi-linkedin</v-icon>
