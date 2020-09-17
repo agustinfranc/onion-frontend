@@ -28,7 +28,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-generate
   */
   generate: {
-    routes: ['/marlon', '/desembarco', '/newharbor', '/dakota', '/pepper', '/gusto']
+    routes: ['/marlon', '/desembarco', '/newharbor', '/dakota', '/pepper', '/gusto', '/agnes']
   },
   /*
   ** Headers of the page
