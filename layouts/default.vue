@@ -59,7 +59,7 @@
           </span>
         </div>
         <div class="text-right">
-          <a v-for="icon in icons" :key="icon" :href="icon.to">
+          <a v-for="icon in icons" :key="icon.to" :href="icon.to">
             <v-icon class="mx-1" size="24px">{{ icon.name }}</v-icon>
           </a>
         </div>
