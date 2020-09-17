@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container v-if="rubros" :id="rubros[0].link_name">
+    <v-container v-if="rubros && withSlider" :id="rubros[0].link_name">
       <h3>{{rubros[0].name}}</h3>
 
       <v-divider class="my-5"></v-divider>
@@ -66,7 +66,7 @@
 
                       <v-chip
                         v-for="price in item.product_prices"
-                        :key="price"
+                        :key="price.name"
                         class="ma-1 text-center"
                         outlined
                         label
@@ -104,6 +104,7 @@ export default {
   data() {
     return {
       rubros: null,
+      withSlider: true,
       flickityOptions: {
         prevNextButtons: false,
         pageDots: false,
@@ -136,7 +137,12 @@ export default {
       default:
     }
 
-    if (store.state.rubros) return { rubros: store.state.rubros }
+    if (store.state.rubros && store.state.data) {
+      return {
+        rubros: store.state.rubros,
+        withSlider: store.state.data.with_slider,
+      }
+    }
 
     await store.dispatch('saveTitle', params.commerce)
 
@@ -152,6 +158,7 @@ export default {
       return {
         rubros: res.rubros,
         params: params,
+        withSlider: res.with_slider,
       }
     } catch (error) {
       console.log('Error:', error)
