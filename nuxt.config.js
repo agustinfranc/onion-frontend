@@ -21,14 +21,14 @@ export default {
   */
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3001',
-    apiUrl: process.env.API_URL || 'http://local.catalogo/api/',
+    apiUrl: process.env.API_URL || 'http://local.onion-backend/api/',
   },
   /*
   ** Dinamic Routes
   ** See https://nuxtjs.org/api/configuration-generate
   */
   generate: {
-    routes: ['/marlon', '/desembarco', '/newharbor', '/dakota', '/pepper']
+    routes: ['/marlon', '/desembarco', '/newharbor', '/dakota', '/pepper', '/agnes']
   },
   /*
   ** Headers of the page
