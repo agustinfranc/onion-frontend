@@ -189,7 +189,7 @@
                   class="wow fadeInUp"
                   data-wow-duration=".6s"
                   data-wow-delay=".4s"
-                >Con tu App web, podes recibir pedidos del salón y para delivery. Sí, todo en uno!</p>
+                >Con tu App web, podés recibir pedidos del salón y para delivery. Sí, todo en uno!</p>
                 <ul>
                   <li
                     class="wow fadeInUp"
@@ -200,7 +200,7 @@
                     class="wow fadeInUp"
                     data-wow-duration=".8s"
                     data-wow-delay=".6s"
-                  >Ofreces pagos con tarjeta de forma segura</li>
+                  >Ofrecés pagos con tarjeta de forma segura</li>
                   <li
                     class="wow fadeInUp"
                     data-wow-duration=".9s"
@@ -320,7 +320,7 @@
                 <li>Todo lo que ofrecemos en los dos planes anteriores mas:</li>
                 <li>Usá tu propio dominio</li>
                 <li>Reportes de consumo por usuario</li>
-                <li>Estadistica de Ventas</li>
+                <li>Estadística de Ventas</li>
                 <li>Reportes de Ventas Por Mozo y/o Moto</li>
                 <li>Informes diarios con el cierre del dia</li>
               </ul>
@@ -341,11 +341,10 @@
           <div class="col 12" style="text-align: center;">
             <h3>Nuestros Clientes</h3>
             <div>
-              <img width="120" src="img/gallery/barrilito.jpeg" alt />
               <img width="120" src="img/gallery/maricel-monroe.jpg" alt />
               <img width="120" src="img/gallery/plazadelcarmen.png" alt />
               <img width="120" src="img/gallery/plazadelsol.jpeg" alt />
-              <img width="120" src="img/gallery/tazones.png" alt />
+              <img width="120" src="img/gallery/tazones.webp" alt />
               <img width="120" src="img/gallery/tunin.jpeg" alt />
               <img width="120" src="img/gallery/flambo.png" alt />
               <img width="120" src="img/gallery/desembarco.jpg" alt />
@@ -403,7 +402,7 @@
                   <v-icon class="mx-1" size="24px">mdi-whatsapp</v-icon>
                 </span>
                 <div class="media-body">
-                  <h3>Telefono</h3>
+                  <h3>Teléfono</h3>
                   <a
                     href="https://wa.me/5491154876345"
                     class="genric-btn info-border radius d-block d-md-inline-block"
@@ -455,7 +454,7 @@
                     <a href="#prising_area">Planes</a>
                   </li>
                   <li>
-                    <a href="#service_area_2">Caracteristicas</a>
+                    <a href="#service_area_2">Características</a>
                   </li>
                   <li>
                     <a href="#contact_area">Contacto</a>
