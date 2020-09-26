@@ -98,3 +98,9 @@
 .v-footer > div {
   width: 100%;
 }
+
+.v-tooltip__content {
+  background: rgba(97, 97, 97, 1) !important;
+  opacity: 1 !important;
+  margin: 0 15px;
+}
