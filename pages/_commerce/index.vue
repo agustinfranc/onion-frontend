@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-container v-if="rubros && withSlider" :id="rubros[0].link_name">
-      <h3>{{rubros[0].name}}</h3>
+      <h3>{{ rubros[0].name }}</h3>
 
       <v-divider class="my-5"></v-divider>
 
@@ -23,7 +23,14 @@
 
               <v-card-subtitle
                 class="pb-0 text-truncate__multiple-lines text-truncate__three-lines"
-              >{{ item.description }}</v-card-subtitle>
+              >
+                <v-tooltip bottom>
+                  <template v-slot:activator="{ on, attrs }">
+                    <span v-bind="attrs" v-on="on">{{ item.description }}</span>
+                  </template>
+                  <span>{{ item.description }}</span>
+                </v-tooltip>
+              </v-card-subtitle>
 
               <v-card-text class="text--primary">
                 <p class="mt-1">${{ item.price }}</p>
@@ -38,31 +45,55 @@
       <template v-if="index > 0">
         <div :key="rubro.name" :id="rubro.link_name">
           <v-container :key="rubro.name">
-            <h3>{{rubro.name}}</h3>
+            <h3>{{ rubro.name }}</h3>
           </v-container>
 
           <v-divider></v-divider>
 
           <template v-for="(subrubro, index) in rubro.subrubros">
-            <v-container v-if="index > 0" :id="subrubro.link_name" :key="subrubro.name">
-              <span>{{subrubro.name}}</span>
+            <v-container
+              v-if="index > 0"
+              :id="subrubro.link_name"
+              :key="subrubro.name"
+            >
+              <span>{{ subrubro.name }}</span>
             </v-container>
 
             <v-list three-line :key="index">
               <template v-for="(item, index) in subrubro.products">
-                <v-divider :key="`${index}-${item.name}_divider`" v-if="index > 0"></v-divider>
+                <v-divider
+                  :key="`${index}-${item.name}_divider`"
+                  v-if="index > 0"
+                ></v-divider>
 
-                <v-list-item :id="`${item.code}`" :key="`${index}-${item.name}`">
+                <v-list-item
+                  :id="`${item.code}`"
+                  :key="`${index}-${item.name}`"
+                >
                   <v-list-item-avatar v-if="item.avatar">
-                    <v-img :src="`${item.avatar_dirname}${item.avatar}`"></v-img>
+                    <v-img
+                      :src="`${item.avatar_dirname}${item.avatar}`"
+                    ></v-img>
                   </v-list-item-avatar>
 
                   <v-list-item-content>
                     <v-list-item-title v-html="item.name"></v-list-item-title>
-                    <v-list-item-subtitle v-html="item.description"></v-list-item-subtitle>
+
+                    <v-list-item-subtitle>
+                      <v-tooltip bottom close-delay="500">
+                        <template v-slot:activator="{ on, attrs }">
+                          <span v-bind="attrs" v-on="on">{{
+                            item.description
+                          }}</span>
+                        </template>
+                        <span>{{ item.description }}</span>
+                      </v-tooltip>
+                    </v-list-item-subtitle>
 
                     <div>
-                      <span v-if="item.price" class="mt-1 text-body-2">${{ item.price }}</span>
+                      <span v-if="item.price" class="mt-1 text-body-2"
+                        >${{ item.price }}</span
+                      >
 
                       <v-chip
                         v-for="price in item.product_prices"
