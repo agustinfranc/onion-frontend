@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import axios from 'axios';
 
 export default {
   server: {
@@ -28,7 +29,17 @@ export default {
   ** See https://nuxtjs.org/api/configuration-generate
   */
   generate: {
-    routes: ['/marlon', '/desembarco', '/newharbor', '/dakota', '/pepper', '/gusto', '/agnes', '/newharborok']
+    routes() {
+      let url = process.env.API_URL ? process.env.API_URL + 'commerces' : 'http://local.onion-backend/api/commerces';
+      return axios.get(url).then(res => {
+        return res.data.map(commerce => {
+          return {
+            route: commerce.name,
+            payload: commerce,
+          }
+        })
+      })
+    }
   },
   /*
   ** Headers of the page
