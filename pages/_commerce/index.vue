@@ -160,7 +160,7 @@ export default {
       }
     },
   },
-  async asyncData({ $axios, store, params }) {
+  async asyncData({ $axios, store, params, payload }) {
     switch (params.commerce) {
       case 'newharbor':
         location.href = 'https://www.newharbor.admin-onion.com.ar'
