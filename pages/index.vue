@@ -387,10 +387,10 @@
                 <div class="media-body">
                   <h3>Email</h3>
                   <a
-                    href="mailto:contacto@admin-onion.com.ar"
+                    href="mailto:contacto@onion.com.ar"
                     class="genric-btn info-border radius d-block d-md-inline-block"
                     style="margin-top: 10px; padding: 0 4px;"
-                  >contacto@admin-onion.com.ar</a>
+                  >contacto@onion.com.ar</a>
                 </div>
               </div>
             </div>
@@ -468,7 +468,7 @@
                 <ul>
                   <li>
                     <v-icon dark color="white" class="mx-1" size="24px">mdi-email</v-icon>
-                    <a href="mailto:contacto@admin-onion.com.ar">contacto@admin-onion.com.ar</a>
+                    <a href="mailto:contacto@onion.com.ar">contacto@onion.com.ar</a>
                   </li>
                   <li>
                     <v-icon dark color="white" class="mx-1" size="24px">mdi-whatsapp</v-icon>

@@ -163,7 +163,7 @@ export default {
   async asyncData({ $axios, store, params, payload }) {
     switch (params.commerce) {
       case 'newharbor':
-        location.href = 'https://www.newharbor.admin-onion.com.ar'
+        location.href = 'https://www.newharbor.onion.com.ar'
         break
       default:
     }
