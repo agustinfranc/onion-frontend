@@ -14,6 +14,7 @@
           >
             <v-card class="mx-auto" min-height="370" max-width="400">
               <v-img
+                v-if="item.avatar_dirname"
                 class="white--text align-end"
                 height="200px"
                 :src="`${item.avatar_dirname}${item.avatar}`"
@@ -70,7 +71,7 @@
                   :id="`${item.code}`"
                   :key="`${index}-${item.name}`"
                 >
-                  <v-list-item-avatar v-if="item.avatar">
+                  <v-list-item-avatar v-if="item.avatar_dirname">
                     <v-img
                       :src="`${item.avatar_dirname}${item.avatar}`"
                     ></v-img>
