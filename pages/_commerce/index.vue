@@ -74,7 +74,14 @@
                   <v-list-item-avatar v-if="item.avatar_dirname">
                     <v-img
                       :src="`${item.avatar_dirname}${item.avatar}`"
-                    ></v-img>
+                      :class="item.disabled ? 'disabled' : ''"
+                    >
+                      <div v-if="item.disabled" class="fill-height d-flex flex-column justify-center">
+                        <v-chip x-small class="ma-2" color="red" text-color="white">
+                          No disponible
+                        </v-chip>
+                      </div>
+                    </v-img>
                   </v-list-item-avatar>
 
                   <v-list-item-content>
@@ -202,5 +209,9 @@ export default {
 <style>
 .v-chip.v-size--default {
   height: inherit;
+}
+
+.disabled .v-image__image.v-image__image--cover {
+  filter: grayscale(100%);
 }
 </style>
