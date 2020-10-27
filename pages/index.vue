@@ -250,11 +250,8 @@
               data-wow-delay=".8s"
             >
               <div class="prising_header">
-                <h3>Gratis</h3>
-                <!-- <span>
-                  GRATIS
-                  <span>*</span>
-                </span> -->
+                <h3>Inicial</h3> <!-- Starter -->
+                <span>$1000</span>
               </div>
               <ul>
                 <li>Carta Digital con QR</li>
@@ -279,8 +276,8 @@
               data-wow-delay=".8s"
             >
               <div class="prising_header green_header">
-                <h3>Inicial</h3>
-                <!-- <span>$1000</span> -->
+                <h3>Basico</h3> <!-- Basic -->
+                <span>$2000</span>
               </div>
               <ul>
                 <li>App Web de Pedidos con Carta Digital QR</li>
@@ -313,8 +310,8 @@
               data-wow-delay=".8s"
             >
               <div class="prising_header pink_header">
-                <h3>Profesional</h3>
-                <!-- <span>$1000</span> -->
+                <h3>Profesional</h3> <!-- Professional -->
+                <span>$4000</span>
               </div>
               <ul>
                 <li>Todo lo que ofrecemos en los dos planes anteriores mas:</li>

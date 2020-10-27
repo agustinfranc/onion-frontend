@@ -3920,6 +3920,8 @@ h3 {
 /* line 52, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_prising.scss */
 .prising_area .single_prising .prising_header.pink_header span {
   color: #FDAE5C;
+  border-color: #FDAE5C;
+  background-color: #FFE5D6;
 }
 
 /* line 57, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_prising.scss */
