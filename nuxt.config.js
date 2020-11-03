@@ -95,12 +95,24 @@ export default {
     '@nuxtjs/axios',
     //'@nuxtjs/pwa',
     "@nuxtjs/dotenv",
+    "@nuxtjs/gtm",
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {},
+
+  gtm: {
+    id: 'GTM-KM4BNSW', // Used as fallback if no runtime config is provided
+  },
+
+  publicRuntimeConfig: {
+    gtm: {
+      id: process.env.GOOGLE_TAG_MANAGER_ID
+    }
+  },
+
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
