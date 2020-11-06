@@ -51,15 +51,20 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'robots', content: 'index,follow' },
+      { name: 'author', content: 'Onion' },
+      { name: 'language', content: 'es' },
       { name: 'og:title', content: 'Onion' },
       { name: 'og:type', content: 'website' },
       { name: 'og:host', content: 'https://onion.com.ar' },
       { name: 'og:url', content: 'https://onion.com.ar' },
       { name: 'og:description', content: 'Vendé Más Con Tu Tienda Online. Desde tu carta digital hasta tu App a medida' },
+      { name: 'og:image', content: '/img/logo.png' },
       { hid: 'description', name: 'description', content: 'Vendé Más Con Tu Tienda Online. Desde tu carta digital hasta tu App a medida' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/img/logo.png' },
+      { rel: 'canonical', href: 'https://www.onion.com.ar' },
     ],
     script: [
       {
