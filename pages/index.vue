@@ -293,8 +293,8 @@
                 <li>Gestor de pedidos para el cajero</li>
                 <li>Integración con Whatsapp</li>
                 <li>
-                  Integrada con plataforma de
-                  <strong>pago</strong> confiable
+                  Integración con
+                  <strong>MercadoPago</strong>
                 </li>
                 <li>Evitá los porcentajes excesivos en comisiones</li>
               </ul>
