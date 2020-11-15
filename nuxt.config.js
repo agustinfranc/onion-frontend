@@ -63,7 +63,7 @@ export default {
       { hid: 'description', name: 'description', content: 'Vendé Más Con Tu Tienda Online. Desde tu carta digital hasta tu App a medida' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/img/logo.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/img/icon.png' },
       { rel: 'canonical', href: 'https://www.onion.com.ar' },
     ],
     script: [
