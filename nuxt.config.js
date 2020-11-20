@@ -10,19 +10,19 @@ export default {
   ** Nuxt rendering mode
   ** See https://nuxtjs.org/api/configuration-mode
   */
-  mode: 'spa',
+  ssr: true, // Disable Server Side rendering
   /*
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
-  target: 'static',
+  target: 'server',
   /*
   ** Environment Variables
   ** See https://nuxtjs.org/api/configuration-env/
   */
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3001',
-    apiUrl: process.env.API_URL || 'http://local.onion-backend/api/',
+    apiUrl: process.env.API_URL || 'https://api.onion.ar/api/',
   },
   /*
   ** Dinamic Routes
@@ -30,7 +30,7 @@ export default {
   */
   generate: {
     routes() {
-      let url = process.env.API_URL ? process.env.API_URL + 'commerces' : 'http://local.onion-backend/api/commerces';
+      let url = process.env.API_URL ? process.env.API_URL + 'commerces' : 'https://api.onion.ar/api/commerces';
       return axios.get(url).then(res => {
         return res.data.map(commerce => {
           return {
