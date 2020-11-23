@@ -26,8 +26,9 @@ export const actions = {
     commit('SET_RUBROS', payload)
   },
   saveTitle({ commit }, payload) {
-    const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+    const capitalize = (string) =>
+      string.charAt(0).toUpperCase() + string.slice(1)
 
     commit('SET_TITLE', capitalize(payload))
-  }
+  },
 }
