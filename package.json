@@ -1,29 +1,36 @@
 {
-  "name": "onion",
+  "name": "onion-frontend",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "npm run lint:js",
+    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.0",
-    "@nuxtjs/gtm": "^2.3.2",
-    "@nuxtjs/pwa": "^3.0.2",
-    "generate": "^0.14.0",
-    "npm": "^6.14.8",
-    "nuxt": "^2.14.0",
-    "run": "^1.4.0",
+    "@nuxtjs/gtm": "^2.4.0",
+    "@nuxtjs/pwa": "^3.2.2",
+    "core-js": "^3.7.0",
+    "nuxt": "^2.14.7",
     "vue-flickity": "^1.2.1",
     "vuex-persistedstate": "^3.0.1"
   },
   "devDependencies": {
+    "@nuxtjs/eslint-config": "^4.0.0",
+    "@nuxtjs/eslint-module": "^3.0.0",
     "@nuxtjs/vuetify": "^1.11.2",
-    "eslint-config-prettier": "^6.11.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.12.1",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.1.1"
+    "prettier": "^2.2.0"
   }
 }
