@@ -3,11 +3,7 @@
     <!-- header-start -->
     <header>
       <div class="header-area">
-        <div
-          id="sticky-header"
-          class="main-header-area"
-          style="max-height: 75px"
-        >
+        <div id="sticky-header" class="main-header-area" style="max-height: 75px">
           <div class="container-fluid">
             <div class="row align-items-center">
               <div class="col-xl-3 col-lg-2 px-1 py-0">
@@ -40,7 +36,8 @@
                   </nav>
                 </div>
               </div>
-              <div class="col-xl-3 col-lg-3 d-none d-lg-block"></div>
+              <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+              </div>
               <div class="col-12">
                 <div class="mobile_menu d-block d-lg-none"></div>
               </div>
@@ -58,11 +55,7 @@
           <div class="row align-items-center">
             <div class="col-xl-7 col-md-6">
               <div class="slider_text">
-                <h3
-                  class="wow fadeInDown"
-                  data-wow-duration="1s"
-                  data-wow-delay=".1s"
-                >
+                <h3 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay=".1s">
                   Vendé más con tu Tienda Online
                   <br />
                 </h3>
@@ -70,9 +63,7 @@
                   class="wow fadeInLeft"
                   data-wow-duration="1s"
                   data-wow-delay=".1s"
-                >
-                  Desde tu carta digital hasta tu App a medida
-                </p>
+                >Desde tu carta digital hasta tu App a medida</p>
                 <div
                   class="video_service_btn wow fadeInLeft"
                   data-wow-duration="1s"
@@ -83,11 +74,7 @@
               </div>
             </div>
             <div class="col-xl-5 col-md-6">
-              <div
-                class="phone_thumb wow fadeInDown"
-                data-wow-duration="1.1s"
-                data-wow-delay=".2s"
-              >
+              <div class="phone_thumb wow fadeInDown" data-wow-duration="1.1s" data-wow-delay=".2s">
                 <img src="img/ilstrator/phone.png" alt />
               </div>
             </div>
@@ -124,11 +111,7 @@
             </div>
           </div>
           <div class="col-xl-5 offset-xl-2 col-lg-6 col-md-6">
-            <div
-              class="mobile_screen wow fadeInRight"
-              data-wow-duration=".8s"
-              data-wow-delay=".5s"
-            >
+            <div class="mobile_screen wow fadeInRight" data-wow-duration=".8s" data-wow-delay=".5s">
               <img src="img/ilstrator_img/mobile_screen.png" alt />
             </div>
           </div>
@@ -142,39 +125,21 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-4">
-            <div
-              class="single_service wow fadeInUp"
-              data-wow-duration=".5s"
-              data-wow-delay=".3s"
-            >
+            <div class="single_service wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">
               <h3>Simple</h3>
-              <p>
-                QR intuitivo con la carta digital para utilizar en las mesas del
-                salón.
-              </p>
+              <p>QR intuitivo con la carta digital para utilizar en las mesas del salón.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-4">
-            <div
-              class="single_service wow fadeInUp"
-              data-wow-duration=".6s"
-              data-wow-delay=".4s"
-            >
+            <div class="single_service wow fadeInUp" data-wow-duration=".6s" data-wow-delay=".4s">
               <h3>Rápido</h3>
               <p>Desde cualquier celular, el cliente elige de forma directa.</p>
             </div>
           </div>
-          <div
-            class="col-lg-4 col-md-4 wow fadeInUp"
-            data-wow-duration=".7s"
-            data-wow-delay=".5s"
-          >
+          <div class="col-lg-4 col-md-4 wow fadeInUp" data-wow-duration=".7s" data-wow-delay=".5s">
             <div class="single_service">
               <h3>Online</h3>
-              <p>
-                El cliente no tiene que descargar ninguna App, el QR lo redirige
-                directo a la carta.
-              </p>
+              <p>El cliente no tiene que descargar ninguna App, el QR lo redirige directo a la carta.</p>
             </div>
           </div>
         </div>
@@ -191,10 +156,7 @@
               <div class="features_info2">
                 <h3>La sensación de lo real</h3>
                 <!-- Features that give you real feel -->
-                <p>
-                  Incluímos las fotos de tus productos, características y
-                  promociones, renovando la experiencia de tus clientes.
-                </p>
+                <p>Incluímos las fotos de tus productos, características y promociones, renovando la experiencia de tus clientes.</p>
                 <!-- renovando la forma de elegir de tus clientes -->
                 <!-- <div class="about_btn">
                                 <a class="boxed-btn4" href="#">Download Now</a>
@@ -202,11 +164,7 @@
               </div>
             </div>
             <div class="col-xl-5 col-lg-5 offset-xl-1 offset-lg-1 col-md-6">
-              <div
-                class="about_draw wow fadeInUp"
-                data-wow-duration=".7s"
-                data-wow-delay=".5s"
-              >
+              <div class="about_draw wow fadeInUp" data-wow-duration=".7s" data-wow-delay=".5s">
                 <img src="img/ilstrator_img/draw.png" alt />
               </div>
             </div>
@@ -215,16 +173,8 @@
         <div class="features_main_wrap">
           <div class="row align-items-center">
             <div class="col-xl-6 col-lg-6 col-md-6">
-              <div
-                class="about_image wow fadeInLeft"
-                data-wow-duration=".4s"
-                data-wow-delay=".3s"
-              >
-                <img
-                  src="img/ilstrator_img/phone.png"
-                  style="max-width: 100%"
-                  alt
-                />
+              <div class="about_image wow fadeInLeft" data-wow-duration=".4s" data-wow-delay=".3s">
+                <img src="img/ilstrator_img/phone.png" style="max-width: 100%;" alt />
               </div>
             </div>
             <div class="col-xl-6 col-lg-6 col-md-6">
@@ -233,54 +183,34 @@
                   class="wow fadeInUp"
                   data-wow-duration=".5s"
                   data-wow-delay=".3s"
-                >
-                  Fácil de elegir,
-                </h3>
-                <h3
-                  class="wow fadeInUp"
-                  data-wow-duration=".5s"
-                  data-wow-delay=".3s"
-                >
-                  Fácil de pagar
-                </h3>
+                >Fácil de elegir,</h3>
+                <h3 class="wow fadeInUp" data-wow-duration=".5s" data-wow-delay=".3s">Fácil de pagar</h3>
                 <p
                   class="wow fadeInUp"
                   data-wow-duration=".6s"
                   data-wow-delay=".4s"
-                >
-                  Con tu App web, podés recibir pedidos del salón y para
-                  delivery. Sí, todo en uno!
-                </p>
+                >Con tu App web, podés recibir pedidos del salón y para delivery. Sí, todo en uno!</p>
                 <ul>
                   <li
                     class="wow fadeInUp"
                     data-wow-duration=".7s"
                     data-wow-delay=".5s"
-                  >
-                    El diseño personalizado guía a tus clientes a elegir de una
-                    forma cómoda
-                  </li>
+                  >El diseño personalizado guía a tus clientes a elegir de una forma cómoda</li>
                   <li
                     class="wow fadeInUp"
                     data-wow-duration=".8s"
                     data-wow-delay=".6s"
-                  >
-                    Ofrecés pagos con tarjeta de forma segura
-                  </li>
+                  >Ofrecés pagos con tarjeta de forma segura</li>
                   <li
                     class="wow fadeInUp"
                     data-wow-duration=".9s"
                     data-wow-delay=".7s"
-                  >
-                    Ahorras las grandes comisiones de otras Apps
-                  </li>
+                  >Ahorras las grandes comisiones de otras Apps</li>
                   <li
                     class="wow fadeInUp"
                     data-wow-duration=".10s"
                     data-wow-delay=".6s"
-                  >
-                    Sin descargas, QR y link con el nombre de tu negocio.
-                  </li>
+                  >Sin descargas, QR y link con el nombre de tu negocio.</li>
                 </ul>
 
                 <!-- <div class="about_btn wow fadeInUp" data-wow-duration=".10s" data-wow-delay=".8s" >
@@ -320,8 +250,7 @@
               data-wow-delay=".8s"
             >
               <div class="prising_header">
-                <h3>Inicial</h3>
-                <!-- Starter -->
+                <h3>Inicial</h3> <!-- Starter -->
                 <span>$1000</span>
               </div>
               <ul>
@@ -336,9 +265,7 @@
                 <!-- <li style="color: #0181F5">* consultar oferta por tiempo limitado</li> -->
               </ul>
               <div class="prising_bottom">
-                <a href="#contact_area" class="genric-btn info radius"
-                  >Contactanos</a
-                >
+                <a href="#contact_area" class="genric-btn info radius">Contactanos</a>
               </div>
             </div>
           </div>
@@ -349,8 +276,7 @@
               data-wow-delay=".8s"
             >
               <div class="prising_header green_header">
-                <h3>Basico</h3>
-                <!-- Basic -->
+                <h3>Basico</h3> <!-- Basic -->
                 <span>$2000</span>
               </div>
               <ul>
@@ -373,9 +299,7 @@
                 <li>Evitá los porcentajes excesivos en comisiones</li>
               </ul>
               <div class="prising_bottom">
-                <a href="#contact_area" class="genric-btn info radius"
-                  >Contactanos</a
-                >
+                <a href="#contact_area" class="genric-btn info radius">Contactanos</a>
               </div>
             </div>
           </div>
@@ -386,8 +310,7 @@
               data-wow-delay=".8s"
             >
               <div class="prising_header pink_header">
-                <h3>Profesional</h3>
-                <!-- Professional -->
+                <h3>Profesional</h3> <!-- Professional -->
                 <span>$4000</span>
               </div>
               <ul>
@@ -399,9 +322,7 @@
                 <li>Informes diarios con el cierre del dia</li>
               </ul>
               <div class="prising_bottom">
-                <a href="#contact_area" class="genric-btn info radius"
-                  >Contactanos</a
-                >
+                <a href="#contact_area" class="genric-btn info radius">Contactanos</a>
               </div>
             </div>
           </div>
@@ -414,7 +335,7 @@
     <div id="partners_area" class="partners_area mt-5">
       <div class="container">
         <div class="row">
-          <div class="col 12" style="text-align: center">
+          <div class="col 12" style="text-align: center;">
             <h3>Nuestros Clientes</h3>
             <div>
               <img width="120" src="img/gallery/maricel-monroe.jpg" alt />
@@ -443,11 +364,7 @@
               class="section_title wow fadeInUp"
               data-wow-duration=".5s"
               data-wow-delay=".5s"
-              style="
-                visibility: visible;
-                animation-duration: 0.5s;
-                animation-delay: 0.5s;
-              "
+              style="visibility: visible; animation-duration: 0.5s; animation-delay: 0.5s;"
             >
               <div class="text-center">
                 <h3>Contactanos!</h3>
@@ -469,9 +386,8 @@
                   <a
                     href="mailto:contacto@onion.com.ar"
                     class="genric-btn info-border radius d-block d-md-inline-block"
-                    style="margin-top: 10px; padding: 0 4px"
-                    >contacto@onion.com.ar</a
-                  >
+                    style="margin-top: 10px; padding: 0 4px;"
+                  >contacto@onion.com.ar</a>
                 </div>
               </div>
             </div>
@@ -487,9 +403,8 @@
                   <a
                     href="https://wa.me/5491154876345"
                     class="genric-btn info-border radius d-block d-md-inline-block"
-                    style="margin-top: 10px"
-                    >011 54876345</a
-                  >
+                    style="margin-top: 10px;"
+                  >011 54876345</a>
                 </div>
               </div>
             </div>
@@ -511,9 +426,7 @@
                     <img src="img/logo.png" alt />
                   </a>
                 </div>
-                <p>
-                  Digitalizá tu comercio y anticipate a los nuevos protocolos
-                </p>
+                <p>Digitalizá tu comercio y anticipate a los nuevos protocolos</p>
                 <div class="socail_links">
                   <ul>
                     <li>
@@ -551,33 +464,19 @@
                 <h3 class="footer_title">Contacto</h3>
                 <ul>
                   <li>
-                    <v-icon dark color="white" class="mx-1" size="24px"
-                      >mdi-email</v-icon
-                    >
-                    <a href="mailto:contacto@onion.com.ar"
-                      >contacto@onion.com.ar</a
-                    >
+                    <v-icon dark color="white" class="mx-1" size="24px">mdi-email</v-icon>
+                    <a href="mailto:contacto@onion.com.ar">contacto@onion.com.ar</a>
                   </li>
                   <li>
-                    <v-icon dark color="white" class="mx-1" size="24px"
-                      >mdi-whatsapp</v-icon
-                    >
+                    <v-icon dark color="white" class="mx-1" size="24px">mdi-whatsapp</v-icon>
                     <a href="https://wa.me/5491154876345">+54 911 54876345</a>
                   </li>
                   <li>
-                    <v-icon dark color="white" class="mx-1" size="24px"
-                      >mdi-linkedin</v-icon
-                    >
-                    <a
-                      href="https://www.linkedin.com/in/agustin-amato-449006143/?originalSubdomain=ar"
-                      target="_blank"
-                      >Agustin Amato</a
-                    >
+                    <v-icon dark color="white" class="mx-1" size="24px">mdi-linkedin</v-icon>
+                    <a href="https://www.linkedin.com/in/agustin-amato-449006143/?originalSubdomain=ar" target="_blank">Agustin Amato</a>
                   </li>
                   <li>
-                    <v-icon dark color="white" class="mx-1" size="24px"
-                      >mdi-linkedin</v-icon
-                    >
+                    <v-icon dark color="white" class="mx-1" size="24px">mdi-linkedin</v-icon>
                     <a href="#">Nicolas Briamonte</a>
                   </li>
                 </ul>

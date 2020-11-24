@@ -17,10 +17,7 @@
         </v-btn>-->
 
         <template v-slot:img="{ props }">
-          <v-img
-            v-bind="props"
-            gradient="to top, rgba(30,30,30,.2), rgba(99,99,99,.0)"
-          ></v-img>
+          <v-img v-bind="props" gradient="to top, rgba(30,30,30,.2), rgba(99,99,99,.0)"></v-img>
         </template>
 
         <template v-slot:extension>
@@ -28,19 +25,12 @@
             <v-tabs dark show-arrows>
               <v-tabs-slider></v-tabs-slider>
 
-              <v-tab
-                v-for="rubro in rubros"
-                :key="rubro.nombre"
-                color="#fff"
-                class="white--text"
-              >
+              <v-tab color="#fff" class="white--text" v-for="rubro in rubros" :key="rubro.nombre">
                 <nuxt-link
                   :to="`#${rubro.link_name}`"
                   @click.native="scrollTo(`#${rubro.link_name}`)"
                 >
-                  <span class="v-tab__personalized white--text">{{
-                    rubro.name
-                  }}</span>
+                  <span class="v-tab__personalized white--text">{{rubro.name}}</span>
                 </nuxt-link>
               </v-tab>
             </v-tabs>
@@ -109,7 +99,7 @@ export default {
     }
   },
   methods: {
-    scrollTo(hashtag) {
+    scrollTo: function (hashtag) {
       const el = document.querySelector(hashtag)
       if (el) {
         window.scrollTo(0, el.offsetTop)

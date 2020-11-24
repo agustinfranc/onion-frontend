@@ -8,9 +8,9 @@
       <div id="carousel">
         <flickity ref="flickity" :options="flickityOptions">
           <div
+            class="carousel-cell"
             v-for="item in rubros[0].subrubros[0].products"
             :key="`${item.id}-carousel`"
-            class="carousel-cell"
           >
             <v-card class="mx-auto" min-height="370" max-width="400">
               <v-img
@@ -44,7 +44,7 @@
 
     <template v-for="(rubro, index) in rubros">
       <template v-if="index > 0">
-        <div :id="rubro.link_name" :key="rubro.name">
+        <div :key="rubro.name" :id="rubro.link_name">
           <v-container :key="rubro.name">
             <h3>{{ rubro.name }}</h3>
           </v-container>
@@ -60,11 +60,11 @@
               <span>{{ subrubro.name }}</span>
             </v-container>
 
-            <v-list :key="index" three-line>
+            <v-list three-line :key="index">
               <template v-for="(item, index) in subrubro.products">
                 <v-divider
-                  v-if="index > 0"
                   :key="`${index}-${item.name}_divider`"
+                  v-if="index > 0"
                 ></v-divider>
 
                 <v-list-item
@@ -76,16 +76,8 @@
                       :src="`${item.avatar_dirname}${item.avatar}`"
                       :class="item.disabled ? 'disabled' : ''"
                     >
-                      <div
-                        v-if="item.disabled"
-                        class="fill-height d-flex flex-column justify-center"
-                      >
-                        <v-chip
-                          x-small
-                          class="ma-2"
-                          color="red"
-                          text-color="white"
-                        >
+                      <div v-if="item.disabled" class="fill-height d-flex flex-column justify-center">
+                        <v-chip x-small class="ma-2" color="red" text-color="white">
                           No disponible
                         </v-chip>
                       </div>
@@ -148,6 +140,34 @@
 import { mapActions, mapState } from 'vuex'
 
 export default {
+  data() {
+    return {
+      rubros: null,
+      withSlider: true,
+      flickityOptions: {
+        prevNextButtons: false,
+        pageDots: false,
+        cellAlign: 'left',
+        contain: true,
+        autoPlay: true,
+        // any options from Flickity can be used
+      },
+      params: null,
+    }
+  },
+  mounted() {
+    if (this.$route.hash) {
+      setTimeout(() => this.scrollTo(this.$route.hash), 500)
+    }
+  },
+  methods: {
+    scrollTo: function (hashtag) {
+      const el = document.getElementById(this.$route.hash.slice(1))
+      if (el) {
+        window.scrollTo(0, el.offsetTop)
+      }
+    },
+  },
   async asyncData({ $axios, store, params, payload }) {
     switch (params.commerce) {
       case 'newharbor':
@@ -176,40 +196,12 @@ export default {
 
       return {
         rubros: res.rubros,
-        params,
+        params: params,
         withSlider: res.with_slider,
       }
     } catch (error) {
       console.log('Error:', error)
     }
-  },
-  data() {
-    return {
-      rubros: null,
-      withSlider: true,
-      flickityOptions: {
-        prevNextButtons: false,
-        pageDots: false,
-        cellAlign: 'left',
-        contain: true,
-        autoPlay: true,
-        // any options from Flickity can be used
-      },
-      params: null,
-    }
-  },
-  mounted() {
-    if (this.$route.hash) {
-      setTimeout(() => this.scrollTo(this.$route.hash), 500)
-    }
-  },
-  methods: {
-    scrollTo(hashtag) {
-      const el = document.getElementById(this.$route.hash.slice(1))
-      if (el) {
-        window.scrollTo(0, el.offsetTop)
-      }
-    },
   },
 }
 </script>
