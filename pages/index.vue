@@ -340,14 +340,16 @@
             <div>
               <img width="120" src="img/gallery/maricel-monroe.jpg" alt />
               <img width="120" src="img/gallery/plazadelcarmen.png" alt />
-              <img width="120" src="img/gallery/plazadelsol.jpeg" alt />
-              <img width="120" src="img/gallery/tazones.webp" alt />
-              <img width="120" src="img/gallery/tunin.jpeg" alt />
               <img width="120" src="img/gallery/flambo.png" alt />
               <img width="120" src="img/gallery/desembarco.jpg" alt />
               <img width="120" src="img/gallery/dakota.jpg" alt />
               <img width="120" src="img/gallery/marlon.jpg" alt />
               <img width="120" src="img/gallery/new-harbor.png" alt />
+              <img width="120" src="img/gallery/colonial.png" alt />
+              <img width="120" src="img/gallery/persicco.png" alt />
+              <img width="120" src="img/gallery/encuentro.png" alt />
+              <img width="120" src="img/gallery/gusto.png" alt />
+              <img width="120" src="img/gallery/pepper.png" alt />
             </div>
           </div>
         </div>
