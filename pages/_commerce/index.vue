@@ -16,9 +16,19 @@
               <v-img
                 v-if="item.avatar_dirname"
                 class="white--text align-end"
+                :class="item.disabled ? 'disabled' : ''"
                 height="200px"
                 :src="`${item.avatar_dirname}${item.avatar}`"
-              ></v-img>
+              >
+                <div
+                  v-if="item.disabled"
+                  class="fill-height d-flex flex-column justify-center"
+                >
+                  <v-chip small class="ma-2" color="red" text-color="white">
+                    No disponible
+                  </v-chip>
+                </div>
+              </v-img>
 
               <v-card-title class="text-truncate">{{ item.name }}</v-card-title>
 
@@ -76,8 +86,16 @@
                       :src="`${item.avatar_dirname}${item.avatar}`"
                       :class="item.disabled ? 'disabled' : ''"
                     >
-                      <div v-if="item.disabled" class="fill-height d-flex flex-column justify-center">
-                        <v-chip x-small class="ma-2" color="red" text-color="white">
+                      <div
+                        v-if="item.disabled"
+                        class="fill-height d-flex flex-column justify-center"
+                      >
+                        <v-chip
+                          x-small
+                          class="ma-2"
+                          color="red"
+                          text-color="white"
+                        >
                           No disponible
                         </v-chip>
                       </div>
