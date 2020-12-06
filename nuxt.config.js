@@ -10,12 +10,12 @@ export default {
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
-  ssr: true, // Disable Server Side rendering
+  ssr: false, // Disable Server Side rendering
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
-  target: 'server',
+  target: 'static',
   /*
    ** Environment Variables
    ** See https://nuxtjs.org/api/configuration-env/
@@ -78,10 +78,10 @@ export default {
       { rel: 'canonical', href: 'https://www.onion.com.ar' },
     ],
     script: [
-      {
-        "data-ad-client": "ca-pub-9710451698739069",
-        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
-      },
+      // {
+      //   "data-ad-client": "ca-pub-9710451698739069",
+      //   src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+      // },
       {
         src: 'js/pixel.js',
       },
