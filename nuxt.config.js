@@ -58,14 +58,14 @@ export default {
       { name: 'language', content: 'es' },
       { name: 'og:title', content: 'Onion' },
       { name: 'og:type', content: 'website' },
-      { name: 'og:host', content: 'https://onion.com.ar' },
-      { name: 'og:url', content: 'https://onion.com.ar' },
+      { name: 'og:host', content: 'https://onion.ar' },
+      { name: 'og:url', content: 'https://onion.ar' },
       {
         name: 'og:description',
         content:
           'Vendé Más Con Tu Tienda Online. Desde tu carta digital hasta tu App a medida',
       },
-      { name: 'og:image', content: '/img/logo_blue.png' },
+      { name: 'og:image', content: '/icon.png' },
       {
         hid: 'description',
         name: 'description',
@@ -77,7 +77,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/icon.png' },
       { rel: 'shortcut icon', href: '/icon.png' },
       { rel: 'apple-touch-icon', href: '/icon.png' },
-      { rel: 'canonical', href: 'https://www.onion.com.ar' },
+      { rel: 'canonical', href: 'https://www.onion.ar' },
     ],
     script: [
       // {
