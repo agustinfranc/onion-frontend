@@ -74,7 +74,9 @@ export default {
       },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/img/icon.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/icon.png' },
+      { rel: 'shortcut icon', href: '/icon.png' },
+      { rel: 'apple-touch-icon', href: '/icon.png' },
       { rel: 'canonical', href: 'https://www.onion.com.ar' },
     ],
     script: [
