@@ -21,7 +21,7 @@ export default {
    ** See https://nuxtjs.org/api/configuration-env/
    */
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3001',
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
     apiUrl: process.env.API_URL || 'https://api.onion.ar/api/',
   },
   /*
@@ -65,7 +65,7 @@ export default {
         content:
           'Vendé Más Con Tu Tienda Online. Desde tu carta digital hasta tu App a medida',
       },
-      { name: 'og:image', content: '/img/logo.png' },
+      { name: 'og:image', content: '/img/logo_blue.png' },
       {
         hid: 'description',
         name: 'description',
