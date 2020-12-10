@@ -428,7 +428,7 @@
               <img width="120" src="img/gallery/persicco.png" alt />
               <img width="120" src="img/gallery/encuentro.png" alt />
               <img width="120" src="img/gallery/gusto.png" alt />
-              <img width="120" src="img/gallery/pepper.png" alt />
+              <img width="120" src="img/gallery/pepper.jpg" alt />
             </div>
           </div>
         </div>
