@@ -10,12 +10,12 @@ export default {
    ** Nuxt rendering mode
    ** See https://nuxtjs.org/api/configuration-mode
    */
-  ssr: false, // Disable Server Side rendering
+  ssr: true, // Disable Server Side rendering
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
    */
-  target: 'static',
+  target: 'server',
   /*
    ** Environment Variables
    ** See https://nuxtjs.org/api/configuration-env/
