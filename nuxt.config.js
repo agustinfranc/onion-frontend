@@ -65,7 +65,7 @@ export default {
         content:
           'Vendé Más Con Tu Tienda Online. Desde tu carta digital hasta tu App a medida',
       },
-      { name: 'og:image', content: '/icon.png' },
+      { name: 'og:image', content: '/icon_min.png' },
       {
         hid: 'description',
         name: 'description',
@@ -74,9 +74,9 @@ export default {
       },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/icon.png' },
-      { rel: 'shortcut icon', href: '/icon.png' },
-      { rel: 'apple-touch-icon', href: '/icon.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/icon_min.png' },
+      { rel: 'shortcut icon', href: '/icon_min.png' },
+      { rel: 'apple-touch-icon', href: '/icon_min.png' },
       { rel: 'canonical', href: 'https://www.onion.ar' },
     ],
     script: [
