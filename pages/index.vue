@@ -115,7 +115,7 @@
           </div>
 
           <div
-            class="col-xl-4 col-lg-4 col-md-6 wow fadeInLeft"
+            class="col-xl-4 col-lg-4 col-md-6 wow fadeInLeft d-none d-md-block"
             data-wow-duration=".4s"
             data-wow-delay=".5s"
           >
@@ -129,7 +129,7 @@
               data-wow-duration=".8s"
               data-wow-delay=".5s"
             >
-              <img src="img/ilstrator_img/mobile_screen.png" alt />
+              <img src="img/ilstrator_img/iphone-frame.png" alt />
             </div>
           </div>
         </div>
@@ -201,7 +201,7 @@
                 </div>-->
               </div>
             </div>
-            <div class="col-xl-5 col-lg-5 offset-xl-1 offset-lg-1 col-md-6">
+            <div class="col-xl-5 col-lg-5 offset-xl-1 offset-lg-1 col-md-6 d-none d-md-block">
               <div
                 class="about_draw wow fadeInUp"
                 data-wow-duration=".7s"
@@ -265,14 +265,14 @@
                     data-wow-duration=".8s"
                     data-wow-delay=".6s"
                   >
-                    Ofrecés pagos con tarjeta de forma segura
+                    Ofrecés pagos con tarjeta de forma segura a traves de MercadoPago
                   </li>
                   <li
                     class="wow fadeInUp"
                     data-wow-duration=".9s"
                     data-wow-delay=".7s"
                   >
-                    Ahorras las grandes comisiones de otras Apps
+                    Ahorrás las grandes comisiones de otras Apps
                   </li>
                   <li
                     class="wow fadeInUp"
