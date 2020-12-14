@@ -421,34 +421,36 @@
             <h3>Nuestros Clientes</h3>
 
             <div id="carousel">
-              <flickity ref="flickity" :options="flickityOptions">
-                <div
-                  class="carousel-cell"
-                  v-for="item in commerces"
-                  :key="`${item.id}-carousel`"
-                >
-                  <v-card class="mx-auto" min-height="300" max-width="400">
-                    <v-img
-                      class="white--text align-end"
-                      height="200px"
-                      :src="`img/gallery/${item.avatar}`"
-                    >
-                    </v-img>
+              <no-ssr>
+                <flickity ref="flickity" :options="flickityOptions">
+                  <div
+                    class="carousel-cell"
+                    v-for="item in commerces"
+                    :key="`${item.id}-carousel`"
+                  >
+                    <v-card class="mx-auto" min-height="300" max-width="400">
+                      <v-img
+                        class="white--text align-end"
+                        height="200px"
+                        :src="`img/gallery/${item.avatar}`"
+                      >
+                      </v-img>
 
-                    <v-card-title class="text-truncate">{{
-                      item.name
-                    }}</v-card-title>
+                      <v-card-title class="text-truncate">{{
+                        item.name
+                      }}</v-card-title>
 
-                    <v-card-subtitle class="pb-0 text-left">
-                      <a :href="item.url" target="_blank">{{ item.url }}</a>
-                    </v-card-subtitle>
+                      <v-card-subtitle class="pb-0 text-left">
+                        <a :href="item.url" target="_blank">{{ item.url }}</a>
+                      </v-card-subtitle>
 
-                    <!-- <v-card-text class="text--primary">
-                      <p class="mt-1">${{ item.name }}</p>
-                    </v-card-text> -->
-                  </v-card>
-                </div>
-              </flickity>
+                      <!-- <v-card-text class="text--primary">
+                        <p class="mt-1">${{ item.name }}</p>
+                      </v-card-text> -->
+                    </v-card>
+                  </div>
+                </flickity>
+              </no-ssr>
             </div>
           </div>
         </div>
