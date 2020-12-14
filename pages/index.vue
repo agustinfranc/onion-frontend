@@ -12,7 +12,7 @@
             <div class="row align-items-center">
               <div class="col-xl-3 col-lg-2 px-1 py-0">
                 <div class="logo">
-                  <a href="index.html">
+                  <a href="#slider_area">
                     <img src="img/logo.png" alt />
                   </a>
                 </div>
@@ -22,7 +22,7 @@
                   <nav>
                     <ul id="navigation">
                       <li>
-                        <a href="index.html" class="active">home</a>
+                        <a href="#slider_area" class="active">home</a>
                       </li>
                       <li>
                         <a href="#service_area_2">Caracteristicas</a>
@@ -671,15 +671,15 @@ export default {
         },
         {
           id: 9,
-          name: 'Encuentro',
+          name: 'Café del Encuentro',
           avatar: 'encuentro.png',
-          url: 'https://onion.ar/encuentro',
+          url: 'https://onion.ar/cafedelencuentro',
         },
         {
           id: 10,
           name: 'New Harbor',
           avatar: 'new-harbor.png',
-          url: 'https://onion.ar/new-harbor',
+          url: '',
         },
         {
           id: 11,
