@@ -99,7 +99,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/localStorage.js', ssr: false },
-    { src: '~/plugins/flickity', ssr: false },
+    { src: '~/plugins/flickity', ssr: false, mode: 'client' },
   ],
   /*
    ** Auto import components

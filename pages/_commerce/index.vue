@@ -6,49 +6,51 @@
       <v-divider class="my-5"></v-divider>
 
       <div id="carousel">
-        <flickity ref="flickity" :options="flickityOptions">
-          <div
-            class="carousel-cell"
-            v-for="item in rubros[0].subrubros[0].products"
-            :key="`${item.id}-carousel`"
-          >
-            <v-card class="mx-auto" min-height="370" max-width="400">
-              <v-img
-                v-if="item.avatar_dirname"
-                class="white--text align-end"
-                :class="item.disabled ? 'disabled' : ''"
-                height="200px"
-                :src="`${item.avatar_dirname}${item.avatar}`"
-              >
-                <div
-                  v-if="item.disabled"
-                  class="fill-height d-flex flex-column justify-center"
+        <no-ssr>
+          <flickity ref="flickity" :options="flickityOptions">
+            <div
+              class="carousel-cell"
+              v-for="item in rubros[0].subrubros[0].products"
+              :key="`${item.id}-carousel`"
+            >
+              <v-card class="mx-auto" min-height="370" max-width="400">
+                <v-img
+                  v-if="item.avatar_dirname"
+                  class="white--text align-end"
+                  :class="item.disabled ? 'disabled' : ''"
+                  height="200px"
+                  :src="`${item.avatar_dirname}${item.avatar}`"
                 >
-                  <v-chip small class="ma-2" color="red" text-color="white">
-                    No disponible
-                  </v-chip>
-                </div>
-              </v-img>
+                  <div
+                    v-if="item.disabled"
+                    class="fill-height d-flex flex-column justify-center"
+                  >
+                    <v-chip small class="ma-2" color="red" text-color="white">
+                      No disponible
+                    </v-chip>
+                  </div>
+                </v-img>
 
-              <v-card-title class="text-truncate">{{ item.name }}</v-card-title>
+                <v-card-title class="text-truncate">{{ item.name }}</v-card-title>
 
-              <v-card-subtitle
-                class="pb-0 text-truncate__multiple-lines text-truncate__three-lines"
-              >
-                <v-tooltip bottom>
-                  <template v-slot:activator="{ on, attrs }">
-                    <span v-bind="attrs" v-on="on">{{ item.description }}</span>
-                  </template>
-                  <span>{{ item.description }}</span>
-                </v-tooltip>
-              </v-card-subtitle>
+                <v-card-subtitle
+                  class="pb-0 text-truncate__multiple-lines text-truncate__three-lines"
+                >
+                  <v-tooltip bottom>
+                    <template v-slot:activator="{ on, attrs }">
+                      <span v-bind="attrs" v-on="on">{{ item.description }}</span>
+                    </template>
+                    <span>{{ item.description }}</span>
+                  </v-tooltip>
+                </v-card-subtitle>
 
-              <v-card-text class="text--primary">
-                <p class="mt-1">${{ item.price }}</p>
-              </v-card-text>
-            </v-card>
-          </div>
-        </flickity>
+                <v-card-text class="text--primary">
+                  <p class="mt-1">${{ item.price }}</p>
+                </v-card-text>
+              </v-card>
+            </div>
+          </flickity>
+        </no-ssr>
       </div>
     </v-container>
 
