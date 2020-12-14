@@ -115,7 +115,7 @@
           </div>
 
           <div
-            class="col-xl-4 col-lg-4 col-md-6 wow fadeInLeft"
+            class="col-xl-4 col-lg-4 col-md-6 wow fadeInLeft d-none d-md-block"
             data-wow-duration=".4s"
             data-wow-delay=".5s"
           >
@@ -129,7 +129,7 @@
               data-wow-duration=".8s"
               data-wow-delay=".5s"
             >
-              <img src="img/ilstrator_img/mobile_screen.png" alt />
+              <img src="img/ilstrator_img/iphone-frame.png" alt />
             </div>
           </div>
         </div>
@@ -201,7 +201,9 @@
                 </div>-->
               </div>
             </div>
-            <div class="col-xl-5 col-lg-5 offset-xl-1 offset-lg-1 col-md-6">
+            <div
+              class="col-xl-5 col-lg-5 offset-xl-1 offset-lg-1 col-md-6 d-none d-md-block"
+            >
               <div
                 class="about_draw wow fadeInUp"
                 data-wow-duration=".7s"
@@ -265,14 +267,15 @@
                     data-wow-duration=".8s"
                     data-wow-delay=".6s"
                   >
-                    Ofrecés pagos con tarjeta de forma segura
+                    Ofrecés pagos con tarjeta de forma segura a traves de
+                    MercadoPago
                   </li>
                   <li
                     class="wow fadeInUp"
                     data-wow-duration=".9s"
                     data-wow-delay=".7s"
                   >
-                    Ahorras las grandes comisiones de otras Apps
+                    Ahorrás las grandes comisiones de otras Apps
                   </li>
                   <li
                     class="wow fadeInUp"
@@ -416,19 +419,36 @@
         <div class="row">
           <div class="col 12" style="text-align: center">
             <h3>Nuestros Clientes</h3>
-            <div>
-              <img width="120" src="img/gallery/maricel-monroe.jpg" alt />
-              <img width="120" src="img/gallery/plazadelcarmen.png" alt />
-              <img width="120" src="img/gallery/flambo.png" alt />
-              <img width="120" src="img/gallery/desembarco.jpg" alt />
-              <img width="120" src="img/gallery/dakota.jpg" alt />
-              <img width="120" src="img/gallery/marlon.jpg" alt />
-              <img width="120" src="img/gallery/new-harbor.png" alt />
-              <img width="120" src="img/gallery/colonial.png" alt />
-              <img width="120" src="img/gallery/persicco.png" alt />
-              <img width="120" src="img/gallery/encuentro.png" alt />
-              <img width="120" src="img/gallery/gusto.png" alt />
-              <img width="120" src="img/gallery/pepper.jpg" alt />
+
+            <div id="carousel">
+              <flickity ref="flickity" :options="flickityOptions">
+                <div
+                  class="carousel-cell"
+                  v-for="item in commerces"
+                  :key="`${item.id}-carousel`"
+                >
+                  <v-card class="mx-auto" min-height="300" max-width="400">
+                    <v-img
+                      class="white--text align-end"
+                      height="200px"
+                      :src="`img/gallery/${item.avatar}`"
+                    >
+                    </v-img>
+
+                    <v-card-title class="text-truncate">{{
+                      item.name
+                    }}</v-card-title>
+
+                    <v-card-subtitle class="pb-0 text-left">
+                      <a :href="item.url" target="_blank">{{ item.url }}</a>
+                    </v-card-subtitle>
+
+                    <!-- <v-card-text class="text--primary">
+                      <p class="mt-1">${{ item.name }}</p>
+                    </v-card-text> -->
+                  </v-card>
+                </div>
+              </flickity>
             </div>
           </div>
         </div>
@@ -596,6 +616,86 @@
 <script>
 export default {
   layout: 'blank',
+  data() {
+    return {
+      commerces: [
+        {
+          id: 1,
+          name: 'Marlon',
+          avatar: 'marlon.jpg',
+          url: 'https://onion.ar/marlon',
+        },
+        {
+          id: 2,
+          name: 'Desembarco',
+          avatar: 'desembarco.jpg',
+          url: 'https://onion.ar/desembarco',
+        },
+        {
+          id: 7,
+          name: 'Dakota',
+          avatar: 'dakota.jpg',
+          url: 'https://onion.ar/dakota',
+        },
+        {
+          id: 3,
+          name: 'Gusto',
+          avatar: 'gusto.png',
+          url: 'https://onion.ar/gusto',
+        },
+        {
+          id: 4,
+          name: 'Pepper',
+          avatar: 'pepper.jpg',
+          url: 'https://onion.ar/pepper',
+        },
+        {
+          id: 5,
+          name: 'Colonial',
+          avatar: 'colonial.png',
+          url: 'https://colonial.onion.com.ar',
+        },
+        {
+          id: 6,
+          name: 'Persicco',
+          avatar: 'persicco.png',
+          url: 'https://persicco.onion.com.ar',
+        },
+        {
+          id: 8,
+          name: 'Maricel',
+          avatar: 'maricel-monroe.jpg',
+          url: 'https://maricel.onion.com.ar',
+        },
+        {
+          id: 9,
+          name: 'Encuentro',
+          avatar: 'encuentro.png',
+          url: 'https://onion.ar/encuentro',
+        },
+        {
+          id: 10,
+          name: 'New Harbor',
+          avatar: 'new-harbor.png',
+          url: 'https://onion.ar/new-harbor',
+        },
+        {
+          id: 11,
+          name: 'Flambo',
+          avatar: 'flambo.png',
+          url: 'https://flambopedidos.com.ar',
+        },
+      ],
+      flickityOptions: {
+        prevNextButtons: false,
+        pageDots: false,
+        cellAlign: 'left',
+        contain: true,
+        autoPlay: true,
+        // any options from Flickity can be used
+      },
+    }
+  },
 }
 </script>
 
@@ -603,5 +703,9 @@ export default {
 .slicknav_btn {
   position: fixed !important;
   top: 25px !important;
+}
+
+.flickity-viewport {
+  height: 302px !important;
 }
 </style>
