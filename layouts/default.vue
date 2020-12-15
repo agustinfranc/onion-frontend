@@ -17,7 +17,10 @@
         </v-btn>-->
 
         <template v-slot:img="{ props }">
-          <v-img v-bind="props" gradient="to top, rgba(30,30,30,.2), rgba(99,99,99,.0)"></v-img>
+          <v-img
+            v-bind="props"
+            gradient="to top, rgba(30,30,30,.2), rgba(99,99,99,.0)"
+          ></v-img>
         </template>
 
         <template v-slot:extension>
@@ -25,12 +28,19 @@
             <v-tabs dark show-arrows>
               <v-tabs-slider></v-tabs-slider>
 
-              <v-tab color="#fff" class="white--text" v-for="rubro in rubros" :key="rubro.nombre">
+              <v-tab
+                color="#fff"
+                class="white--text"
+                v-for="rubro in rubros"
+                :key="rubro.nombre"
+              >
                 <nuxt-link
                   :to="`#${rubro.link_name}`"
                   @click.native="scrollTo(`#${rubro.link_name}`)"
                 >
-                  <span class="v-tab__personalized white--text">{{rubro.name}}</span>
+                  <span class="v-tab__personalized white--text">{{
+                    rubro.name
+                  }}</span>
                 </nuxt-link>
               </v-tab>
             </v-tabs>
@@ -53,13 +63,18 @@
           <span>
             made with
             <v-icon>mdi-heart</v-icon> by
-            <router-link :to="'/'">
+            <router-link to="/">
               <span class="white--text">Onion</span>
             </router-link>
           </span>
         </div>
         <div class="text-right">
-          <a v-for="icon in icons" :key="icon.to" :href="icon.to">
+          <a
+            v-for="icon in icons"
+            :key="icon.to"
+            :href="icon.to"
+            target="_blank"
+          >
             <v-icon class="mx-1" size="24px">{{ icon.name }}</v-icon>
           </a>
         </div>
