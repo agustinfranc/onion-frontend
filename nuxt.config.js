@@ -33,6 +33,7 @@ export default {
       const url = process.env.API_URL
         ? process.env.API_URL + 'commerces'
         : 'https://api.onion.ar/api/commerces'
+
       return axios.get(url).then((res) => {
         return res.data.map((commerce) => {
           return {
