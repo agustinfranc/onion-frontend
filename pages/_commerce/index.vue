@@ -31,14 +31,18 @@
                   </div>
                 </v-img>
 
-                <v-card-title class="text-truncate">{{ item.name }}</v-card-title>
+                <v-card-title class="text-truncate">{{
+                  item.name
+                }}</v-card-title>
 
                 <v-card-subtitle
                   class="pb-0 text-truncate__multiple-lines text-truncate__three-lines"
                 >
                   <v-tooltip bottom>
                     <template v-slot:activator="{ on, attrs }">
-                      <span v-bind="attrs" v-on="on">{{ item.description }}</span>
+                      <span v-bind="attrs" v-on="on">{{
+                        item.description
+                      }}</span>
                     </template>
                     <span>{{ item.description }}</span>
                   </v-tooltip>
@@ -65,90 +69,94 @@
 
           <template v-for="(subrubro, index) in rubro.subrubros">
             <v-container
-              v-if="index > 0"
+              v-if="!subrubro.is_general"
               :id="subrubro.link_name"
               :key="subrubro.name"
             >
               <span>{{ subrubro.name }}</span>
             </v-container>
 
-            <v-list three-line :key="index">
-              <template v-for="(item, index) in subrubro.products">
-                <v-divider
-                  :key="`${index}-${item.name}_divider`"
-                  v-if="index > 0"
-                ></v-divider>
+            <v-container :key="index">
+              <v-list three-line :key="index">
+                <template v-for="(item, index) in subrubro.products">
+                  <v-divider
+                    :key="`${index}-${item.name}_divider`"
+                    v-if="index > 0"
+                  ></v-divider>
 
-                <v-list-item
-                  :id="`${item.code}`"
-                  :key="`${index}-${item.name}`"
-                >
-                  <v-list-item-avatar v-if="item.avatar_dirname">
-                    <v-img
-                      :src="`${item.avatar_dirname}${item.avatar}`"
-                      :class="item.disabled ? 'disabled' : ''"
-                    >
-                      <div
-                        v-if="item.disabled"
-                        class="fill-height d-flex flex-column justify-center"
+                  <v-list-item
+                    :id="`${item.code}`"
+                    :key="`${index}-${item.name}`"
+                  >
+                    <v-list-item-avatar v-if="item.avatar_dirname">
+                      <v-img
+                        :src="`${item.avatar_dirname}${item.avatar}`"
+                        :class="item.disabled ? 'disabled' : ''"
                       >
-                        <v-chip
-                          x-small
-                          class="ma-2"
-                          color="red"
-                          text-color="white"
+                        <div
+                          v-if="item.disabled"
+                          class="fill-height d-flex flex-column justify-center"
                         >
-                          No disponible
+                          <v-chip
+                            x-small
+                            class="ma-2"
+                            color="red"
+                            text-color="white"
+                          >
+                            No disponible
+                          </v-chip>
+                        </div>
+                      </v-img>
+                    </v-list-item-avatar>
+
+                    <v-list-item-content>
+                      <v-list-item-title v-html="item.name"></v-list-item-title>
+
+                      <v-list-item-subtitle>
+                        <v-tooltip bottom close-delay="500">
+                          <template v-slot:activator="{ on, attrs }">
+                            <span v-bind="attrs" v-on="on">{{
+                              item.description
+                            }}</span>
+                          </template>
+                          <span>{{ item.description }}</span>
+                        </v-tooltip>
+                      </v-list-item-subtitle>
+
+                      <div>
+                        <span v-if="item.price" class="mt-1 text-body-2"
+                          >${{ item.price }}</span
+                        >
+
+                        <v-chip
+                          v-for="price in item.product_prices"
+                          :key="price.name"
+                          class="ma-1 text-center"
+                          outlined
+                          label
+                        >
+                          {{ price.name }}
+                          <br />
+                          ${{ price.price }}
                         </v-chip>
                       </div>
-                    </v-img>
-                  </v-list-item-avatar>
 
-                  <v-list-item-content>
-                    <v-list-item-title v-html="item.name"></v-list-item-title>
-
-                    <v-list-item-subtitle>
-                      <v-tooltip bottom close-delay="500">
-                        <template v-slot:activator="{ on, attrs }">
-                          <span v-bind="attrs" v-on="on">{{
-                            item.description
+                      <template v-for="hashtag in item.product_hashtags">
+                        <nuxt-link
+                          :key="hashtag.id"
+                          :to="`#${hashtag.to}`"
+                          @click.native="scrollTo(`#${hashtag.to}`)"
+                        >
+                          <span class="mt-1 text-body-2">{{
+                            hashtag.name
                           }}</span>
-                        </template>
-                        <span>{{ item.description }}</span>
-                      </v-tooltip>
-                    </v-list-item-subtitle>
-
-                    <div>
-                      <span v-if="item.price" class="mt-1 text-body-2"
-                        >${{ item.price }}</span
-                      >
-
-                      <v-chip
-                        v-for="price in item.product_prices"
-                        :key="price.name"
-                        class="ma-1 text-center"
-                        outlined
-                        label
-                      >
-                        {{ price.name }}
-                        <br />
-                        ${{ price.price }}
-                      </v-chip>
-                    </div>
-
-                    <template v-for="hashtag in item.product_hashtags">
-                      <nuxt-link
-                        :key="hashtag.id"
-                        :to="`#${hashtag.to}`"
-                        @click.native="scrollTo(`#${hashtag.to}`)"
-                      >
-                        <span class="mt-1 text-body-2">{{ hashtag.name }}</span>
-                      </nuxt-link>
-                    </template>
-                  </v-list-item-content>
-                </v-list-item>
-              </template>
-            </v-list>
+                        </nuxt-link>
+                      </template>
+                    </v-list-item-content>
+                  </v-list-item>
+                </template>
+              </v-list>
+            </v-container>
           </template>
         </div>
       </template>
