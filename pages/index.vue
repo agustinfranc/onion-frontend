@@ -421,7 +421,7 @@
             <h3>Nuestros Clientes</h3>
 
             <div id="carousel">
-              <no-ssr>
+              <client-only>
                 <flickity ref="flickity" :options="flickityOptions">
                   <div
                     class="carousel-cell"
@@ -450,7 +450,7 @@
                     </v-card>
                   </div>
                 </flickity>
-              </no-ssr>
+              </client-only>
             </div>
           </div>
         </div>
