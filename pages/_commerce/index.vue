@@ -6,7 +6,7 @@
       <v-divider class="my-5"></v-divider>
 
       <div id="carousel">
-        <no-ssr>
+        <client-only>
           <flickity ref="flickity" :options="flickityOptions">
             <div
               class="carousel-cell"
@@ -54,7 +54,7 @@
               </v-card>
             </div>
           </flickity>
-        </no-ssr>
+        </client-only>
       </div>
     </v-container>
 
@@ -168,6 +168,35 @@
 import { mapActions, mapState } from 'vuex'
 
 export default {
+  async asyncData({ $axios, store, params, payload }) {
+    //
+  },
+
+  async fetch() {
+    if (this.$store.state.commerce && this.$store.state.commerce.rubros) {
+        this.rubros = this.$store.state.commerce.rubros
+        this.withSlider = this.$store.state.commerce.with_slider ?? true
+        return;
+    }
+
+    await this.$store.dispatch('saveTitle', this.$route.params.commerce)
+
+    try {
+      const url = `${this.$nuxt.context.env.apiUrl}${this.$route.params.commerce}/all`
+
+      const res = await this.$axios.$get(url)
+
+      await this.$store.dispatch('saveData', res)
+
+      this.rubros = res.rubros
+      this.params = this.$route.params
+      this.withSlider = res.with_slider
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  },
+  fetchOnServer: false,
+
   data() {
     return {
       rubros: null,
@@ -183,11 +212,13 @@ export default {
       params: null,
     }
   },
+
   mounted() {
     if (this.$route.hash) {
       setTimeout(() => this.scrollTo(this.$route.hash), 500)
     }
   },
+
   methods: {
     scrollTo: function (hashtag) {
       const el = document.getElementById(this.$route.hash.slice(1))
@@ -195,41 +226,6 @@ export default {
         window.scrollTo(0, el.offsetTop)
       }
     },
-  },
-  async asyncData({ $axios, store, params, payload }) {
-    switch (params.commerce) {
-      case 'newharbor':
-        location.href = 'https://www.newharbor.onion.com.ar'
-        break
-      default:
-    }
-
-    if (store.state.rubros && store.state.data) {
-      return {
-        rubros: store.state.rubros,
-        withSlider: store.state.data.with_slider,
-      }
-    }
-
-    await store.dispatch('saveTitle', params.commerce)
-
-    try {
-      const url = `${process.env.apiUrl}${params.commerce}/all`
-
-      const res = await $axios.$get(url)
-
-      await store.dispatch('saveData', res)
-
-      await store.dispatch('saveRubros', res.rubros)
-
-      return {
-        rubros: res.rubros,
-        params: params,
-        withSlider: res.with_slider,
-      }
-    } catch (error) {
-      console.log('Error:', error)
-    }
   },
 }
 </script>
