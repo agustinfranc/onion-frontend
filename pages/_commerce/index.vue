@@ -6,7 +6,7 @@
       <v-divider class="my-5"></v-divider>
 
       <div id="carousel">
-        <no-ssr>
+        <client-only>
           <flickity ref="flickity" :options="flickityOptions">
             <div
               class="carousel-cell"
@@ -31,14 +31,18 @@
                   </div>
                 </v-img>
 
-                <v-card-title class="text-truncate">{{ item.name }}</v-card-title>
+                <v-card-title class="text-truncate">{{
+                  item.name
+                }}</v-card-title>
 
                 <v-card-subtitle
                   class="pb-0 text-truncate__multiple-lines text-truncate__three-lines"
                 >
                   <v-tooltip bottom>
                     <template v-slot:activator="{ on, attrs }">
-                      <span v-bind="attrs" v-on="on">{{ item.description }}</span>
+                      <span v-bind="attrs" v-on="on">{{
+                        item.description
+                      }}</span>
                     </template>
                     <span>{{ item.description }}</span>
                   </v-tooltip>
@@ -50,7 +54,7 @@
               </v-card>
             </div>
           </flickity>
-        </no-ssr>
+        </client-only>
       </div>
     </v-container>
 
@@ -65,90 +69,94 @@
 
           <template v-for="(subrubro, index) in rubro.subrubros">
             <v-container
-              v-if="index > 0"
+              v-if="!subrubro.is_general"
               :id="subrubro.link_name"
               :key="subrubro.name"
             >
               <span>{{ subrubro.name }}</span>
             </v-container>
 
-            <v-list three-line :key="index">
-              <template v-for="(item, index) in subrubro.products">
-                <v-divider
-                  :key="`${index}-${item.name}_divider`"
-                  v-if="index > 0"
-                ></v-divider>
+            <v-container :key="index">
+              <v-list three-line :key="index">
+                <template v-for="(item, index) in subrubro.products">
+                  <v-divider
+                    :key="`${index}-${item.name}_divider`"
+                    v-if="index > 0"
+                  ></v-divider>
 
-                <v-list-item
-                  :id="`${item.code}`"
-                  :key="`${index}-${item.name}`"
-                >
-                  <v-list-item-avatar v-if="item.avatar_dirname">
-                    <v-img
-                      :src="`${item.avatar_dirname}${item.avatar}`"
-                      :class="item.disabled ? 'disabled' : ''"
-                    >
-                      <div
-                        v-if="item.disabled"
-                        class="fill-height d-flex flex-column justify-center"
+                  <v-list-item
+                    :id="`${item.code}`"
+                    :key="`${index}-${item.name}`"
+                  >
+                    <v-list-item-avatar v-if="item.avatar_dirname">
+                      <v-img
+                        :src="`${item.avatar_dirname}${item.avatar}`"
+                        :class="item.disabled ? 'disabled' : ''"
                       >
-                        <v-chip
-                          x-small
-                          class="ma-2"
-                          color="red"
-                          text-color="white"
+                        <div
+                          v-if="item.disabled"
+                          class="fill-height d-flex flex-column justify-center"
                         >
-                          No disponible
+                          <v-chip
+                            x-small
+                            class="ma-2"
+                            color="red"
+                            text-color="white"
+                          >
+                            No disponible
+                          </v-chip>
+                        </div>
+                      </v-img>
+                    </v-list-item-avatar>
+
+                    <v-list-item-content>
+                      <v-list-item-title v-html="item.name"></v-list-item-title>
+
+                      <v-list-item-subtitle>
+                        <v-tooltip bottom close-delay="500">
+                          <template v-slot:activator="{ on, attrs }">
+                            <span v-bind="attrs" v-on="on">{{
+                              item.description
+                            }}</span>
+                          </template>
+                          <span>{{ item.description }}</span>
+                        </v-tooltip>
+                      </v-list-item-subtitle>
+
+                      <div>
+                        <span v-if="item.price" class="mt-1 text-body-2"
+                          >${{ item.price }}</span
+                        >
+
+                        <v-chip
+                          v-for="price in item.product_prices"
+                          :key="price.name"
+                          class="ma-1 text-center"
+                          outlined
+                          label
+                        >
+                          {{ price.name }}
+                          <br />
+                          ${{ price.price }}
                         </v-chip>
                       </div>
-                    </v-img>
-                  </v-list-item-avatar>
 
-                  <v-list-item-content>
-                    <v-list-item-title v-html="item.name"></v-list-item-title>
-
-                    <v-list-item-subtitle>
-                      <v-tooltip bottom close-delay="500">
-                        <template v-slot:activator="{ on, attrs }">
-                          <span v-bind="attrs" v-on="on">{{
-                            item.description
+                      <template v-for="hashtag in item.product_hashtags">
+                        <nuxt-link
+                          :key="hashtag.id"
+                          :to="`#${hashtag.to}`"
+                          @click.native="scrollTo(`#${hashtag.to}`)"
+                        >
+                          <span class="mt-1 text-body-2">{{
+                            hashtag.name
                           }}</span>
-                        </template>
-                        <span>{{ item.description }}</span>
-                      </v-tooltip>
-                    </v-list-item-subtitle>
-
-                    <div>
-                      <span v-if="item.price" class="mt-1 text-body-2"
-                        >${{ item.price }}</span
-                      >
-
-                      <v-chip
-                        v-for="price in item.product_prices"
-                        :key="price.name"
-                        class="ma-1 text-center"
-                        outlined
-                        label
-                      >
-                        {{ price.name }}
-                        <br />
-                        ${{ price.price }}
-                      </v-chip>
-                    </div>
-
-                    <template v-for="hashtag in item.product_hashtags">
-                      <nuxt-link
-                        :key="hashtag.id"
-                        :to="`#${hashtag.to}`"
-                        @click.native="scrollTo(`#${hashtag.to}`)"
-                      >
-                        <span class="mt-1 text-body-2">{{ hashtag.name }}</span>
-                      </nuxt-link>
-                    </template>
-                  </v-list-item-content>
-                </v-list-item>
-              </template>
-            </v-list>
+                        </nuxt-link>
+                      </template>
+                    </v-list-item-content>
+                  </v-list-item>
+                </template>
+              </v-list>
+            </v-container>
           </template>
         </div>
       </template>
@@ -160,6 +168,35 @@
 import { mapActions, mapState } from 'vuex'
 
 export default {
+  async asyncData({ $axios, store, params, payload }) {
+    //
+  },
+
+  async fetch() {
+    if (this.$store.state.commerce && this.$store.state.commerce.rubros) {
+        this.rubros = this.$store.state.commerce.rubros
+        this.withSlider = this.$store.state.commerce.with_slider ?? true
+        return;
+    }
+
+    await this.$store.dispatch('saveTitle', this.$route.params.commerce)
+
+    try {
+      const url = `${this.$nuxt.context.env.apiUrl}${this.$route.params.commerce}/all`
+
+      const res = await this.$axios.$get(url)
+
+      await this.$store.dispatch('saveData', res)
+
+      this.rubros = res.rubros
+      this.params = this.$route.params
+      this.withSlider = res.with_slider
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  },
+  fetchOnServer: false,
+
   data() {
     return {
       rubros: null,
@@ -175,11 +212,13 @@ export default {
       params: null,
     }
   },
+
   mounted() {
     if (this.$route.hash) {
       setTimeout(() => this.scrollTo(this.$route.hash), 500)
     }
   },
+
   methods: {
     scrollTo: function (hashtag) {
       const el = document.getElementById(this.$route.hash.slice(1))
@@ -187,41 +226,6 @@ export default {
         window.scrollTo(0, el.offsetTop)
       }
     },
-  },
-  async asyncData({ $axios, store, params, payload }) {
-    switch (params.commerce) {
-      case 'newharbor':
-        location.href = 'https://www.newharbor.onion.com.ar'
-        break
-      default:
-    }
-
-    if (store.state.rubros && store.state.data) {
-      return {
-        rubros: store.state.rubros,
-        withSlider: store.state.data.with_slider,
-      }
-    }
-
-    await store.dispatch('saveTitle', params.commerce)
-
-    try {
-      const url = `${process.env.apiUrl}${params.commerce}/all`
-
-      const res = await $axios.$get(url)
-
-      await store.dispatch('saveData', res)
-
-      await store.dispatch('saveRubros', res.rubros)
-
-      return {
-        rubros: res.rubros,
-        params: params,
-        withSlider: res.with_slider,
-      }
-    } catch (error) {
-      console.log('Error:', error)
-    }
   },
 }
 </script>

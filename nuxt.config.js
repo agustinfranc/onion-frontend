@@ -8,14 +8,14 @@ export default {
   },
   /*
    ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
+   ** See https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-ssr
    */
-  ssr: true, // Disable Server Side rendering
+  ssr: true, // default: true
   /*
    ** Nuxt target
-   ** See https://nuxtjs.org/api/configuration-target
+   ** See https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-target
    */
-  target: 'server',
+  target: 'server', // default: server
   /*
    ** Environment Variables
    ** See https://nuxtjs.org/api/configuration-env/
@@ -33,6 +33,7 @@ export default {
       const url = process.env.API_URL
         ? process.env.API_URL + 'commerces'
         : 'https://api.onion.ar/api/commerces'
+
       return axios.get(url).then((res) => {
         return res.data.map((commerce) => {
           return {
