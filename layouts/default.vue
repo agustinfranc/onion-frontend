@@ -1,13 +1,13 @@
 <template>
   <v-app>
-    <v-card v-if="data" class="overflow-hidden">
+    <v-card v-if="commerce" class="overflow-hidden">
       <v-app-bar
-        v-if="data.assets_dirname"
+        v-if="commerce.assets_dirname"
         app
         prominent
         shrink-on-scroll
         scroll-threshold="500"
-        :src="`${data.assets_dirname}background.jpg`"
+        :src="`${commerce.assets_dirname}background.jpg`"
       >
         <v-spacer></v-spacer>
 
@@ -31,8 +31,8 @@
               <v-tab
                 color="#fff"
                 class="white--text"
-                v-for="rubro in rubros"
-                :key="rubro.nombre"
+                v-for="rubro in commerce.rubros"
+                :key="rubro.name"
               >
                 <nuxt-link
                   :to="`#${rubro.link_name}`"
@@ -127,7 +127,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['data', 'rubros', 'title']),
+    ...mapState(['commerce', 'title']),
   },
 }
 </script>
