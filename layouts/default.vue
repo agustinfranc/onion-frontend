@@ -1,59 +1,85 @@
 <template>
   <v-app>
-    <v-card v-if="commerce" class="overflow-hidden">
-      <v-app-bar
-        v-if="commerce.assets_dirname"
-        app
-        prominent
-        shrink-on-scroll
-        scroll-threshold="500"
-        :src="`${commerce.assets_dirname}background.jpg`"
-      >
-        <v-spacer></v-spacer>
+    <template v-if="commerce && commerce.name">
+      <v-card class="overflow-hidden">
+        <v-app-bar
+          v-if="commerce.assets_dirname"
+          app
+          prominent
+          shrink-on-scroll
+          scroll-threshold="500"
+          :src="`${commerce.assets_dirname}background.jpg`"
+        >
+          <v-spacer></v-spacer>
 
-        <!-- // ! Desarrollar barra de busqueda -->
-        <!-- <v-btn icon>
+          <!-- // ! Desarrollar barra de busqueda -->
+          <!-- <v-btn icon>
           <v-icon>mdi-magnify</v-icon>
         </v-btn>-->
 
-        <template v-slot:img="{ props }">
-          <v-img
-            v-bind="props"
-            gradient="to top, rgba(30,30,30,.2), rgba(99,99,99,.0)"
-          ></v-img>
-        </template>
+          <template v-slot:img="{ props }">
+            <v-img
+              v-bind="props"
+              gradient="to top, rgba(30,30,30,.2), rgba(99,99,99,.0)"
+            ></v-img>
+          </template>
 
-        <template v-slot:extension>
-          <v-card>
-            <v-tabs dark show-arrows>
-              <v-tabs-slider></v-tabs-slider>
+          <template v-slot:extension>
+            <v-card>
+              <v-tabs dark show-arrows>
+                <v-tabs-slider></v-tabs-slider>
 
-              <v-tab
-                color="#fff"
-                class="white--text"
-                v-for="rubro in commerce.rubros"
-                :key="rubro.name"
-              >
-                <nuxt-link
-                  :to="`#${rubro.link_name}`"
-                  @click.native="scrollTo(`#${rubro.link_name}`)"
+                <v-tab
+                  color="#fff"
+                  class="white--text"
+                  v-for="rubro in commerce.rubros"
+                  :key="rubro.name"
                 >
-                  <span class="v-tab__personalized white--text">{{
-                    rubro.name
-                  }}</span>
-                </nuxt-link>
-              </v-tab>
-            </v-tabs>
-          </v-card>
-        </template>
-      </v-app-bar>
-    </v-card>
+                  <nuxt-link
+                    :to="`#${rubro.link_name}`"
+                    @click.native="scrollTo(`#${rubro.link_name}`)"
+                  >
+                    <span class="v-tab__personalized white--text">{{
+                      rubro.name
+                    }}</span>
+                  </nuxt-link>
+                </v-tab>
+              </v-tabs>
+            </v-card>
+          </template>
+        </v-app-bar>
+      </v-card>
+    </template>
+
+    <template v-else>
+      <v-card class="overflow-hidden">
+        <v-app-bar app prominent>
+          <v-spacer></v-spacer>
+
+          <template v-slot:img="{ props }">
+            <v-img
+              v-bind="props"
+              gradient="to top, rgba(30,30,30,.2), rgba(99,99,99,.0)"
+            ></v-img>
+          </template>
+
+          <template v-slot:extension>
+            <v-card>
+              <v-tabs dark show-arrows>
+                <v-tabs-slider></v-tabs-slider>
+              </v-tabs>
+            </v-card>
+          </template>
+        </v-app-bar>
+      </v-card>
+    </template>
 
     <v-main>
       <div>
         <nuxt />
       </div>
     </v-main>
+
     <v-footer app>
       <div class="d-flex justify-space-between">
         <div class="text-left">
