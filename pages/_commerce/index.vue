@@ -1,5 +1,26 @@
 <template>
   <div>
+    <template v-if="$fetchState.pending">
+      <!-- <template> -->
+
+      <v-container>
+        <v-row>
+          <v-col v-for="p in 2" :key="p" cols="6" md="4">
+            <v-sheet class="pa-3">
+              <v-skeleton-loader v-bind="attrs" type="card"></v-skeleton-loader>
+            </v-sheet>
+          </v-col>
+        </v-row>
+
+        <v-sheet v-for="p in 10" :key="p" class="pa-3">
+          <v-skeleton-loader
+            v-bind="attrs"
+            type="list-item-avatar-three-line"
+          ></v-skeleton-loader>
+        </v-sheet>
+      </v-container>
+    </template>
+
     <v-container v-if="rubros && withSlider" :id="rubros[0].link_name">
       <h3>{{ rubros[0].name }}</h3>
 
@@ -174,9 +195,9 @@ export default {
 
   async fetch() {
     if (this.$store.state.commerce && this.$store.state.commerce.rubros) {
-        this.rubros = this.$store.state.commerce.rubros
-        this.withSlider = this.$store.state.commerce.with_slider ?? true
-        return;
+      this.rubros = this.$store.state.commerce.rubros
+      this.withSlider = this.$store.state.commerce.with_slider ?? true
+      return
     }
 
     await this.$store.dispatch('saveTitle', this.$route.params.commerce)
@@ -210,6 +231,11 @@ export default {
         // any options from Flickity can be used
       },
       params: null,
+      attrs: {
+        class: 'mb-6',
+        boilerplate: true,
+        elevation: 2,
+      },
     }
   },
 
