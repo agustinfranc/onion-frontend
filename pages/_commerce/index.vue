@@ -80,7 +80,7 @@
     </v-container>
 
     <template v-for="(rubro, index) in rubros">
-      <template v-if="index > 0">
+      <template v-if="(withSlider && index > 0) || !withSlider">
         <div :key="rubro.name" :id="rubro.link_name">
           <v-container :key="rubro.name">
             <h3>{{ rubro.name }}</h3>
