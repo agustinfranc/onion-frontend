@@ -7,22 +7,35 @@
           app
           prominent
           shrink-on-scroll
+          fade-img-on-scroll
           scroll-threshold="500"
+          extension-height="48"
           :src="commerce.cover_dirname"
         >
-          <v-spacer></v-spacer>
-
-          <!-- // ! Desarrollar barra de busqueda -->
-          <!-- <v-btn icon>
-          <v-icon>mdi-magnify</v-icon>
-        </v-btn>-->
-
           <template v-slot:img="{ props }">
             <v-img
               v-bind="props"
               gradient="to top, rgba(30,30,30,.2), rgba(99,99,99,.0)"
             ></v-img>
           </template>
+
+          <!-- <v-app-bar-title class="v-app-bar-title__content"
+            >Title</v-app-bar-title
+          > -->
+
+          <div class="v-toolbar__title v-app-bar-title">
+            <div class="v-app-bar-title__content" style="visibility: hidden">
+              {{ commerce.fullname }}
+            </div>
+            <div
+              class="v-app-bar-title__placeholder"
+              style="visibility: hidden"
+            >
+              {{ commerce.fullname }}
+            </div>
+          </div>
+
+          <v-spacer></v-spacer>
 
           <template v-slot:extension>
             <v-card>
@@ -117,6 +130,8 @@ export default {
     return {
       clipped: false,
       drawer: false,
+      search: '',
+      showSearchField: false,
       items: [
         {
           icon: 'mdi-apps',
@@ -157,3 +172,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.v-app-bar--is-scrolled .v-app-bar-title__placeholder {
+  visibility: visible !important;
+}
+</style>

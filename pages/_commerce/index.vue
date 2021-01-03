@@ -21,6 +21,25 @@
       </v-container>
     </template>
 
+    <v-container v-if="rubros">
+      <h3>Categorias</h3>
+
+      <v-divider class="mt-4 mb-2"></v-divider>
+
+      <v-chip-group column>
+        <v-chip v-for="rubro in rubros" :key="rubro.name">
+          <nuxt-link
+            :to="`#${rubro.link_name}`"
+            @click.native="scrollTo(`#${rubro.link_name}`)"
+          >
+            <span class="v-tab__personalized white--text">{{
+              rubro.name
+            }}</span>
+          </nuxt-link>
+        </v-chip>
+      </v-chip-group>
+    </v-container>
+
     <v-container v-if="rubros && withSlider" :id="rubros[0].link_name">
       <h3>{{ rubros[0].name }}</h3>
 
@@ -152,7 +171,7 @@
                         <v-chip
                           v-for="price in item.product_prices"
                           :key="price.name"
-                          class="ma-1 text-center"
+                          class="v-chip-h--inherit ma-1 text-center"
                           outlined
                           label
                         >
@@ -257,7 +276,7 @@ export default {
 </script>
 
 <style>
-.v-chip.v-size--default {
+.v-chip.v-size--default.v-chip-h--inherit {
   height: inherit;
 }
 
