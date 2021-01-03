@@ -330,7 +330,7 @@
               <ul>
                 <li>Carta Digital con QR</li>
                 <li>Se muestran fotos, categorías, promociones</li>
-                <li>Mostrá tu marca y tu logo</li>
+                <li>Mostrá tu marca, tu logo y tus datos generales</li>
                 <li>Colores a tu elección</li>
                 <li>Autoadministrable</li>
                 <li>
@@ -361,7 +361,7 @@
                 <!-- <li>Usá tu propio dominio</li> -->
                 <li>Se muestran fotos, categorías, promociones</li>
                 <!-- <li>Colores a tu elección </li> -->
-                <li>Mostrá tu marca y tu logo</li>
+                <li>Mostrá tu marca, tu logo y tus datos generales</li>
                 <li>
                   Disponible para
                   <strong>pedidos del salón y/o delivery</strong>

@@ -3,12 +3,12 @@
     <template v-if="commerce && commerce.name">
       <v-card class="overflow-hidden">
         <v-app-bar
-          v-if="commerce.assets_dirname"
+          v-if="commerce.cover_dirname"
           app
           prominent
           shrink-on-scroll
           scroll-threshold="500"
-          :src="`${commerce.assets_dirname}background.jpg`"
+          :src="commerce.cover_dirname"
         >
           <v-spacer></v-spacer>
 
