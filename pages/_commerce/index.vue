@@ -285,4 +285,8 @@ export default {
 .disabled .v-image__image.v-image__image--cover {
   filter: grayscale(100%);
 }
+
+.v-slide-group__wrapper {
+  touch-action: pan-y !important;
+}
 </style>
