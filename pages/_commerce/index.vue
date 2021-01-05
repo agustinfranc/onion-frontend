@@ -27,7 +27,7 @@
       <v-divider class="mt-4 mb-2"></v-divider>
 
       <v-chip-group column>
-        <v-chip v-for="rubro in rubros" :key="rubro.name">
+        <v-chip v-for="rubro in rubrosFiltered" :key="rubro.name">
           <nuxt-link
             :to="`#${rubro.link_name}`"
             @click.native="scrollTo(`#${rubro.link_name}`)"
@@ -40,20 +40,19 @@
       </v-chip-group>
     </v-container>
 
-    <v-container v-if="rubros && withSlider" :id="rubros[0].link_name">
-      <h3>{{ rubros[0].name }}</h3>
+    <template v-for="(rubro, index) in rubrosFiltered">
+      <template v-if="withSlider && index == 0 && rubro.name == 'Promociones'">
+        <v-container :key="rubro.name" :id="rubro.link_name">
+          <h3>{{ rubro.name }}</h3>
 
-      <v-divider class="my-5"></v-divider>
+          <v-divider class="my-5"></v-divider>
 
-      <div id="carousel">
-        <client-only>
-          <flickity ref="flickity" :options="flickityOptions">
-            <div
-              class="carousel-cell"
-              v-for="item in rubros[0].subrubros[0].products"
+          <v-slide-group>
+            <v-slide-item
+              v-for="item in rubro.subrubros[0].products"
               :key="`${item.id}-carousel`"
             >
-              <v-card class="mx-auto" min-height="370" max-width="400">
+              <v-card class="ma-2" min-height="370" width="224" max-width="400">
                 <v-img
                   v-if="item.avatar_dirname"
                   class="white--text align-end"
@@ -71,9 +70,17 @@
                   </div>
                 </v-img>
 
-                <v-card-title class="text-truncate">{{
-                  item.name
-                }}</v-card-title>
+                <v-card-title
+                  class="text-truncate d-inline-block"
+                  style="width: 100%"
+                >
+                  <v-tooltip bottom>
+                    <template v-slot:activator="{ on, attrs }">
+                      <span v-bind="attrs" v-on="on">{{ item.name }}</span>
+                    </template>
+                    <span>{{ item.name }}</span>
+                  </v-tooltip>
+                </v-card-title>
 
                 <v-card-subtitle
                   class="pb-0 text-truncate__multiple-lines text-truncate__three-lines"
@@ -92,13 +99,11 @@
                   <p class="mt-1">${{ item.price }}</p>
                 </v-card-text>
               </v-card>
-            </div>
-          </flickity>
-        </client-only>
-      </div>
-    </v-container>
+            </v-slide-item>
+          </v-slide-group>
+        </v-container>
+      </template>
 
-    <template v-for="(rubro, index) in rubros">
       <template v-if="(withSlider && index > 0) || !withSlider">
         <div :key="rubro.name" :id="rubro.link_name">
           <v-container :key="rubro.name">
@@ -109,7 +114,7 @@
 
           <template v-for="(subrubro, index) in rubro.subrubros">
             <v-container
-              v-if="!subrubro.is_general"
+              v-if="!subrubro.is_general && subrubro.products.length > 0"
               :id="subrubro.link_name"
               :key="subrubro.name"
             >
@@ -205,7 +210,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapGetters } from 'vuex'
 
 export default {
   async asyncData({ $axios, store, params, payload }) {
@@ -241,14 +246,6 @@ export default {
     return {
       rubros: null,
       withSlider: true,
-      flickityOptions: {
-        prevNextButtons: false,
-        pageDots: false,
-        cellAlign: 'left',
-        contain: true,
-        autoPlay: true,
-        // any options from Flickity can be used
-      },
       params: null,
       attrs: {
         class: 'mb-6',
@@ -262,6 +259,11 @@ export default {
     if (this.$route.hash) {
       setTimeout(() => this.scrollTo(this.$route.hash), 500)
     }
+  },
+
+  computed: {
+    ...mapState(['search']),
+    ...mapGetters(['rubrosFiltered']),
   },
 
   methods: {

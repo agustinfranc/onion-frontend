@@ -37,6 +37,19 @@
 
           <v-spacer></v-spacer>
 
+          <v-btn icon v-if="!searchField" @mouseover="searchField = true">
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
+
+          <v-text-field
+            v-if="searchField"
+            @mouseleave="hideSeachField"
+            v-model="search"
+            label="Buscar"
+            solo
+            clearable
+          ></v-text-field>
+
           <template v-slot:extension>
             <v-card>
               <v-tabs dark show-arrows>
@@ -45,7 +58,7 @@
                 <v-tab
                   color="#fff"
                   class="white--text"
-                  v-for="rubro in commerce.rubros"
+                  v-for="rubro in rubrosFiltered"
                   :key="rubro.name"
                 >
                   <nuxt-link
@@ -123,15 +136,14 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   data() {
     return {
       clipped: false,
       drawer: false,
-      search: '',
-      showSearchField: false,
+      searchField: false,
       items: [
         {
           icon: 'mdi-apps',
@@ -161,6 +173,9 @@ export default {
         window.scrollTo(0, el.offsetTop)
       }
     },
+    hideSeachField() {
+      if (!this.search) this.searchField = false
+    },
   },
   head() {
     return {
@@ -169,6 +184,15 @@ export default {
   },
   computed: {
     ...mapState(['commerce', 'title']),
+    ...mapGetters(['rubrosFiltered']),
+    search: {
+      get() {
+        return this.$store.state.search
+      },
+      set(value) {
+        this.$store.dispatch('setSearch', value)
+      },
+    },
   },
 }
 </script>
