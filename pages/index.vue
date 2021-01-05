@@ -492,6 +492,7 @@
                   <h3>Email</h3>
                   <a
                     href="mailto:contacto@onion.com.ar"
+                    target="_blank"
                     class="genric-btn info-border radius d-block d-md-inline-block"
                     style="margin-top: 10px; padding: 0 4px"
                     >contacto@onion.com.ar</a
@@ -510,6 +511,7 @@
                   <h3>Teléfono</h3>
                   <a
                     href="https://wa.me/5491154876345"
+                    target="_blank"
                     class="genric-btn info-border radius d-block d-md-inline-block"
                     style="margin-top: 10px"
                     >011 54876345</a
@@ -522,6 +524,19 @@
       </div>
     </div>
     <!--/ contact_area  -->
+
+    <v-btn
+      elevation="2"
+      color="#25d366"
+      fab
+      fixed
+      bottom
+      right
+      href="https://wa.me/5491154876345"
+      target="_blank"
+    >
+      <v-icon color="#fff">mdi-whatsapp</v-icon>
+    </v-btn>
 
     <!-- footer start -->
     <footer class="footer">
@@ -567,6 +582,9 @@
                   <li>
                     <a href="#contact_area">Contacto</a>
                   </li>
+                  <li>
+                    <a href="#partners_area">Clientes</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -578,7 +596,7 @@
                     <v-icon dark color="white" class="mx-1" size="24px"
                       >mdi-email</v-icon
                     >
-                    <a href="mailto:contacto@onion.com.ar"
+                    <a href="mailto:contacto@onion.com.ar" target="_blank"
                       >contacto@onion.com.ar</a
                     >
                   </li>
@@ -586,7 +604,9 @@
                     <v-icon dark color="white" class="mx-1" size="24px"
                       >mdi-whatsapp</v-icon
                     >
-                    <a href="https://wa.me/5491154876345">+54 911 54876345</a>
+                    <a href="https://wa.me/5491154876345" target="_blank"
+                      >+54 911 54876345</a
+                    >
                   </li>
                   <li>
                     <v-icon dark color="white" class="mx-1" size="24px"
@@ -602,7 +622,11 @@
                     <v-icon dark color="white" class="mx-1" size="24px"
                       >mdi-linkedin</v-icon
                     >
-                    <a href="#">Nicolas Briamonte</a>
+                    <a
+                      href="https://www.linkedin.com/in/nicol%C3%A1s-briamonte-2765401aa/?originalSubdomain=ar"
+                      target="_blank"
+                      >Nicolas Briamonte</a
+                    >
                   </li>
                 </ul>
               </div>

@@ -12,10 +12,16 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
 
+    display: none;
+
     .v-card {
       width: 100%;
     }
   }
+}
+
+.v-app-bar--is-scrolled .v-toolbar__extension {
+  display: flex;
 }
 
 .v-tabs {
