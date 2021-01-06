@@ -52,71 +52,8 @@
       </v-chip-group>
     </v-container>
 
-    <template v-for="(rubro, index) in rubrosFiltered">
-      <template v-if="withSlider && index == 0 && rubro.name == 'Promociones'">
-        <v-container :key="rubro.name" :id="rubro.link_name">
-          <h3>{{ rubro.name }}</h3>
-
-          <v-divider class="my-5"></v-divider>
-
-          <v-slide-group>
-            <v-slide-item
-              v-for="item in rubro.subrubros[0].products"
-              :key="`${item.id}-carousel`"
-            >
-              <v-card class="ma-2" min-height="370" width="224" max-width="400">
-                <v-img
-                  v-if="item.avatar_dirname"
-                  class="white--text align-end"
-                  :class="item.disabled ? 'disabled' : ''"
-                  height="200px"
-                  :src="`${item.avatar_dirname}${item.avatar}`"
-                >
-                  <div
-                    v-if="item.disabled"
-                    class="fill-height d-flex flex-column justify-center"
-                  >
-                    <v-chip small class="ma-2" color="red" text-color="white">
-                      No disponible
-                    </v-chip>
-                  </div>
-                </v-img>
-
-                <v-card-title
-                  class="text-truncate d-inline-block"
-                  style="width: 100%"
-                >
-                  <v-tooltip bottom>
-                    <template v-slot:activator="{ on, attrs }">
-                      <span v-bind="attrs" v-on="on">{{ item.name }}</span>
-                    </template>
-                    <span>{{ item.name }}</span>
-                  </v-tooltip>
-                </v-card-title>
-
-                <v-card-subtitle
-                  class="pb-0 text-truncate__multiple-lines text-truncate__three-lines"
-                >
-                  <v-tooltip bottom>
-                    <template v-slot:activator="{ on, attrs }">
-                      <span v-bind="attrs" v-on="on">{{
-                        item.description
-                      }}</span>
-                    </template>
-                    <span>{{ item.description }}</span>
-                  </v-tooltip>
-                </v-card-subtitle>
-
-                <v-card-text class="text--primary">
-                  <p class="mt-1">${{ item.price }}</p>
-                </v-card-text>
-              </v-card>
-            </v-slide-item>
-          </v-slide-group>
-        </v-container>
-      </template>
-
-      <template v-if="(withSlider && index > 0) || !withSlider">
+    <template v-for="rubro in rubrosFiltered">
+      <template>
         <div :key="rubro.name" :id="rubro.link_name">
           <v-container :key="rubro.name">
             <h3>{{ rubro.name }}</h3>
@@ -133,7 +70,11 @@
               <span>{{ subrubro.name }}</span>
             </v-container>
 
-            <v-container :key="index">
+            <!-- Lists -->
+            <v-container
+              :key="index"
+              v-if="!subrubro.commerces[0].pivot.slideable"
+            >
               <v-list three-line :key="index">
                 <template v-for="(item, index) in subrubro.products">
                   <v-divider
@@ -213,6 +154,77 @@
                   </v-list-item>
                 </template>
               </v-list>
+            </v-container>
+
+            <!-- Slides -->
+            <v-container
+              :key="index"
+              v-if="subrubro.commerces[0].pivot.slideable"
+            >
+              <v-slide-group>
+                <v-slide-item
+                  v-for="item in subrubro.products"
+                  :key="`${item.id}-carousel`"
+                >
+                  <v-card
+                    class="ma-2"
+                    min-height="370"
+                    width="224"
+                    max-width="400"
+                  >
+                    <v-img
+                      v-if="item.avatar_dirname"
+                      class="white--text align-end"
+                      :class="item.disabled ? 'disabled' : ''"
+                      height="200px"
+                      :src="`${item.avatar_dirname}${item.avatar}`"
+                    >
+                      <div
+                        v-if="item.disabled"
+                        class="fill-height d-flex flex-column justify-center"
+                      >
+                        <v-chip
+                          small
+                          class="ma-2"
+                          color="red"
+                          text-color="white"
+                        >
+                          No disponible
+                        </v-chip>
+                      </div>
+                    </v-img>
+
+                    <v-card-title
+                      class="text-truncate d-inline-block"
+                      style="width: 100%"
+                    >
+                      <v-tooltip bottom>
+                        <template v-slot:activator="{ on, attrs }">
+                          <span v-bind="attrs" v-on="on">{{ item.name }}</span>
+                        </template>
+                        <span>{{ item.name }}</span>
+                      </v-tooltip>
+                    </v-card-title>
+
+                    <v-card-subtitle
+                      class="pb-0 text-truncate__multiple-lines text-truncate__three-lines"
+                    >
+                      <v-tooltip bottom>
+                        <template v-slot:activator="{ on, attrs }">
+                          <span v-bind="attrs" v-on="on">{{
+                            item.description
+                          }}</span>
+                        </template>
+                        <span>{{ item.description }}</span>
+                      </v-tooltip>
+                    </v-card-subtitle>
+
+                    <v-card-text class="text--primary">
+                      <p class="mt-1">${{ item.price }}</p>
+                    </v-card-text>
+                  </v-card>
+                </v-slide-item>
+              </v-slide-group>
             </v-container>
           </template>
         </div>
