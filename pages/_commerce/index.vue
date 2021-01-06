@@ -63,7 +63,7 @@
 
           <template v-for="(subrubro, index) in rubro.subrubros">
             <v-container
-              v-if="!subrubro.is_general && subrubro.products.length > 0"
+              v-if="!subrubro.is_general"
               :id="subrubro.link_name"
               :key="subrubro.name"
             >
