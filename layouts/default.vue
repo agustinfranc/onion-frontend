@@ -37,13 +37,19 @@
 
           <v-spacer></v-spacer>
 
-          <v-btn icon v-if="!searchField" @mouseover="searchField = true">
+          <v-btn
+            icon
+            v-if="!searchField"
+            @mouseover="showSeachField"
+            @mouseout="hideSeachField"
+          >
             <v-icon>mdi-magnify</v-icon>
           </v-btn>
 
           <v-text-field
-            v-if="searchField"
-            @mouseleave="hideSeachField"
+            :style="{ display: displaySearch }"
+            ref="search"
+            @focusout="hideSeachField"
             v-model="search"
             label="Buscar"
             solo
@@ -144,6 +150,7 @@ export default {
       clipped: false,
       drawer: false,
       searchField: false,
+      displaySearch: 'none',
       items: [
         {
           icon: 'mdi-apps',
@@ -174,7 +181,18 @@ export default {
       }
     },
     hideSeachField() {
-      if (!this.search) this.searchField = false
+      if (!this.search) {
+        this.searchField = false
+        this.displaySearch = 'none'
+      }
+    },
+    showSeachField() {
+      this.searchField = true
+      this.displaySearch = 'block'
+
+      setTimeout(() => {
+        this.$refs.search.focus();
+      })
     },
   },
   head() {
