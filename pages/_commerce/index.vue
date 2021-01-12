@@ -314,6 +314,16 @@ export default {
   touch-action: pan-y !important;
 }
 
+.v-slide-group__content,
+.v-slide-group__wrapper {
+  overflow-x: auto !important;
+}
+
+.v-slide-group__content::-webkit-scrollbar,
+.v-slide-group__wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 .v-skeleton-loader__chip {
   display: inline-block;
   margin-right: 4px !important;
