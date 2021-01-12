@@ -63,7 +63,7 @@
 
           <template v-for="(subrubro, index) in rubro.subrubros">
             <v-container
-              v-if="!subrubro.is_general && subrubro.products.length > 0"
+              v-if="!subrubro.is_general"
               :id="subrubro.link_name"
               :key="subrubro.name"
             >
@@ -312,6 +312,16 @@ export default {
 
 .v-slide-group__wrapper {
   touch-action: pan-y !important;
+}
+
+.v-slide-group__content,
+.v-slide-group__wrapper {
+  overflow-x: auto !important;
+}
+
+.v-slide-group__content::-webkit-scrollbar,
+.v-slide-group__wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .v-skeleton-loader__chip {
