@@ -100,7 +100,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/localStorage.js', ssr: false },
-    { src: '~/plugins/flickity', ssr: false, mode: 'client' },
+    // { src: '~/plugins/flickity', ssr: false, mode: 'client' },   //? in desuse
   ],
   /*
    ** Auto import components
@@ -115,11 +115,11 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    '@nuxtjs/axios', // Doc: https://axios.nuxtjs.org/usage
     // '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     '@nuxtjs/gtm',
+    'nuxt-i18n', // https://i18n.nuxtjs.org/es/
   ],
   /*
    ** Axios module configuration
