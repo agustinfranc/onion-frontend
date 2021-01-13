@@ -100,7 +100,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/localStorage.js', ssr: false },
-    { src: '~/plugins/flickity', ssr: false, mode: 'client' },
+    // { src: '~/plugins/flickity', ssr: false, mode: 'client' },   //? in desuse
   ],
   /*
    ** Auto import components
@@ -115,12 +115,76 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
+    '@nuxtjs/axios', // Doc: https://axios.nuxtjs.org/usage
     // '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     '@nuxtjs/gtm',
+    'nuxt-i18n', // https://i18n.nuxtjs.org/es/
   ],
+
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        iso: 'en-US',
+      },
+      {
+        code: 'es',
+        name: 'Español',
+        iso: 'es-ES',
+      },
+    ],
+    defaultLocale: 'es',
+    vueI18n: {
+      fallbackLocale: 'es',
+      messages: {
+        en: {
+          welcome: 'Welcome',
+          settings: 'Settings',
+          details: 'Details',
+          search: 'Search',
+          error: 'Something went wrong',
+          categories: 'Categories',
+          subcategories: 'Subcategories',
+
+          product: {
+            title: 'Product',
+            code: 'Code',
+            name: 'Name',
+            category: 'Category',
+            subcategory: 'Subcategory',
+            price: 'Price',
+            visible: 'Visible',
+            disabled: 'Disabled',
+            description: 'Description',
+          },
+        },
+        es: {
+          welcome: 'Bienvenido',
+          settings: 'Ajustes',
+          details: 'Detalles',
+          search: 'Buscar',
+          error: 'Ocurrió un error',
+          categories: 'Categorias',
+          subcategories: 'Subcategorias',
+
+          product: {
+            title: 'Producto',
+            code: 'Código',
+            name: 'Nombre',
+            category: 'Categoria',
+            subcategory: 'Subcategoria',
+            price: 'Precio',
+            visible: 'Visible',
+            disabled: 'No disponible',
+            description: 'Descripción',
+          },
+        },
+      },
+    },
+  },
+
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
