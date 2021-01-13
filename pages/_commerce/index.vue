@@ -34,7 +34,7 @@
     </template>
 
     <v-container v-if="rubros">
-      <h3>Categorias</h3>
+      <h3>{{ $t('categories') }}</h3>
 
       <v-divider class="mt-4 mb-2"></v-divider>
 
@@ -101,7 +101,7 @@
                             color="red"
                             text-color="white"
                           >
-                            No disponible
+                            {{ $t('product.disabled') }}
                           </v-chip>
                         </div>
                       </v-img>
@@ -189,7 +189,7 @@
                           color="red"
                           text-color="white"
                         >
-                          No disponible
+                          {{ $t('product.disabled') }}
                         </v-chip>
                       </div>
                     </v-img>
