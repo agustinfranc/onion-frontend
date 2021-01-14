@@ -123,7 +123,7 @@
 
                       <div>
                         <span v-if="item.price" class="mt-1 text-body-2"
-                          >${{ item.price }}</span
+                          >{{ commerce.currency ? commerce.currency.currency_symbol : '' }}{{ item.price }}</span
                         >
 
                         <v-chip
@@ -220,7 +220,7 @@
                     </v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                      <p class="mt-1">${{ item.price }}</p>
+                      <p class="mt-1">{{ commerce.currency ? commerce.currency.currency_symbol : '' }}{{ item.price }}</p>
                     </v-card-text>
                   </v-card>
                 </v-slide-item>
@@ -286,7 +286,7 @@ export default {
   },
 
   computed: {
-    ...mapState(['search']),
+    ...mapState(['search', 'commerce']),
     ...mapGetters(['rubrosFiltered']),
   },
 
