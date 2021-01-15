@@ -90,6 +90,7 @@
                       <v-img
                         :src="`${item.avatar_dirname}${item.avatar}`"
                         :class="item.disabled ? 'disabled' : ''"
+                        @click="showImageDialog(item)"
                       >
                         <div
                           v-if="item.disabled"
@@ -123,7 +124,11 @@
 
                       <div>
                         <span v-if="item.price" class="mt-1 text-body-2"
-                          >${{ item.price }}</span
+                          >{{
+                            commerce.currency
+                              ? commerce.currency.currency_symbol
+                              : ''
+                          }}{{ item.price }}</span
                         >
 
                         <v-chip
@@ -178,6 +183,7 @@
                       :class="item.disabled ? 'disabled' : ''"
                       height="200px"
                       :src="`${item.avatar_dirname}${item.avatar}`"
+                      @click="showImageDialog(item)"
                     >
                       <div
                         v-if="item.disabled"
@@ -220,7 +226,13 @@
                     </v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                      <p class="mt-1">${{ item.price }}</p>
+                      <p class="mt-1">
+                        {{
+                          commerce.currency
+                            ? commerce.currency.currency_symbol
+                            : ''
+                        }}{{ item.price }}
+                      </p>
                     </v-card-text>
                   </v-card>
                 </v-slide-item>
@@ -230,6 +242,22 @@
         </div>
       </template>
     </template>
+
+    <v-dialog v-model="dialog.show">
+      <v-img
+        v-if="dialog.show"
+        :lazy-src="dialog.imgLazySrc"
+        :src="dialog.imgSrc"
+        ref="dialogImg"
+        ><template v-slot:placeholder>
+          <v-row class="fill-height ma-0" align="center" justify="center">
+            <v-progress-circular
+              indeterminate
+              color="grey lighten-5"
+            ></v-progress-circular>
+          </v-row> </template
+      ></v-img>
+    </v-dialog>
   </div>
 </template>
 
@@ -271,6 +299,11 @@ export default {
       rubros: null,
       withSlider: true,
       params: null,
+      dialog: {
+        show: false,
+        imgSrc: '',
+        imgLazySrc: 'https://picsum.photos/id/11/10/6',
+      },
       attrs: {
         class: 'mb-6',
         boilerplate: true,
@@ -286,7 +319,7 @@ export default {
   },
 
   computed: {
-    ...mapState(['search']),
+    ...mapState(['search', 'commerce']),
     ...mapGetters(['rubrosFiltered']),
   },
 
@@ -296,6 +329,14 @@ export default {
       if (el) {
         window.scrollTo(0, el.offsetTop)
       }
+    },
+
+    showImageDialog(item) {
+      if (!item.avatar_dirname) return
+
+      this.dialog.imgSrc = item.avatar_dirname + item.avatar
+
+      this.dialog.show = true
     },
   },
 }
