@@ -123,7 +123,9 @@
                       </v-list-item-subtitle>
 
                       <div>
-                        <span v-if="item.price" class="mt-1 text-body-2"
+                        <span
+                          v-if="item.price && !item.product_prices.length"
+                          class="mt-1 text-body-2"
                           >{{
                             commerce.currency
                               ? commerce.currency.currency_symbol
@@ -139,8 +141,12 @@
                           label
                         >
                           {{ price.name }}
-                          <br />
-                          ${{ price.price }}
+                          <br v-if="price.name" />
+                          {{
+                            commerce.currency
+                              ? commerce.currency.currency_symbol
+                              : ''
+                          }}{{ price.price }}
                         </v-chip>
                       </div>
 
