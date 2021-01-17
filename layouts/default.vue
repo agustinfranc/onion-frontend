@@ -38,7 +38,8 @@
           <v-spacer></v-spacer>
 
           <v-btn
-            icon
+            fab
+            small
             v-if="!searchField"
             @mouseover="showSeachField"
             @mouseout="hideSeachField"
