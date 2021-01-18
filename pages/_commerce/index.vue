@@ -376,4 +376,8 @@ export default {
   margin-right: 4px !important;
   margin-left: 4px !important;
 }
+
+.v-dialog:not(.v-dialog--fullscreen) {
+  max-height: 75%;
+}
 </style>
