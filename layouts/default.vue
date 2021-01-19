@@ -113,7 +113,7 @@
       </div>
     </v-main>
 
-    <v-footer app>
+    <v-footer v-if="commerce.with_footer" app>
       <div class="d-flex justify-space-between">
         <div class="text-left">
           <span>&copy; {{ new Date().getFullYear() }}</span>
