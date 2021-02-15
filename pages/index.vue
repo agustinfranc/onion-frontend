@@ -443,10 +443,6 @@
                       <v-card-subtitle class="pb-0 text-left">
                         <a :href="item.url" target="_blank">{{ item.url }}</a>
                       </v-card-subtitle>
-
-                      <!-- <v-card-text class="text--primary">
-                        <p class="mt-1">${{ item.name }}</p>
-                      </v-card-text> -->
                     </v-card>
                   </div>
                 </flickity>
@@ -701,15 +697,33 @@ export default {
         },
         {
           id: 10,
-          name: 'New Harbor',
-          avatar: 'new-harbor.png',
-          url: '',
+          name: 'Flambo',
+          avatar: 'flambo.png',
+          url: 'https://onion.ar/flambo',
         },
         {
           id: 11,
-          name: 'Flambo',
-          avatar: 'flambo.png',
-          url: 'https://flambopedidos.com.ar',
+          name: 'Taboo',
+          avatar: 'taboo.jpg',
+          url: 'https://onion.ar/en/taboo',
+        },
+        {
+          id: 12,
+          name: 'The Little Bbar',
+          avatar: 'thelittlebar.jpg',
+          url: 'https://onion.ar/thelittlebar',
+        },
+        {
+          id: 13,
+          name: 'Wine Not',
+          avatar: 'winenot.jpg',
+          url: 'https://onion.ar/winenot',
+        },
+        {
+          id: 14,
+          name: 'The Address',
+          avatar: 'theaddress.jpg',
+          url: 'https://onion.ar/en/theaddress',
         },
       ],
       flickityOptions: {
