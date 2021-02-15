@@ -39,7 +39,11 @@
       <v-divider class="mt-4 mb-2"></v-divider>
 
       <v-chip-group column>
-        <v-chip v-for="rubro in rubrosFiltered" :key="rubro.name">
+        <v-chip
+          v-for="rubro in rubrosFiltered"
+          :key="rubro.name"
+          :color="rubro.pivot.highlighted ? 'orange' : ''"
+        >
           <nuxt-link
             :to="`#${rubro.link_name}`"
             @click.native="scrollTo(`#${rubro.link_name}`)"
