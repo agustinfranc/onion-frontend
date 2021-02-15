@@ -100,7 +100,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/localStorage.js', ssr: false },
-    // { src: '~/plugins/flickity', ssr: false, mode: 'client' },   //? in desuse
+    { src: '~/plugins/flickity', ssr: false, mode: 'client' },   //? used in landind
   ],
   /*
    ** Auto import components
