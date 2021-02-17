@@ -49,36 +49,41 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    titleTemplate: 'Onion',
     title: 'Onion',
+    titleTemplate: 'Onion',
+    htmlAttrs: {
+      lang: 'es',
+      amp: true,
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'robots', content: 'index,follow' },
       { name: 'author', content: 'Onion' },
       { name: 'language', content: 'es' },
-      { property: 'og:title', content: 'Onion' },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:host', content: 'https://onion.ar' },
-      { property: 'og:url', content: 'https://onion.ar' },
-      {
-        property: 'og:description',
-        content:
-          'Vendé Más Con Tu Tienda Online. Desde tu carta digital hasta tu App a medida',
-      },
-      { property: 'og:image', content: '/img/logo_blue.png' },
       {
         hid: 'description',
         name: 'description',
         content:
           'Vendé Más Con Tu Tienda Online. Desde tu carta digital hasta tu App a medida',
       },
+      { hid: 'og:title', property: 'og:title', content: 'Onion' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:host', property: 'og:host', content: 'https://onion.ar' },
+      { hid: 'og:url', property: 'og:url', content: 'https://onion.ar' },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content:
+          'Vendé Más Con Tu Tienda Online. Desde tu carta digital hasta tu App a medida',
+      },
+      { hid: 'og:image', property: 'og:image', content: '/img/logo_blue.png' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/icon_min.png' },
       { rel: 'shortcut icon', href: '/icon_min.png' },
       { rel: 'apple-touch-icon', href: '/icon_min.png' },
-      { rel: 'canonical', href: 'https://onion.ar' },
+      { hid: 'canonical', rel: 'canonical', href: 'https://onion.ar' },
     ],
     script: [
       // {
@@ -100,7 +105,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/localStorage.js', ssr: false },
-    { src: '~/plugins/flickity', ssr: false, mode: 'client' },   //? used in landind
+    { src: '~/plugins/flickity', ssr: false, mode: 'client' }, //? used in landind
   ],
   /*
    ** Auto import components
