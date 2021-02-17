@@ -272,11 +272,68 @@
 </template>
 
 <script>
-import { mapActions, mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
-  async asyncData({ $axios, store, params, payload }) {
-    //
+  head() {
+    return {
+      title: `${this.commerceData.fullname} | Onion`,
+      titleTemplate: `${this.commerceData.fullname} | Onion`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `${this.commerceData.fullname} | Accedé a nuestro Menú Digital! | Desarrollado por el equipo de Onion`,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `${this.commerceData.fullname} | Onion`,
+        },
+        {
+          hid: 'og:host',
+          property: 'og:host',
+          content: `https://onion.ar/${this.commerceData.name}`,
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `https://onion.ar/${this.commerceData.name}`,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.commerceData.cover_dirname,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: `${this.commerceData.fullname} | Accedé a nuestro Menú Digital! | Desarrollado por el equipo de Onion`,
+        },
+      ],
+      link: [
+        {
+          hid: 'canonical',
+          rel: 'canonical',
+          href: `https://onion.ar/${this.commerceData.name}`,
+        },
+      ],
+    }
+  },
+
+  async asyncData({ $axios, store, params, payload, env }) {
+    try {
+      const url = `${env.apiUrl}${params.commerce}?simplified=true`
+
+      const commerceData = await $axios.$get(url)
+
+      return {
+        commerceData,
+        params: params,
+      }
+    } catch (error) {
+      console.error('Error:', error)
+    }
   },
 
   async fetch() {
@@ -296,7 +353,7 @@ export default {
       await this.$store.dispatch('saveData', res)
 
       this.rubros = res.rubros
-      this.params = this.$route.params
+      // this.params = this.$route.params   // replaced into asyncData
       this.withSlider = res.with_slider
     } catch (error) {
       console.error('Error:', error)
