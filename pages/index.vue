@@ -325,7 +325,7 @@
               <div class="prising_header">
                 <h3>Inicial</h3>
                 <!-- Starter -->
-                <span>$1000</span>
+                <span>$1200</span>
               </div>
               <ul>
                 <li>Carta Digital con QR</li>
