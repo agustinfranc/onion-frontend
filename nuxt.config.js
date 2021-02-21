@@ -53,7 +53,7 @@ export default {
     titleTemplate: 'Onion',
     htmlAttrs: {
       lang: 'es',
-      amp: true,
+      amp: false,
     },
     meta: [
       { charset: 'utf-8' },

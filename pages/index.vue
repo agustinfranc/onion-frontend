@@ -325,7 +325,7 @@
               <div class="prising_header">
                 <h3>Inicial</h3>
                 <!-- Starter -->
-                <span>$1000</span>
+                <span>$1200</span>
               </div>
               <ul>
                 <li>Carta Digital con QR</li>
@@ -648,16 +648,22 @@ export default {
           url: 'https://onion.ar/marlon',
         },
         {
+          id: 12,
+          name: 'The Little Bbar',
+          avatar: 'thelittlebar.jpg',
+          url: 'https://onion.ar/thelittlebar',
+        },
+        {
+          id: 11,
+          name: 'Taboo',
+          avatar: 'taboo.jpg',
+          url: 'https://onion.ar/en/taboo',
+        },
+        {
           id: 2,
           name: 'Desembarco',
           avatar: 'desembarco.jpg',
           url: 'https://onion.ar/desembarco',
-        },
-        {
-          id: 7,
-          name: 'Dakota',
-          avatar: 'dakota.jpg',
-          url: 'https://onion.ar/dakota',
         },
         {
           id: 3,
@@ -702,18 +708,6 @@ export default {
           url: 'https://onion.ar/flambo',
         },
         {
-          id: 11,
-          name: 'Taboo',
-          avatar: 'taboo.jpg',
-          url: 'https://onion.ar/en/taboo',
-        },
-        {
-          id: 12,
-          name: 'The Little Bbar',
-          avatar: 'thelittlebar.jpg',
-          url: 'https://onion.ar/thelittlebar',
-        },
-        {
           id: 13,
           name: 'Wine Not',
           avatar: 'winenot.jpg',
@@ -724,6 +718,12 @@ export default {
           name: 'The Address',
           avatar: 'theaddress.jpg',
           url: 'https://onion.ar/en/theaddress',
+        },
+        {
+          id: 7,
+          name: 'Dakota',
+          avatar: 'dakota.jpg',
+          url: 'https://onion.ar/dakota',
         },
       ],
       flickityOptions: {
