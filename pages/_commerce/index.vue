@@ -253,6 +253,48 @@
       </template>
     </template>
 
+    <v-speed-dial
+      v-if="
+        commerce.has_action_buttons &&
+        (commerce.whatsapp_number || commerce.instagram_account)
+      "
+      v-model="fab"
+      fixed
+      bottom
+      right
+      :open-on-hover="true"
+      transition="slide-y-reverse-transition"
+    >
+      <template v-slot:activator>
+        <v-btn v-model="fab" color="blue darken-2" dark fab>
+          <v-icon v-if="fab"> mdi-close </v-icon>
+          <v-icon v-else> mdi-account-voice </v-icon>
+        </v-btn>
+      </template>
+      <v-btn
+        v-if="commerce.whatsapp_number"
+        fab
+        dark
+        small
+        color="green"
+        :href="`https://wa.me/${commerce.whatsapp_number}`"
+        target="_blank"
+      >
+        <v-icon>mdi-whatsapp</v-icon>
+      </v-btn>
+      <v-btn
+        v-if="commerce.instagram_account"
+        fab
+        dark
+        small
+        color="purple"
+        :href="`https://www.instagram.com/${commerce.instagram_account}`"
+        target="_blank"
+      >
+        <v-icon>mdi-instagram</v-icon>
+      </v-btn>
+    </v-speed-dial>
+
     <v-dialog v-model="dialog.show">
       <v-img
         v-if="dialog.show"
@@ -366,6 +408,7 @@ export default {
       rubros: null,
       withSlider: true,
       params: null,
+      fab: false,
       dialog: {
         show: false,
         imgSrc: '',
@@ -440,5 +483,9 @@ export default {
 
 .v-dialog:not(.v-dialog--fullscreen) {
   max-height: 75%;
+}
+
+.v-speed-dial--bottom {
+  bottom: 32px;
 }
 </style>
