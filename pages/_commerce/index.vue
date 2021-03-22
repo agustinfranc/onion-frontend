@@ -39,7 +39,7 @@
       <v-divider class="mt-4"></v-divider>
     </v-container>
 
-    <div style="position: sticky; top: 0; background: #121212; z-index: 1">
+    <div class="theme--parent" style="position: sticky; top: 0; z-index: 1">
       <div class="container py-1">
         <v-chip-group column>
           <v-chip
@@ -461,6 +461,18 @@ export default {
 </script>
 
 <style>
+.theme--dark.v-application .theme--parent,
+.theme--dark.v-application .v-main__wrap {
+  background: #121212;
+  color: #FFFFFF;
+}
+
+.theme--light.v-application .theme--parent,
+.theme--light.v-application .v-main__wrap {
+  background: #FFFFFF;
+  color: rgba(0, 0, 0, 0.87);
+}
+
 .v-chip.v-size--default.v-chip-h--inherit {
   height: inherit;
 }

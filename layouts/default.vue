@@ -3,10 +3,10 @@
     <template v-if="commerce && commerce.name">
       <v-sheet
         height="280"
-        class="v-image__image--cover rounded-b-xl background-cover"
+        class="v-image__image--cover background-cover"
       >
-        <div class="d-flex flex-column align-end" style="height: 100%">
-          <div class="ma-3 mb-auto">
+        <div class="d-flex flex-column align-end justify-end" style="height: 100%">
+          <div class="ma-3 mb-auto" style="position: fixed; top: 0; z-index: 2;">
             <v-btn
               fab
               small
@@ -28,24 +28,11 @@
             ></v-text-field>
           </div>
 
-          <div
-            class="d-flex align-end justify-space-between"
-            style="width: 100%"
-          >
-            <div class="ml-3 mb-3">
-              <a
-                v-for="icon in icons"
-                :key="icon.to"
-                :href="icon.to"
-                target="_blank"
-              >
-                <v-icon class="mx-1" size="24px">{{ icon.name }}</v-icon>
-              </a>
-            </div>
-
+          <div style="position: fixed; top: 100px;">
             <v-img
+              v-if="commerce.avatar_dirname"
               class="ma-3 rounded-circle"
-              src="https://picsum.photos/510/300?random"
+              :src="commerce.avatar_dirname"
               max-width="100"
               height="100"
               style="border: 3px solid white"
@@ -53,10 +40,29 @@
           </div>
 
           <div
-            class="transition-swing text-h5 pa-3 rounded-t-xl"
-            style="width: 100%; background: #121212;"
-            v-text="commerce.fullname"
-          ></div>
+            class="transition-swing text-h5 pa-3 rounded-t-xl d-flex justify-space-between align-center theme--parent"
+            style="width: 100%; z-index: 0;"
+          >
+            {{ commerce.fullname }}
+
+            <div v-if="commerce.whatsapp_number || commerce.instagram_account">
+              <a
+                v-if="commerce.whatsapp_number"
+                :href="`https://wa.me/${commerce.whatsapp_number}/`"
+                target="_blank"
+              >
+                <v-icon class="mx-1" size="24px">mdi-whatsapp</v-icon>
+              </a>
+
+              <a
+                v-if="commerce.instagram_account"
+                :href="`https://www.instagram.com/${commerce.instagram_account}/`"
+                target="_blank"
+              >
+                <v-icon class="mx-1" size="24px">mdi-instagram</v-icon>
+              </a>
+            </div>
+          </div>
         </div>
       </v-sheet>
     </template>
@@ -194,6 +200,16 @@ export default {
 </script>
 
 <style scoped>
+.theme--dark.v-application .theme--parent {
+  background: #121212;
+  color: #FFFFFF;
+}
+
+.theme--light.v-application .theme--parent {
+  background: #FFFFFF;
+  color: rgba(0, 0, 0, 0.87);
+}
+
 .v-app-bar--is-scrolled .v-app-bar-title__placeholder {
   visibility: visible !important;
 }
