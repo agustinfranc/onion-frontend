@@ -36,25 +36,31 @@
     <v-container v-if="rubros">
       <h3>{{ $t('categories') }}</h3>
 
-      <v-divider class="mt-4 mb-2"></v-divider>
-
-      <v-chip-group column>
-        <v-chip
-          v-for="rubro in rubrosFiltered"
-          :key="rubro.name"
-          :color="rubro.pivot.highlighted ? 'orange' : ''"
-        >
-          <nuxt-link
-            :to="`#${rubro.link_name}`"
-            @click.native="scrollTo(`#${rubro.link_name}`)"
-          >
-            <span class="v-tab__personalized white--text">{{
-              rubro.name
-            }}</span>
-          </nuxt-link>
-        </v-chip>
-      </v-chip-group>
+      <v-divider class="mt-4"></v-divider>
     </v-container>
+
+    <div class="theme--parent" style="position: sticky; top: 0; z-index: 1">
+      <div class="container py-1">
+        <v-chip-group column>
+          <v-chip
+            v-for="rubro in rubrosFiltered"
+            :key="rubro.name"
+            :color="rubro.pivot.highlighted ? 'orange' : ''"
+          >
+            <nuxt-link
+              :to="`#${rubro.link_name}`"
+              @click.native="scrollTo(`#${rubro.link_name}`)"
+            >
+              <span class="v-tab__personalized white--text">{{
+                rubro.name
+              }}</span>
+            </nuxt-link>
+          </v-chip>
+        </v-chip-group>
+      </div>
+
+      <v-divider></v-divider>
+    </div>
 
     <template v-for="rubro in rubrosFiltered">
       <template>
@@ -63,7 +69,9 @@
             <h3>{{ rubro.name }}</h3>
           </v-container>
 
-          <v-divider></v-divider>
+          <div class="px-3">
+            <v-divider></v-divider>
+          </div>
 
           <template v-for="(subrubro, index) in rubro.subrubros">
             <v-container
@@ -262,7 +270,6 @@
       fixed
       bottom
       right
-      :open-on-hover="true"
       transition="slide-y-reverse-transition"
     >
       <template v-slot:activator>
@@ -453,6 +460,18 @@ export default {
 </script>
 
 <style>
+.theme--dark.v-application .theme--parent,
+.theme--dark.v-application .v-main__wrap {
+  background: #121212;
+  color: #FFFFFF;
+}
+
+.theme--light.v-application .theme--parent,
+.theme--light.v-application .v-main__wrap {
+  background: #FFFFFF;
+  color: rgba(0, 0, 0, 0.87);
+}
+
 .v-chip.v-size--default.v-chip-h--inherit {
   height: inherit;
 }
