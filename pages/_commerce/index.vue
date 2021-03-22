@@ -36,25 +36,31 @@
     <v-container v-if="rubros">
       <h3>{{ $t('categories') }}</h3>
 
-      <v-divider class="mt-4 mb-2"></v-divider>
-
-      <v-chip-group column>
-        <v-chip
-          v-for="rubro in rubrosFiltered"
-          :key="rubro.name"
-          :color="rubro.pivot.highlighted ? 'orange' : ''"
-        >
-          <nuxt-link
-            :to="`#${rubro.link_name}`"
-            @click.native="scrollTo(`#${rubro.link_name}`)"
-          >
-            <span class="v-tab__personalized white--text">{{
-              rubro.name
-            }}</span>
-          </nuxt-link>
-        </v-chip>
-      </v-chip-group>
+      <v-divider class="mt-4"></v-divider>
     </v-container>
+
+    <div style="position: sticky; top: 0; background: #121212; z-index: 1">
+      <div class="container py-1">
+        <v-chip-group column>
+          <v-chip
+            v-for="rubro in rubrosFiltered"
+            :key="rubro.name"
+            :color="rubro.pivot.highlighted ? 'orange' : ''"
+          >
+            <nuxt-link
+              :to="`#${rubro.link_name}`"
+              @click.native="scrollTo(`#${rubro.link_name}`)"
+            >
+              <span class="v-tab__personalized white--text">{{
+                rubro.name
+              }}</span>
+            </nuxt-link>
+          </v-chip>
+        </v-chip-group>
+      </div>
+
+      <v-divider></v-divider>
+    </div>
 
     <template v-for="rubro in rubrosFiltered">
       <template>
@@ -63,7 +69,9 @@
             <h3>{{ rubro.name }}</h3>
           </v-container>
 
-          <v-divider></v-divider>
+          <div class="px-3">
+            <v-divider></v-divider>
+          </div>
 
           <template v-for="(subrubro, index) in rubro.subrubros">
             <v-container
