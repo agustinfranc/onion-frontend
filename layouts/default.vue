@@ -1,87 +1,64 @@
 <template>
   <v-app>
     <template v-if="commerce && commerce.name">
-      <v-card class="overflow-hidden">
-        <v-app-bar
-          v-if="commerce.cover_dirname"
-          app
-          prominent
-          shrink-on-scroll
-          fade-img-on-scroll
-          scroll-threshold="500"
-          extension-height="48"
-          :src="commerce.cover_dirname"
-        >
-          <template v-slot:img="{ props }">
-            <v-img
-              v-bind="props"
-              gradient="to top, rgba(30,30,30,.2), rgba(99,99,99,.0)"
-            ></v-img>
-          </template>
-
-          <!-- <v-app-bar-title class="v-app-bar-title__content"
-            >Title</v-app-bar-title
-          > -->
-
-          <div class="v-toolbar__title v-app-bar-title">
-            <div class="v-app-bar-title__content" style="visibility: hidden">
-              {{ commerce.fullname }}
-            </div>
-            <div
-              class="v-app-bar-title__placeholder"
-              style="visibility: hidden"
+      <v-sheet
+        height="280"
+        class="v-image__image--cover rounded-b-xl background-cover"
+      >
+        <div class="d-flex flex-column align-end" style="height: 100%">
+          <div class="ma-3 mb-auto">
+            <v-btn
+              fab
+              small
+              v-if="!searchField"
+              @mouseover="showSeachField"
+              @mouseout="hideSeachField"
             >
-              {{ commerce.fullname }}
-            </div>
+              <v-icon>mdi-magnify</v-icon>
+            </v-btn>
+
+            <v-text-field
+              :style="{ display: displaySearch }"
+              ref="search"
+              @focusout="hideSeachField"
+              v-model="search"
+              label="Buscar"
+              solo
+              clearable
+            ></v-text-field>
           </div>
 
-          <v-spacer></v-spacer>
-
-          <v-btn
-            fab
-            small
-            v-if="!searchField"
-            @mouseover="showSeachField"
-            @mouseout="hideSeachField"
+          <div
+            class="d-flex align-end justify-space-between"
+            style="width: 100%"
           >
-            <v-icon>mdi-magnify</v-icon>
-          </v-btn>
+            <div class="ml-3 mb-3">
+              <a
+                v-for="icon in icons"
+                :key="icon.to"
+                :href="icon.to"
+                target="_blank"
+              >
+                <v-icon class="mx-1" size="24px">{{ icon.name }}</v-icon>
+              </a>
+            </div>
 
-          <v-text-field
-            :style="{ display: displaySearch }"
-            ref="search"
-            @focusout="hideSeachField"
-            v-model="search"
-            label="Buscar"
-            solo
-            clearable
-          ></v-text-field>
+            <v-img
+              class="ma-3 rounded-circle"
+              src="https://picsum.photos/510/300?random"
+              max-width="100"
+              height="100"
+              style="border: 3px solid white"
+            ></v-img>
+          </div>
 
-          <template v-slot:extension>
-            <v-card>
-              <v-tabs dark show-arrows>
-                <v-tabs-slider></v-tabs-slider>
-
-                <v-tab
-                  color="#fff"
-                  class="white--text"
-                  v-for="rubro in rubrosFiltered"
-                  :key="rubro.name"
-                >
-                  <nuxt-link
-                    :to="`#${rubro.link_name}`"
-                    @click.native="scrollTo(`#${rubro.link_name}`)"
-                  >
-                    <span class="v-tab__personalized white--text">{{
-                      rubro.name
-                    }}</span>
-                  </nuxt-link>
-                </v-tab>
-              </v-tabs>
-            </v-card>
-          </template>
-        </v-app-bar>
-      </v-card>
+          <div
+            class="transition-swing text-h5 pa-3 rounded-t-xl"
+            style="width: 100%; background: #121212;"
+            v-text="commerce.fullname"
+          ></div>
+        </div>
+      </v-sheet>
     </template>
 
     <template v-else>
@@ -192,7 +169,7 @@ export default {
       this.displaySearch = 'block'
 
       setTimeout(() => {
-        this.$refs.search.focus();
+        this.$refs.search.focus()
       })
     },
   },
@@ -219,5 +196,13 @@ export default {
 <style scoped>
 .v-app-bar--is-scrolled .v-app-bar-title__placeholder {
   visibility: visible !important;
+}
+
+.background-cover {
+  background-image: linear-gradient(to top, rgba(30, 30, 30, 0.2), rgba(99, 99, 99, 0)), url(https://api.onion.ar/storage/images/1TsqqLLa5IKwXggrnYqIJpzopx0uaSlRot5xKehs.jpg);
+  background-attachment: fixed;
+  background-size: 100% auto;
+  background-position: center top;
+  background-size: 150%;
 }
 </style>
