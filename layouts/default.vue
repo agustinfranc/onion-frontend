@@ -4,6 +4,7 @@
       <v-sheet
         height="280"
         class="v-image__image--cover background-cover"
+        :style="`background-image: linear-gradient(to top, rgba(30, 30, 30, 0.2), rgba(99, 99, 99, 0)), url(${commerce.cover_dirname});`"
       >
         <div class="d-flex flex-column align-end justify-end" style="height: 100%">
           <div class="ma-3 mb-auto" style="position: fixed; top: 0; z-index: 2;">
@@ -215,10 +216,9 @@ export default {
 }
 
 .background-cover {
-  background-image: linear-gradient(to top, rgba(30, 30, 30, 0.2), rgba(99, 99, 99, 0)), url(https://api.onion.ar/storage/images/1TsqqLLa5IKwXggrnYqIJpzopx0uaSlRot5xKehs.jpg);
   background-attachment: fixed;
-  background-size: 100% auto;
+  /* background-size: 100% auto; */
+  background-size: 125% auto;
   background-position: center top;
-  background-size: 150%;
 }
 </style>
