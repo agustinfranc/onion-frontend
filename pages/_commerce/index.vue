@@ -270,7 +270,6 @@
       fixed
       bottom
       right
-      :open-on-hover="true"
       transition="slide-y-reverse-transition"
     >
       <template v-slot:activator>
