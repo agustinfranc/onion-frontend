@@ -217,8 +217,8 @@ export default {
 
 .background-cover {
   background-attachment: fixed;
-  /* background-size: 100% auto; */
-  background-size: 125% auto;
+  background-size: contain;
   background-position: center top;
+  background-repeat: repeat;
 }
 </style>
