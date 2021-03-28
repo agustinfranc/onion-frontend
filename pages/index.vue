@@ -658,7 +658,7 @@ export default {
         },
         {
           id: 12,
-          name: 'The Little Bbar',
+          name: 'The Little Bar',
           avatar: 'thelittlebar.jpg',
           url: 'https://onion.ar/thelittlebar',
         },
