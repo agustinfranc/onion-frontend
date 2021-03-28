@@ -417,7 +417,7 @@ h3 {
 /* line 29, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_btn.scss */
 .boxed-btn3 {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#0181f5+0,5db2ff+100 */
-  background: #38a4ff;
+  background: #0D47A1;
   color: #fff;
   display: inline-block;
   padding: 14px 27px;
@@ -441,8 +441,9 @@ h3 {
 
 /* line 48, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_btn.scss */
 .boxed-btn3:hover {
-  background: #4BA8FD;
-  color: #fff !important;
+  background: #fff;
+  color: #38a4ff !important;
+  border: 1px solid #0D47A1;
 }
 
 /* line 53, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_btn.scss */
@@ -584,23 +585,31 @@ h3 {
 
 /* line 153, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_btn.scss */
 .boxed-btn2 {
-  background: transparent;
-  color: #fff;
+  color: #38a4ff;
+  border: 1px solid #38a4ff;
+  background: #E3F2FD;
   display: inline-block;
-  padding: 18px 24px;
+  padding: 14px 27px;
   font-family: "Poppins", sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  border: 0;
-  border: 1px solid #fff;
+  font-size: 16px;
+  font-weight: 500;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  text-transform: capitalize;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
   letter-spacing: 2px;
-  text-transform: uppercase;
 }
 
 /* line 165, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_btn.scss */
 .boxed-btn2:hover {
-  background: #fff;
-  color: #131313 !important;
+  background: #38a4ff;
+  color: #fff !important;
 }
 
 /* line 169, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_btn.scss */

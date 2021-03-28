@@ -77,8 +77,17 @@
                   class="video_service_btn wow fadeInLeft"
                   data-wow-duration="1s"
                   data-wow-delay=".1s"
+                  style="display: inline-block"
                 >
-                  <a href="#contact_area" class="boxed-btn3">Contactanos</a>
+                  <a href="https://clientes.onion.ar/register" target="_blank" class="boxed-btn3">Empezar gratis</a>
+                </div>
+                <div
+                  class="video_service_btn wow fadeInLeft"
+                  data-wow-duration="1s"
+                  data-wow-delay=".1s"
+                  style="display: inline-block"
+                >
+                  <a href="#contact_area" class="boxed-btn2">Contactanos</a>
                 </div>
               </div>
             </div>

@@ -140,7 +140,7 @@
                           class="mt-1 text-body-2"
                           >{{
                             commerce.currency
-                              ? commerce.currency.currency_symbol
+                              ? commerce.currency.symbol
                               : ''
                           }}{{ item.price }}</span
                         >
@@ -156,7 +156,7 @@
                           <br v-if="price.name" />
                           {{
                             commerce.currency
-                              ? commerce.currency.currency_symbol
+                              ? commerce.currency.symbol
                               : ''
                           }}{{ price.price }}
                         </v-chip>
@@ -247,7 +247,7 @@
                       <p class="mt-1">
                         {{
                           commerce.currency
-                            ? commerce.currency.currency_symbol
+                            ? commerce.currency.symbol
                             : ''
                         }}{{ item.price }}
                       </p>
