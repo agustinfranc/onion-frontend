@@ -598,7 +598,7 @@
                 <h3 class="footer_title">Contacto</h3>
                 <ul>
                   <li>
-                    <v-icon dark color="white" class="mx-1" size="24px"
+                    <v-icon color="white" class="mx-1" size="24px"
                       >mdi-email</v-icon
                     >
                     <a href="mailto:contacto@onion.com.ar" target="_blank"
@@ -606,7 +606,7 @@
                     >
                   </li>
                   <li>
-                    <v-icon dark color="white" class="mx-1" size="24px"
+                    <v-icon color="white" class="mx-1" size="24px"
                       >mdi-whatsapp</v-icon
                     >
                     <a href="https://wa.me/5491154876345" target="_blank"
@@ -614,7 +614,7 @@
                     >
                   </li>
                   <li>
-                    <v-icon dark color="white" class="mx-1" size="24px"
+                    <v-icon color="white" class="mx-1" size="24px"
                       >mdi-linkedin</v-icon
                     >
                     <a
@@ -624,7 +624,7 @@
                     >
                   </li>
                   <li>
-                    <v-icon dark color="white" class="mx-1" size="24px"
+                    <v-icon color="white" class="mx-1" size="24px"
                       >mdi-linkedin</v-icon
                     >
                     <a
