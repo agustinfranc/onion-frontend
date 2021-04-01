@@ -51,7 +51,7 @@
               :to="`#${rubro.link_name}`"
               @click.native="scrollTo(`#${rubro.link_name}`)"
             >
-              <span class="v-tab__personalized white--text">{{
+              <span class="v-chip__personalized">{{
                 rubro.name
               }}</span>
             </nuxt-link>
@@ -273,7 +273,7 @@
       transition="slide-y-reverse-transition"
     >
       <template v-slot:activator>
-        <v-btn v-model="fab" color="blue darken-2" dark fab>
+        <v-btn v-model="fab" color="blue darken-2" fab>
           <v-icon v-if="fab"> mdi-close </v-icon>
           <v-icon v-else> mdi-account-voice </v-icon>
         </v-btn>
@@ -281,7 +281,6 @@
       <v-btn
         v-if="commerce.whatsapp_number"
         fab
-        dark
         small
         color="green"
         :href="`https://wa.me/${commerce.whatsapp_number}`"
@@ -292,7 +291,6 @@
       <v-btn
         v-if="commerce.instagram_account"
         fab
-        dark
         small
         color="purple"
         :href="`https://www.instagram.com/${commerce.instagram_account}`"
@@ -398,6 +396,8 @@ export default {
       const url = `${this.$nuxt.context.env.apiUrl}${this.$route.params.commerce}/all`
 
       const res = await this.$axios.$get(url)
+
+      this.$vuetify.theme.dark = res.dark_theme
 
       await this.$store.dispatch('saveData', res)
 
