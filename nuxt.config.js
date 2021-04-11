@@ -71,6 +71,7 @@ export default {
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:host', property: 'og:host', content: 'https://onion.ar' },
       { hid: 'og:url', property: 'og:url', content: 'https://onion.ar' },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'Onion' },
       {
         hid: 'og:description',
         property: 'og:description',
