@@ -264,7 +264,7 @@
     <v-speed-dial
       v-if="
         commerce.has_action_buttons &&
-        (commerce.whatsapp_number || commerce.instagram_account)
+        (commerce.whatsapp_number || commerce.phone_number || commerce.instagram_account)
       "
       v-model="fab"
       fixed
@@ -278,6 +278,7 @@
           <v-icon v-else> mdi-account-voice </v-icon>
         </v-btn>
       </template>
+
       <v-btn
         v-if="commerce.whatsapp_number"
         fab
@@ -288,6 +289,17 @@
       >
         <v-icon>mdi-whatsapp</v-icon>
       </v-btn>
+
+      <v-btn
+        v-if="commerce.phone_number"
+        fab
+        small
+        color="green"
+        :href="`tel:${commerce.phone_number}`"
+      >
+        <v-icon>mdi-phone</v-icon>
+      </v-btn>
+
       <v-btn
         v-if="commerce.instagram_account"
         fab
@@ -505,6 +517,6 @@ export default {
 }
 
 .v-speed-dial--bottom {
-  bottom: 32px;
+  bottom: 48px;
 }
 </style>

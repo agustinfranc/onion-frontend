@@ -59,6 +59,13 @@
               </a>
 
               <a
+                v-if="commerce.phone_number"
+                :href="`tel:${commerce.phone_number}`"
+              >
+                <v-icon class="mx-1" size="24px">mdi-phone</v-icon>
+              </a>
+
+              <a
                 v-if="commerce.instagram_account"
                 :href="`https://www.instagram.com/${commerce.instagram_account}/`"
                 target="_blank"
