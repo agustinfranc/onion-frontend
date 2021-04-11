@@ -150,19 +150,25 @@
             made with
             <v-icon>mdi-heart</v-icon> by
             <router-link to="/">
-              <span class="white--text">Onion</span>
+              <span :class="$vuetify.theme.dark ? 'white--text' : 'grey--text text--darken-4'">Onion</span>
             </router-link>
           </span>
         </div>
         <div class="text-right">
           <a
-            v-for="icon in icons"
-            :key="icon.to"
-            :href="icon.to"
+            href="https://www.instagram.com/onion.com.ar/"
             target="_blank"
           >
-            <v-icon class="mx-1" size="24px">{{ icon.name }}</v-icon>
+            <v-icon class="mx-1" size="24px">mdi-instagram</v-icon>
           </a>
+
+          <v-btn
+            small
+            icon
+            @click="$vuetify.theme.dark = !$vuetify.theme.dark"
+          >
+            <v-icon>mdi-theme-light-dark</v-icon>
+          </v-btn>
         </div>
       </div>
     </v-footer>
