@@ -271,6 +271,7 @@
       bottom
       right
       transition="slide-y-reverse-transition"
+      style="bottom: 48px;"
     >
       <template v-slot:activator>
         <v-btn v-model="fab" color="blue darken-2" fab>
@@ -514,9 +515,5 @@ export default {
 
 .v-dialog:not(.v-dialog--fullscreen) {
   max-height: 75%;
-}
-
-.v-speed-dial--bottom {
-  bottom: 48px;
 }
 </style>
