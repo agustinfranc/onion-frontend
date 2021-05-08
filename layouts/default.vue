@@ -100,7 +100,7 @@
 
               <a
                 v-if="commerce.maps_account"
-                :href="`https://g.page/${commerce.maps_account}?share`"
+                :href="commerce.maps_account"
                 target="_blank"
               >
                 <v-icon class="mx-1" size="24px">mdi-google-maps</v-icon>
