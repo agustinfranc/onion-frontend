@@ -79,7 +79,12 @@
                   data-wow-delay=".1s"
                   style="display: inline-block"
                 >
-                  <a href="https://clientes.onion.ar/register" target="_blank" class="boxed-btn3">Empezar gratis</a>
+                  <a
+                    href="https://clientes.onion.ar/register"
+                    target="_blank"
+                    class="boxed-btn3"
+                    >Empezar gratis</a
+                  >
                 </div>
                 <div
                   class="video_service_btn wow fadeInLeft"
@@ -441,7 +446,7 @@
                       <v-img
                         class="white--text align-end"
                         height="200px"
-                        :src="`img/gallery/${item.avatar}`"
+                        :src="item.avatar"
                       >
                       </v-img>
 
@@ -651,88 +656,88 @@ export default {
     return {
       commerces: [
         {
+          id: 39,
+          name: 'Mikkos',
+          avatar: 'https://api.onion.ar/storage/images/wVrxZAgYZRuSORad8QdfM8TQdJ31OE0zqxsk0g8A.jpg',
+          url: 'https://onion.ar/mikkos',
+        },
+        {
+          id: 38,
+          name: 'La Playa',
+          avatar: 'https://api.onion.ar/storage/images/sKiGBPFSWnDHjtSqneFGOp0KlrAeJnnBFXWk8MSx.jpg',
+          url: 'https://onion.ar/laplaya',
+        },
+        {
+          id: 35,
+          name: 'Boost Coffee',
+          avatar: 'https://api.onion.ar/storage/images/xxqYJalNgSfSozxTEaueOLJykk4bC2UNmA7wj7rs.jpg',
+          url: 'https://onion.ar/boost',
+        },
+        {
+          id: 33,
+          name: 'Ribs Al Rio',
+          avatar: 'https://api.onion.ar/storage/images/boke7WGRYdYHfBWEn5HWlKZRwAByoPJqB6ai1hYk.jpg',
+          url: 'https://onion.ar/ribsalrio',
+        },
+        {
           id: 1,
           name: 'Marlon',
-          avatar: 'marlon.jpg',
+          avatar: 'https://api.onion.ar/storage/images/QKyxo1mKnsoZzC1u0MWDjjnujrLXIQ2srPgNvaK3.jpg',
           url: 'https://onion.ar/marlon',
         },
         {
           id: 12,
           name: 'The Little Bar',
-          avatar: 'thelittlebar.jpg',
+          avatar: 'https://api.onion.ar/storage/images/c2lW0q0ofnCVYtm2a50F2KRFLkGcGfmx14U3rqQe.jpg',
           url: 'https://onion.ar/thelittlebar',
-        },
-        {
-          id: 11,
-          name: 'Taboo',
-          avatar: 'taboo.jpg',
-          url: 'https://onion.ar/en/taboo',
         },
         {
           id: 2,
           name: 'Desembarco',
-          avatar: 'desembarco.jpg',
+          avatar: 'img/gallery/desembarco.jpg',
           url: 'https://onion.ar/desembarco',
         },
         {
           id: 3,
           name: 'Gusto',
-          avatar: 'gusto.png',
+          avatar: 'https://api.onion.ar/storage/images/1xraJQYYiLJWOGHjDj8gafK6A53cSoKFQmoW54Iw.jpg',
           url: 'https://onion.ar/gusto',
         },
         {
           id: 4,
           name: 'Pepper',
-          avatar: 'pepper.jpg',
+          avatar: 'img/gallery/pepper.jpg',
           url: 'https://onion.ar/pepper',
         },
         {
           id: 5,
           name: 'Colonial',
-          avatar: 'colonial.png',
+          avatar: 'img/gallery/colonial.png',
           url: 'https://colonial.onion.com.ar',
-        },
-        {
-          id: 6,
-          name: 'Persicco',
-          avatar: 'persicco.png',
-          url: 'https://persicco.onion.com.ar',
-        },
-        {
-          id: 8,
-          name: 'Maricel',
-          avatar: 'maricel-monroe.jpg',
-          url: 'https://maricel.onion.com.ar',
         },
         {
           id: 9,
           name: 'Café del Encuentro',
-          avatar: 'encuentro.png',
+          avatar: 'img/gallery/encuentro.png',
           url: 'https://onion.ar/cafedelencuentro',
         },
         {
           id: 10,
           name: 'Flambo',
-          avatar: 'flambo.png',
+          avatar: 'img/gallery/flambo.png',
           url: 'https://onion.ar/flambo',
         },
         {
           id: 13,
           name: 'Wine Not',
-          avatar: 'winenot.jpg',
+          avatar: 'https://recursos.onion.com.ar/img/winenot/background.jpg',
           url: 'https://onion.ar/winenot',
         },
         {
           id: 14,
           name: 'The Address',
-          avatar: 'theaddress.jpg',
+          avatar: 'img/gallery/theaddress.jpg',
           url: 'https://onion.ar/en/theaddress',
-        },
-        {
-          id: 7,
-          name: 'Dakota',
-          avatar: 'dakota.jpg',
-          url: 'https://onion.ar/dakota',
         },
       ],
       flickityOptions: {
