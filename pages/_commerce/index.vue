@@ -229,19 +229,39 @@
                     >
                       <v-tooltip bottom>
                         <template v-slot:activator="{ on, attrs }">
-                          <span v-bind="attrs" v-on="on">{{
-                            item.description
-                          }}</span>
+                          <span
+                            v-bind="attrs"
+                            v-on="on"
+                            v-html="item.description"
+                          >
+                          </span>
                         </template>
                         <span>{{ item.description }}</span>
                       </v-tooltip>
                     </v-card-subtitle>
 
                     <v-card-text class="text--primary">
-                      <p class="mt-1">
-                        {{ commerce.currency ? commerce.currency.symbol : ''
-                        }}{{ item.price }}
-                      </p>
+                      <div>
+                        <span
+                          v-if="item.price && !item.product_prices.length"
+                          class="mt-1 text-body-2"
+                          >{{ commerce.currency ? commerce.currency.symbol : ''
+                          }}{{ item.price }}</span
+                        >
+
+                        <v-chip
+                          v-for="price in item.product_prices"
+                          :key="price.name"
+                          class="v-chip-h--inherit ma-1 text-center"
+                          outlined
+                          label
+                        >
+                          {{ price.name }}
+                          <br v-if="price.name" />
+                          {{ commerce.currency ? commerce.currency.symbol : ''
+                          }}{{ price.price }}
+                        </v-chip>
+                      </div>
                     </v-card-text>
                   </v-card>
                 </v-slide-item>
