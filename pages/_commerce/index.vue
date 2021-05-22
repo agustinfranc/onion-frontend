@@ -51,9 +51,7 @@
               :to="`#${rubro.link_name}`"
               @click.native="scrollTo(`#${rubro.link_name}`)"
             >
-              <span class="v-chip__personalized">{{
-                rubro.name
-              }}</span>
+              <span class="v-chip__personalized">{{ rubro.name }}</span>
             </nuxt-link>
           </v-chip>
         </v-chip-group>
@@ -126,9 +124,11 @@
                       <v-list-item-subtitle>
                         <v-tooltip bottom close-delay="500">
                           <template v-slot:activator="{ on, attrs }">
-                            <span v-bind="attrs" v-on="on">{{
-                              item.description
-                            }}</span>
+                            <span
+                              v-bind="attrs"
+                              v-on="on"
+                              v-html="item.description"
+                            ></span>
                           </template>
                           <span>{{ item.description }}</span>
                         </v-tooltip>
@@ -138,10 +138,7 @@
                         <span
                           v-if="item.price && !item.product_prices.length"
                           class="mt-1 text-body-2"
-                          >{{
-                            commerce.currency
-                              ? commerce.currency.symbol
-                              : ''
+                          >{{ commerce.currency ? commerce.currency.symbol : ''
                           }}{{ item.price }}</span
                         >
 
@@ -154,10 +151,7 @@
                         >
                           {{ price.name }}
                           <br v-if="price.name" />
-                          {{
-                            commerce.currency
-                              ? commerce.currency.symbol
-                              : ''
+                          {{ commerce.currency ? commerce.currency.symbol : ''
                           }}{{ price.price }}
                         </v-chip>
                       </div>
@@ -245,10 +239,7 @@
 
                     <v-card-text class="text--primary">
                       <p class="mt-1">
-                        {{
-                          commerce.currency
-                            ? commerce.currency.symbol
-                            : ''
+                        {{ commerce.currency ? commerce.currency.symbol : ''
                         }}{{ item.price }}
                       </p>
                     </v-card-text>
@@ -264,14 +255,16 @@
     <v-speed-dial
       v-if="
         commerce.has_action_buttons &&
-        (commerce.whatsapp_number || commerce.phone_number || commerce.instagram_account)
+        (commerce.whatsapp_number ||
+          commerce.phone_number ||
+          commerce.instagram_account)
       "
       v-model="fab"
       fixed
       bottom
       right
       transition="slide-y-reverse-transition"
-      style="bottom: 48px;"
+      style="bottom: 48px"
     >
       <template v-slot:activator>
         <v-btn v-model="fab" color="blue darken-2" fab>
@@ -387,10 +380,7 @@ export default {
 
       const commerceData = await $axios.$get(url)
 
-      return {
-        commerceData,
-        params: params,
-      }
+      return { commerceData, params }
     } catch (error) {
       console.error('Error:', error)
     }
@@ -476,12 +466,12 @@ export default {
 .theme--dark.v-application .theme--parent,
 .theme--dark.v-application .v-main__wrap {
   background: #121212;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .theme--light.v-application .theme--parent,
 .theme--light.v-application .v-main__wrap {
-  background: #FFFFFF;
+  background: #ffffff;
   color: rgba(0, 0, 0, 0.87);
 }
 
