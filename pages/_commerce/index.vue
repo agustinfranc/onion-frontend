@@ -98,7 +98,7 @@
                   >
                     <v-list-item-avatar v-if="item.avatar_dirname">
                       <v-img
-                        :src="`${item.avatar_dirname}${item.avatar}`"
+                        :src="`${item.avatar_dirname}${item.avatar ? item.avatar : ''}`"
                         :class="{disabled: item.disabled}"
                         @click="showImageDialog(item)"
                       >
@@ -194,7 +194,7 @@
                       class="white--text align-end"
                       :class="{disabled: item.disabled}"
                       height="200px"
-                      :src="`${item.avatar_dirname}${item.avatar}`"
+                      :src="`${item.avatar_dirname}${item.avatar ? item.avatar : ''}`"
                       @click="showImageDialog(item)"
                     >
                       <div
