@@ -409,14 +409,13 @@ export default {
   async fetch() {
     if (this.$store.state.commerce && this.$store.state.commerce.rubros) {
       this.rubros = this.$store.state.commerce.rubros
-      this.withSlider = this.$store.state.commerce.with_slider ?? true
       return
     }
 
     await this.$store.dispatch('saveTitle', this.$route.params.commerce)
 
     try {
-      const url = `${this.$nuxt.context.env.apiUrl}${this.$route.params.commerce}/all`
+      const url = this.$nuxt.context.env.apiUrl + this.$route.params.commerce
 
       const res = await this.$axios.$get(url)
 
@@ -425,8 +424,6 @@ export default {
       await this.$store.dispatch('saveData', res)
 
       this.rubros = res.rubros
-      // this.params = this.$route.params   // replaced into asyncData
-      this.withSlider = res.with_slider
     } catch (error) {
       console.error('Error:', error)
     }
@@ -436,7 +433,6 @@ export default {
   data() {
     return {
       rubros: null,
-      withSlider: true,
       params: null,
       fab: false,
       dialog: {
