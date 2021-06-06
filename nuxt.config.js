@@ -106,7 +106,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/localStorage.js', ssr: false },
-    { src: '~/plugins/flickity', ssr: false, mode: 'client' }, //? used in landind
+    { src: '~/plugins/flickity', ssr: false, mode: 'client' }, // ? used in landind
   ],
   /*
    ** Auto import components
@@ -198,10 +198,10 @@ export default {
   axios: {
     headers: {
       common: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'X-Requested-With': 'XMLHttpRequest',
-      }
-    }
+      },
+    },
   },
 
   gtm: {

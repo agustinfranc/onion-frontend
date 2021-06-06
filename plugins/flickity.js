@@ -1,4 +1,4 @@
-import Vue from 'vue';
-import Flickity from 'vue-flickity';
+import Vue from 'vue'
+import Flickity from 'vue-flickity'
 
-Vue.component('flickity', Flickity);
+Vue.component('Flickity', Flickity)

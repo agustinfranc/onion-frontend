@@ -216,7 +216,12 @@
               </div>
             </div>
             <div
-              class="col-xl-5 col-lg-5 offset-xl-1 offset-lg-1 col-md-6 d-none d-md-block"
+              class="
+                col-xl-5 col-lg-5
+                offset-xl-1 offset-lg-1
+                col-md-6
+                d-none d-md-block
+              "
             >
               <div
                 class="about_draw wow fadeInUp"
@@ -438,9 +443,9 @@
               <client-only>
                 <flickity ref="flickity" :options="flickityOptions">
                   <div
-                    class="carousel-cell"
                     v-for="item in commerces"
                     :key="`${item.id}-carousel`"
+                    class="carousel-cell"
                   >
                     <v-card class="mx-auto" min-height="300" max-width="400">
                       <v-img
@@ -503,7 +508,12 @@
                   <a
                     href="mailto:contacto@onion.com.ar"
                     target="_blank"
-                    class="genric-btn info-border radius d-block d-md-inline-block"
+                    class="
+                      genric-btn
+                      info-border
+                      radius
+                      d-block d-md-inline-block
+                    "
                     style="margin-top: 10px; padding: 0 4px"
                     >contacto@onion.com.ar</a
                   >
@@ -522,7 +532,12 @@
                   <a
                     href="https://wa.me/5491154876345"
                     target="_blank"
-                    class="genric-btn info-border radius d-block d-md-inline-block"
+                    class="
+                      genric-btn
+                      info-border
+                      radius
+                      d-block d-md-inline-block
+                    "
                     style="margin-top: 10px"
                     >011 54876345</a
                   >
@@ -658,37 +673,43 @@ export default {
         {
           id: 39,
           name: 'Mikkos',
-          avatar: 'https://api.onion.ar/storage/images/wVrxZAgYZRuSORad8QdfM8TQdJ31OE0zqxsk0g8A.jpg',
+          avatar:
+            'https://api.onion.ar/storage/images/wVrxZAgYZRuSORad8QdfM8TQdJ31OE0zqxsk0g8A.jpg',
           url: 'https://onion.ar/mikkos',
         },
         {
           id: 38,
           name: 'La Playa',
-          avatar: 'https://api.onion.ar/storage/images/sKiGBPFSWnDHjtSqneFGOp0KlrAeJnnBFXWk8MSx.jpg',
+          avatar:
+            'https://api.onion.ar/storage/images/sKiGBPFSWnDHjtSqneFGOp0KlrAeJnnBFXWk8MSx.jpg',
           url: 'https://onion.ar/laplaya',
         },
         {
           id: 35,
           name: 'Boost Coffee',
-          avatar: 'https://api.onion.ar/storage/images/xxqYJalNgSfSozxTEaueOLJykk4bC2UNmA7wj7rs.jpg',
+          avatar:
+            'https://api.onion.ar/storage/images/xxqYJalNgSfSozxTEaueOLJykk4bC2UNmA7wj7rs.jpg',
           url: 'https://onion.ar/boost',
         },
         {
           id: 33,
           name: 'Ribs Al Rio',
-          avatar: 'https://api.onion.ar/storage/images/boke7WGRYdYHfBWEn5HWlKZRwAByoPJqB6ai1hYk.jpg',
+          avatar:
+            'https://api.onion.ar/storage/images/boke7WGRYdYHfBWEn5HWlKZRwAByoPJqB6ai1hYk.jpg',
           url: 'https://onion.ar/ribsalrio',
         },
         {
           id: 1,
           name: 'Marlon',
-          avatar: 'https://api.onion.ar/storage/images/QKyxo1mKnsoZzC1u0MWDjjnujrLXIQ2srPgNvaK3.jpg',
+          avatar:
+            'https://api.onion.ar/storage/images/QKyxo1mKnsoZzC1u0MWDjjnujrLXIQ2srPgNvaK3.jpg',
           url: 'https://onion.ar/marlon',
         },
         {
           id: 12,
           name: 'The Little Bar',
-          avatar: 'https://api.onion.ar/storage/images/c2lW0q0ofnCVYtm2a50F2KRFLkGcGfmx14U3rqQe.jpg',
+          avatar:
+            'https://api.onion.ar/storage/images/c2lW0q0ofnCVYtm2a50F2KRFLkGcGfmx14U3rqQe.jpg',
           url: 'https://onion.ar/thelittlebar',
         },
         {
@@ -700,7 +721,8 @@ export default {
         {
           id: 3,
           name: 'Gusto',
-          avatar: 'https://api.onion.ar/storage/images/1xraJQYYiLJWOGHjDj8gafK6A53cSoKFQmoW54Iw.jpg',
+          avatar:
+            'https://api.onion.ar/storage/images/1xraJQYYiLJWOGHjDj8gafK6A53cSoKFQmoW54Iw.jpg',
           url: 'https://onion.ar/gusto',
         },
         {
