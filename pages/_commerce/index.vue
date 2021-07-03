@@ -272,21 +272,7 @@
 
     <ActionButton :commerce="commerce" />
 
-    <v-dialog v-model="dialog.show">
-      <v-img
-        v-if="dialog.show"
-        ref="dialogImg"
-        :lazy-src="dialog.imgLazySrc"
-        :src="dialog.imgSrc"
-        ><template #placeholder>
-          <v-row class="fill-height ma-0" align="center" justify="center">
-            <v-progress-circular
-              indeterminate
-              color="grey lighten-5"
-            ></v-progress-circular>
-          </v-row> </template
-      ></v-img>
-    </v-dialog>
+    <ImageDialog v-model="dialog.show" :dialog="dialog" />
   </div>
 </template>
 
