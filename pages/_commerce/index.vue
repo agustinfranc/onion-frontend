@@ -270,7 +270,7 @@
       </div>
     </template>
 
-    <ActionButton commerce="commerce" />
+    <ActionButton :commerce="commerce" />
 
     <v-dialog v-model="dialog.show">
       <v-img
