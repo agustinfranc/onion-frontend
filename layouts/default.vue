@@ -224,6 +224,11 @@ export default {
   head() {
     return {
       title: this.title,
+      meta: [{ hid: 'language', name: 'language', content: this.getLocale }],
+      htmlAttrs: {
+        lang: this.getLocale,
+        amp: false,
+      },
     }
   },
 
@@ -237,6 +242,9 @@ export default {
       set(value) {
         this.$store.dispatch('setSearch', value)
       },
+    },
+    getLocale() {
+      return this.$i18n.locale
     },
   },
 

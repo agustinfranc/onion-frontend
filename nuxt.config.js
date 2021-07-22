@@ -60,7 +60,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'robots', content: 'index,follow' },
       { name: 'author', content: 'Onion' },
-      { name: 'language', content: 'es' },
+      { hid: 'language', name: 'language', content: 'es' },
       {
         hid: 'description',
         name: 'description',
@@ -158,6 +158,10 @@ export default {
           categories: 'Categories',
           subcategories: 'Subcategories',
 
+          meta: {
+            description: '| Access to our digital menu | Developed by Onion',
+          },
+
           product: {
             title: 'Product',
             code: 'Code',
@@ -178,6 +182,11 @@ export default {
           error: 'Ocurrió un error',
           categories: 'Categorias',
           subcategories: 'Subcategorias',
+
+          meta: {
+            description:
+              '| Accedé a nuestro menú digital! | Desarrollado por el equipo de Onion',
+          },
 
           product: {
             title: 'Producto',

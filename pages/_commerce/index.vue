@@ -341,7 +341,9 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `${this.commerceData.fullname} | Accedé a nuestro Menú Digital! | Desarrollado por el equipo de Onion`,
+          content: `${this.commerceData.fullname} ${this.$t(
+            'meta.description'
+          )}`,
         },
         {
           hid: 'og:title',
@@ -366,7 +368,9 @@ export default {
         {
           hid: 'og:description',
           property: 'og:description',
-          content: `${this.commerceData.fullname} | Accedé a nuestro Menú Digital! | Desarrollado por el equipo de Onion`,
+          content: `${this.commerceData.fullname} ${this.$t(
+            'meta.description'
+          )}`,
         },
       ],
       link: [
