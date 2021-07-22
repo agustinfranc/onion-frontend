@@ -12,22 +12,24 @@ export const getters = {
     const search = state.search.toLowerCase()
 
     return state.commerce.rubros
-      .map((rubro) => ({                                  // filtro articulos
+      .map((rubro) => ({
+        // filtro articulos
         ...rubro,
         subrubros: rubro.subrubros.map((subrubro) => ({
           ...subrubro,
-          products: subrubro.products.filter(
-            (product) => product.name.toLowerCase().indexOf(search) >= 0
+          products: subrubro.products.filter((product) =>
+            product.name.toLowerCase().includes(search)
           ),
         })),
       }))
-      .map((rubro) => ({                                  // filtro subrubros
+      .map((rubro) => ({
+        // filtro subrubros
         ...rubro,
         subrubros: rubro.subrubros.filter(
           (subrubro) => subrubro.products.length > 0
         ),
       }))
-      .filter((rubro) => rubro.subrubros.length > 0)      // filtro rubros
+      .filter((rubro) => rubro.subrubros.length > 0) // filtro rubros
   },
 }
 

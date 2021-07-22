@@ -60,7 +60,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'robots', content: 'index,follow' },
       { name: 'author', content: 'Onion' },
-      { name: 'language', content: 'es' },
+      { hid: 'language', name: 'language', content: 'es' },
       {
         hid: 'description',
         name: 'description',
@@ -106,7 +106,7 @@ export default {
    */
   plugins: [
     { src: '~/plugins/localStorage.js', ssr: false },
-    { src: '~/plugins/flickity', ssr: false, mode: 'client' }, //? used in landind
+    { src: '~/plugins/flickity', ssr: false, mode: 'client' }, // ? used in landind
   ],
   /*
    ** Auto import components
@@ -116,7 +116,11 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxtjs/vuetify'],
+  buildModules: [
+    // https://go.nuxtjs.dev/eslint
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/vuetify',
+  ],
   /*
    ** Nuxt.js modules
    */
@@ -154,6 +158,10 @@ export default {
           categories: 'Categories',
           subcategories: 'Subcategories',
 
+          meta: {
+            description: '| Access to our digital menu | Developed by Onion',
+          },
+
           product: {
             title: 'Product',
             code: 'Code',
@@ -174,6 +182,11 @@ export default {
           error: 'Ocurrió un error',
           categories: 'Categorias',
           subcategories: 'Subcategorias',
+
+          meta: {
+            description:
+              '| Accedé a nuestro menú digital! | Desarrollado por el equipo de Onion',
+          },
 
           product: {
             title: 'Producto',
@@ -198,10 +211,10 @@ export default {
   axios: {
     headers: {
       common: {
-        'Accept': 'application/json',
+        Accept: 'application/json',
         'X-Requested-With': 'XMLHttpRequest',
-      }
-    }
+      },
+    },
   },
 
   gtm: {

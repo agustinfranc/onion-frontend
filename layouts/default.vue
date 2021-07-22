@@ -12,9 +12,9 @@
         >
           <div class="ma-3 mb-auto" style="position: fixed; top: 0; z-index: 2">
             <v-btn
+              v-if="!searchField"
               fab
               small
-              v-if="!searchField"
               @mouseover="showSeachField"
               @mouseout="hideSeachField"
             >
@@ -22,13 +22,13 @@
             </v-btn>
 
             <v-text-field
-              :style="{ display: displaySearch }"
               ref="search"
-              @focusout="hideSeachField"
               v-model="search"
+              :style="{ display: displaySearch }"
               label="Buscar"
               solo
               clearable
+              @focusout="hideSeachField"
             ></v-text-field>
           </div>
 
@@ -44,7 +44,16 @@
           </div>
 
           <div
-            class="transition-swing text-h5 pa-3 rounded-t-xl d-flex justify-space-between align-center theme--parent"
+            class="
+              transition-swing
+              text-h5
+              pa-3
+              rounded-t-xl
+              d-flex
+              justify-space-between
+              align-center
+              theme--parent
+            "
             style="width: 100%; z-index: 0"
           >
             {{ commerce.fullname }}
@@ -85,9 +94,13 @@
                 v-if="commerce.tiktok_account"
                 :href="`https://vm.tiktok.com/${commerce.tiktok_account}/`"
                 target="_blank"
-                style="position: relative; top: 4px;"
+                style="position: relative; top: 4px"
               >
-                <img width="22" height="22" src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/logo-dark-e95da587b6efa1520dcd11f4b45c0cf6.svg"></img>
+                <img
+                  width="22"
+                  height="22"
+                  src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/logo-dark-e95da587b6efa1520dcd11f4b45c0cf6.svg"
+                />
               </a>
 
               <a
@@ -116,14 +129,14 @@
         <v-app-bar app prominent>
           <v-spacer></v-spacer>
 
-          <template v-slot:img="{ props }">
+          <template #img="{ props }">
             <v-img
               v-bind="props"
               gradient="to top, rgba(30,30,30,.2), rgba(99,99,99,.0)"
             ></v-img>
           </template>
 
-          <template v-slot:extension>
+          <template #extension>
             <v-card>
               <v-tabs show-arrows>
                 <v-tabs-slider></v-tabs-slider>
@@ -150,23 +163,23 @@
             made with
             <v-icon>mdi-heart</v-icon> by
             <router-link to="/">
-              <span :class="$vuetify.theme.dark ? 'white--text' : 'grey--text text--darken-4'">Onion</span>
+              <span
+                :class="
+                  $vuetify.theme.dark
+                    ? 'white--text'
+                    : 'grey--text text--darken-4'
+                "
+                >Onion</span
+              >
             </router-link>
           </span>
         </div>
         <div class="text-right">
-          <a
-            href="https://www.instagram.com/onion.com.ar/"
-            target="_blank"
-          >
+          <a href="https://www.instagram.com/onion.com.ar/" target="_blank">
             <v-icon class="mx-1" size="24px">mdi-instagram</v-icon>
           </a>
 
-          <v-btn
-            small
-            icon
-            @click="$vuetify.theme.dark = !$vuetify.theme.dark"
-          >
+          <v-btn small icon @click="$vuetify.theme.dark = !$vuetify.theme.dark">
             <v-icon>mdi-theme-light-dark</v-icon>
           </v-btn>
         </div>
@@ -207,8 +220,36 @@ export default {
       miniVariant: false,
     }
   },
+
+  head() {
+    return {
+      title: this.title,
+      meta: [{ hid: 'language', name: 'language', content: this.getLocale }],
+      htmlAttrs: {
+        lang: this.getLocale,
+        amp: false,
+      },
+    }
+  },
+
+  computed: {
+    ...mapState(['commerce', 'title']),
+    ...mapGetters(['rubrosFiltered']),
+    search: {
+      get() {
+        return this.$store.state.search
+      },
+      set(value) {
+        this.$store.dispatch('setSearch', value)
+      },
+    },
+    getLocale() {
+      return this.$i18n.locale
+    },
+  },
+
   methods: {
-    scrollTo: function (hashtag) {
+    scrollTo(hashtag) {
       const el = document.querySelector(hashtag)
       if (el) {
         window.scrollTo(0, el.offsetTop)
@@ -227,23 +268,6 @@ export default {
       setTimeout(() => {
         this.$refs.search.focus()
       })
-    },
-  },
-  head() {
-    return {
-      title: this.title,
-    }
-  },
-  computed: {
-    ...mapState(['commerce', 'title']),
-    ...mapGetters(['rubrosFiltered']),
-    search: {
-      get() {
-        return this.$store.state.search
-      },
-      set(value) {
-        this.$store.dispatch('setSearch', value)
-      },
     },
   },
 }
