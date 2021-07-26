@@ -20,7 +20,7 @@
     "@nuxtjs/pwa": "^3.3.2",
     "core-js": "^3.14.0",
     "nuxt": "^2.15.6",
-    "nuxt-i18n": "^6.27.0",
+    "nuxt-i18n": "^6.28.0",
     "vue-flickity": "^1.2.1",
     "vuex-persistedstate": "^3.0.1"
   },
