@@ -22,7 +22,7 @@
     "nuxt": "^2.15.6",
     "nuxt-i18n": "^6.27.0",
     "vue-flickity": "^1.2.1",
-    "vuex-persistedstate": "^3.0.1"
+    "vuex-persistedstate": "^4.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^6.0.1",
