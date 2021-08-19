@@ -143,8 +143,42 @@
                         }}{{ item.price }}</span
                       >
 
+                      <v-menu
+                        v-if="
+                          item.product_prices.length &&
+                          commerce.name === 'vape-street'
+                        "
+                        offset-y
+                      >
+                        <template #activator="{ on, attrs }">
+                          <v-btn
+                            small
+                            depressed
+                            class="mt-1"
+                            v-bind="attrs"
+                            v-on="on"
+                          >
+                            Flavors
+                            <v-icon right small>
+                              mdi-arrow-down-drop-circle-outline
+                            </v-icon>
+                          </v-btn>
+                        </template>
+                        <v-list>
+                          <v-list-item
+                            v-for="price in item.product_prices"
+                            :key="price.name"
+                          >
+                            <v-list-item-title>{{
+                              price.name
+                            }}</v-list-item-title>
+                          </v-list-item>
+                        </v-list>
+                      </v-menu>
+
                       <v-chip
                         v-for="price in item.product_prices"
+                        v-else
                         :key="price.name"
                         class="v-chip-h--inherit ma-1 text-center"
                         outlined
