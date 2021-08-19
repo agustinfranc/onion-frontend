@@ -90,6 +90,13 @@
     min-width: 100px !important;
     width: 100px !important;
   }
+
+  .v-list-item__title {
+    -webkit-line-clamp: 2;
+    white-space: initial;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+  }
 }
 
 .v-list--three-line .v-list-item .v-list-item__subtitle,
