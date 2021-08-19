@@ -152,8 +152,10 @@
                       >
                         {{ price.name }}
                         <br v-if="price.name && price.price" />
-                        {{ commerce.currency ? commerce.currency.symbol : ''
-                        }}{{ price.price }}
+                        <span v-if="price.price">
+                          {{ commerce.currency ? commerce.currency.symbol : ''
+                          }}{{ price.price }}
+                        </span>
                       </v-chip>
                     </div>
 
@@ -257,8 +259,10 @@
                       >
                         {{ price.name }}
                         <br v-if="price.name && price.price" />
-                        {{ commerce.currency ? commerce.currency.symbol : ''
-                        }}{{ price.price }}
+                        <span v-if="price.price">
+                          {{ commerce.currency ? commerce.currency.symbol : ''
+                          }}{{ price.price }}
+                        </span>
                       </v-chip>
                     </div>
                   </v-card-text>
