@@ -151,7 +151,7 @@
                         label
                       >
                         {{ price.name }}
-                        <br v-if="price.name" />
+                        <br v-if="price.name && price.price" />
                         {{ commerce.currency ? commerce.currency.symbol : ''
                         }}{{ price.price }}
                       </v-chip>
@@ -256,7 +256,7 @@
                         label
                       >
                         {{ price.name }}
-                        <br v-if="price.name" />
+                        <br v-if="price.name && price.price" />
                         {{ commerce.currency ? commerce.currency.symbol : ''
                         }}{{ price.price }}
                       </v-chip>
