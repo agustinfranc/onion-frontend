@@ -19,7 +19,7 @@
     "@nuxtjs/gtm": "^2.4.0",
     "@nuxtjs/pwa": "^3.3.2",
     "core-js": "^3.14.0",
-    "nuxt": "^2.15.6",
+    "nuxt": "^2.15.8",
     "nuxt-i18n": "^6.28.1",
     "vue-flickity": "^1.2.1",
     "vuex-persistedstate": "^4.1.0"
