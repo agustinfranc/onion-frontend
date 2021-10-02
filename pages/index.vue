@@ -373,7 +373,7 @@
               <div class="prising_header green_header">
                 <h3>Basico</h3>
                 <!-- Basic -->
-                <span>$2000</span>
+                <span>Proximamente</span>
               </div>
               <ul>
                 <li>App Web de Pedidos con Carta Digital QR</li>
@@ -393,32 +393,6 @@
                   <strong>MercadoPago</strong>
                 </li>
                 <li>Evitá los porcentajes excesivos en comisiones</li>
-              </ul>
-              <div class="prising_bottom">
-                <a href="#contact_area" class="genric-btn info radius"
-                  >Contactanos</a
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-md-6 px-3">
-            <div
-              class="single_prising text-center wow fadeInUp"
-              data-wow-duration=".7s"
-              data-wow-delay=".8s"
-            >
-              <div class="prising_header pink_header">
-                <h3>Profesional</h3>
-                <!-- Professional -->
-                <span>$4000</span>
-              </div>
-              <ul>
-                <li>Todo lo que ofrecemos en los dos planes anteriores mas:</li>
-                <li>Usá tu propio dominio</li>
-                <li>Reportes de consumo por usuario</li>
-                <li>Estadística de Ventas</li>
-                <li>Reportes de Ventas Por Mozo y/o Moto</li>
-                <li>Informes diarios con el cierre del dia</li>
               </ul>
               <div class="prising_bottom">
                 <a href="#contact_area" class="genric-btn info radius"
