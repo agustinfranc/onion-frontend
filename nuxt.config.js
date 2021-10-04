@@ -92,7 +92,7 @@ export default {
       //   src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
       // },
       {
-        src: 'js/pixel.js',
+        src: '/js/pixel.js',
       },
     ],
   },
