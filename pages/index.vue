@@ -216,12 +216,7 @@
               </div>
             </div>
             <div
-              class="
-                col-xl-5 col-lg-5
-                offset-xl-1 offset-lg-1
-                col-md-6
-                d-none d-md-block
-              "
+              class="col-xl-5 col-lg-5 offset-xl-1 offset-lg-1 col-md-6 d-none d-md-block"
             >
               <div
                 class="about_draw wow fadeInUp"
@@ -482,12 +477,7 @@
                   <a
                     href="mailto:contacto@onion.com.ar"
                     target="_blank"
-                    class="
-                      genric-btn
-                      info-border
-                      radius
-                      d-block d-md-inline-block
-                    "
+                    class="genric-btn info-border radius d-block d-md-inline-block"
                     style="margin-top: 10px; padding: 0 4px"
                     >contacto@onion.com.ar</a
                   >
@@ -506,12 +496,7 @@
                   <a
                     href="https://wa.me/5491154876345"
                     target="_blank"
-                    class="
-                      genric-btn
-                      info-border
-                      radius
-                      d-block d-md-inline-block
-                    "
+                    class="genric-btn info-border radius d-block d-md-inline-block"
                     style="margin-top: 10px"
                     >011 54876345</a
                   >
