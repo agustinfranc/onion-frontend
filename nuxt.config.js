@@ -128,7 +128,7 @@ export default {
     // '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     '@nuxtjs/gtm',
-    'nuxt-i18n', // https://i18n.nuxtjs.org/es/
+    '@nuxtjs/i18n', // https://i18n.nuxtjs.org/es/
   ],
 
   i18n: {
