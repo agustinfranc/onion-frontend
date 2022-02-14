@@ -55,11 +55,6 @@ export default {
         imgSrc: '',
         imgLazySrc: 'https://picsum.photos/id/11/10/6',
       },
-      attrs: {
-        class: 'mb-6',
-        boilerplate: true,
-        elevation: 2,
-      },
     }
   },
 
@@ -176,20 +171,6 @@ export default {
 
 .v-chip.v-size--default.v-chip-h--inherit {
   height: inherit;
-}
-
-.v-slide-group__wrapper {
-  touch-action: pan-y !important;
-}
-
-.v-slide-group__content,
-.v-slide-group__wrapper {
-  overflow-x: auto !important;
-}
-
-.v-slide-group__content::-webkit-scrollbar,
-.v-slide-group__wrapper::-webkit-scrollbar {
-  display: none;
 }
 
 .v-dialog:not(.v-dialog--fullscreen) {

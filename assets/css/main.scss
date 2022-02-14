@@ -127,3 +127,23 @@
   opacity: 1 !important;
   margin: 0 15px;
 }
+
+.v-slide-group {
+  .v-slide-group__wrapper {
+    /* touch-action: pan-y !important; */
+    touch-action: auto;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+
+  /* .v-slide-group__content,
+  .v-slide-group__wrapper {
+    overflow-x: auto !important;
+  } */
+
+  // .v-slide-group__content::-webkit-scrollbar,
+  .v-slide-group__wrapper::-webkit-scrollbar {
+    display: none;
+  }
+}
