@@ -19,8 +19,6 @@
     </div>
 
     <ActionButton :commerce="commerce" />
-
-    <ImageDialog v-model="dialog.show" :dialog="dialog" />
   </div>
 </template>
 
@@ -50,11 +48,6 @@ export default {
       rubros: [],
       params: null,
       fab: false,
-      dialog: {
-        show: false,
-        imgSrc: '',
-        imgLazySrc: 'https://picsum.photos/id/11/10/6',
-      },
     }
   },
 
@@ -171,9 +164,5 @@ export default {
 
 .v-chip.v-size--default.v-chip-h--inherit {
   height: inherit;
-}
-
-.v-dialog:not(.v-dialog--fullscreen) {
-  max-height: 75%;
 }
 </style>
