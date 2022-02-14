@@ -229,6 +229,8 @@
         </v-container>
       </template>
     </div>
+
+    <ImageDialog v-model="dialog.show" :dialog="dialog" />
   </div>
 </template>
 
@@ -236,6 +238,15 @@
 import { mapState, mapGetters } from 'vuex'
 
 export default {
+  data() {
+    return {
+      dialog: {
+        show: false,
+        imgSrc: '',
+        imgLazySrc: 'https://picsum.photos/id/11/10/6',
+      },
+    }
+  },
   computed: {
     ...mapState(['commerce']),
     ...mapGetters(['rubrosFiltered']),
@@ -255,5 +266,9 @@ export default {
 <style>
 .disabled .v-image__image.v-image__image--cover {
   filter: grayscale(100%);
+}
+
+.v-dialog:not(.v-dialog--fullscreen) {
+  max-height: 75%;
 }
 </style>

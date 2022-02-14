@@ -105,7 +105,6 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    { src: '~/plugins/localStorage.js', ssr: false },
     { src: '~/plugins/flickity', ssr: false, mode: 'client' }, // ? used in landind
   ],
   /*
