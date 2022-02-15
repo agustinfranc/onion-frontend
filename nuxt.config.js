@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export default {
   server: {
-    port: 3000, // default: 3000
+    port: process.env.PORT || 3000, // default: 3000
     host: 'localhost', // default: localhost
   },
   /*
