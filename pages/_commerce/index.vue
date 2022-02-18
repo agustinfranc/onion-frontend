@@ -158,7 +158,7 @@ export default {
 .theme--light.v-application .theme--parent,
 .theme--light.v-application .v-main__wrap,
 .theme--light.v-application .v-main__wrap .background-default {
-  background: #ffffff;
+  background: #f2f2f2;
   color: rgba(0, 0, 0, 0.87);
 }
 

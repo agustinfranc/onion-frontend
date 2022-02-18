@@ -109,7 +109,7 @@ export default {
 }
 
 .theme--light.v-application .theme--parent {
-  background: #ffffff;
+  background: #f2f2f2;
   color: rgba(0, 0, 0, 0.87);
 }
 

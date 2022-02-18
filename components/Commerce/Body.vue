@@ -25,21 +25,25 @@
 
         <!-- Lists -->
         <v-container v-if="!subrubro.commerces[0].pivot.slideable" :key="index">
-          <v-list :key="index" three-line>
-            <template v-for="(item, index) in subrubro.products">
-              <v-divider
-                v-if="index > 0"
-                :key="`${index}-${item.name}_divider`"
-              ></v-divider>
-
-              <v-list-item :id="`${item.code}`" :key="`${index}-${item.name}`">
+          <v-list nav three-line class="px-0">
+            <v-list-item-group
+              v-model="selectedItem"
+              color="primary"
+              @change="openSelectedItemDialog"
+            >
+              <v-list-item
+                v-for="(item, i) in subrubro.products"
+                :id="`${item.code}`"
+                :key="`${i}-${item.name}`"
+                class="mb-2"
+              >
                 <v-list-item-avatar v-if="item.avatar_dirname">
                   <v-img
                     :src="`${item.avatar_dirname}${
                       item.avatar ? item.avatar : ''
                     }`"
                     :class="{ disabled: item.disabled }"
-                    @click="showImageDialog(item)"
+                    @click="!canOrder ? showImageDialog(item) : ''"
                   >
                     <div
                       v-if="item.disabled"
@@ -142,7 +146,7 @@
                   </template>
                 </v-list-item-content>
               </v-list-item>
-            </template>
+            </v-list-item-group>
           </v-list>
         </v-container>
 
@@ -230,7 +234,7 @@
       </template>
     </div>
 
-    <ImageDialog v-model="dialog.show" :dialog="dialog" />
+    <ImageDialog v-model="imageDialog.show" :dialog="imageDialog" />
   </div>
 </template>
 
@@ -240,11 +244,18 @@ import { mapState, mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      dialog: {
+      imageDialog: {
         show: false,
         imgSrc: '',
         imgLazySrc: 'https://picsum.photos/id/11/10/6',
       },
+      itemDialog: {
+        show: false,
+      },
+
+      // traer desde BE
+      canOrder: true,
+      selectedItem: undefined,
     }
   },
   computed: {
@@ -255,9 +266,15 @@ export default {
     showImageDialog(item) {
       if (!item.avatar_dirname) return
 
-      this.dialog.imgSrc = item.avatar_dirname + item.avatar
+      this.imageDialog.imgSrc = item.avatar_dirname + item.avatar
+      this.imageDialog.show = true
+    },
+    openSelectedItemDialog(index) {
+      if (typeof index !== 'number') return
 
-      this.dialog.show = true
+      console.log(index)
+
+      // TODO: open dialog
     },
   },
 }

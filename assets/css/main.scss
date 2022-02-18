@@ -98,6 +98,21 @@
     display: -webkit-box;
   }
 }
+// TODO: Usar variables
+.theme--light.v-list.v-list--nav {
+  background: #f2f2f2;
+
+  .v-list-item {
+    background: #fff;
+  }
+}
+.theme--dark.v-list.v-list--nav {
+  background: #121212;
+
+  .v-list-item {
+    background: #1e1e1e;
+  }
+}
 
 .v-list--three-line .v-list-item .v-list-item__subtitle,
 .v-list-item--three-line .v-list-item__subtitle {
