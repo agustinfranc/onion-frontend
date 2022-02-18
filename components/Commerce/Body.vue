@@ -26,16 +26,13 @@
         <!-- Lists -->
         <v-container v-if="!subrubro.commerces[0].pivot.slideable" :key="index">
           <v-list nav three-line class="px-0">
-            <v-list-item-group
-              v-model="selectedItem"
-              color="primary"
-              @change="openSelectedItemDialog"
-            >
+            <v-list-item-group color="primary">
               <v-list-item
                 v-for="(item, i) in subrubro.products"
                 :id="`${item.code}`"
                 :key="`${i}-${item.name}`"
                 class="mb-2"
+                @click="openSelectedItemDialog(item.id)"
               >
                 <v-list-item-avatar v-if="item.avatar_dirname">
                   <v-img
@@ -249,13 +246,9 @@ export default {
         imgSrc: '',
         imgLazySrc: 'https://picsum.photos/id/11/10/6',
       },
-      itemDialog: {
-        show: false,
-      },
 
       // traer desde BE
       canOrder: true,
-      selectedItem: undefined,
     }
   },
   computed: {
@@ -269,12 +262,10 @@ export default {
       this.imageDialog.imgSrc = item.avatar_dirname + item.avatar
       this.imageDialog.show = true
     },
-    openSelectedItemDialog(index) {
-      if (typeof index !== 'number') return
+    openSelectedItemDialog(id) {
+      if (typeof id !== 'number') return
 
-      console.log(index)
-
-      // TODO: open dialog
+      this.$router.push({ path: `/${this.commerce.name}/${id}` })
     },
   },
 }

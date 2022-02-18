@@ -1,9 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <div>
-        <nuxt />
-      </div>
+      <nuxt />
     </v-main>
 
     <v-footer v-if="commerce.has_footer" app>
