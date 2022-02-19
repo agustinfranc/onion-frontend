@@ -3,15 +3,16 @@
     <v-card :loading="loading">
       <template slot="progress">
         <v-progress-linear
-          color="deep-purple"
+          color="blue"
           height="10"
           indeterminate
         ></v-progress-linear>
       </template>
 
       <v-img
-        height="250"
-        src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+        height="200"
+        :src="`${item.avatar_dirname}${item.avatar ? item.avatar : ''}`"
+        :class="{ disabled: item.disabled }"
       ></v-img>
 
       <v-card-title>{{ item.name }}</v-card-title>
@@ -32,7 +33,7 @@
         <div class="d-flex justify-space-between align-center">
           <v-card-title>Unidades</v-card-title>
 
-          <div>
+          <div class="mr-2">
             <v-btn-toggle>
               <v-btn fab small @click="removeOneItem">
                 <v-icon>mdi-minus</v-icon>
