@@ -1,7 +1,8 @@
 export const state = () => ({
+  cart: [],
   commerce: {},
   search: '',
-  title: 'Vuetify.js',
+  title: 'Onion',
 })
 
 export const getters = {
@@ -43,6 +44,9 @@ export const mutations = {
   SET_SEARCH(state, payload) {
     state.search = payload
   },
+  ADD_PRODUCT(state, payload) {
+    state.cart.push(payload)
+  },
 }
 
 export const actions = {
@@ -57,5 +61,8 @@ export const actions = {
   },
   setSearch({ commit }, payload) {
     commit('SET_SEARCH', payload)
+  },
+  addToCart({ commit }, payload) {
+    commit('ADD_PRODUCT', payload)
   },
 }

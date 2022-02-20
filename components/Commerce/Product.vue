@@ -64,7 +64,7 @@
         </v-card-text>
       </v-card>
 
-      <v-btn large color="primary" :disabled="disabled"
+      <v-btn large color="primary" :disabled="disabled" @click="addToCart"
         >Agregar al pedido</v-btn
       >
     </v-container>
@@ -74,6 +74,10 @@
 <script>
 export default {
   props: {
+    commerce: {
+      type: Object,
+      required: true,
+    },
     item: {
       type: Object,
       required: true,
@@ -86,7 +90,7 @@ export default {
   data() {
     return {
       note: null,
-      quantity: 0,
+      quantity: 1,
     }
   },
   computed: {
@@ -102,6 +106,15 @@ export default {
       if (!this.quantity) return
 
       --this.quantity
+    },
+    async addToCart() {
+      await this.$store.dispatch('addToCart', {
+        ...this.item,
+        quantity: this.quantity,
+        note: this.note,
+      })
+
+      this.$router.push({ path: `/${this.commerce.name}` })
     },
   },
 }

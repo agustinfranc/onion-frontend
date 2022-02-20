@@ -1,10 +1,12 @@
 <template>
   <div class="h-100">
-    <CommerceProduct :item="item" :loading="loading" />
+    <CommerceProduct :commerce="commerce" :item="item" :loading="loading" />
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'Product',
   data() {
@@ -27,5 +29,9 @@ export default {
     this.loading = false
   },
   fetchOnServer: false,
+
+  computed: {
+    ...mapState(['commerce']),
+  },
 }
 </script>

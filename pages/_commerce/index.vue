@@ -4,18 +4,24 @@
       <CommerceSkeleton />
     </template>
 
-    <template v-if="commerce && commerce.name">
-      <CommerceTitle />
-    </template>
+    <div class="d-flex flex-column" :style="calcContainerHeight">
+      <div class="overflow-y-auto">
+        <template v-if="commerce && commerce.name">
+          <CommerceTitle />
+        </template>
 
-    <div style="position: relative">
-      <template v-if="rubros">
-        <CommerceCategoriesHeader />
-      </template>
+        <div style="position: relative">
+          <template v-if="rubros">
+            <CommerceCategoriesHeader />
+          </template>
 
-      <CommerceCategories :rubros="rubros" />
+          <CommerceCategories :rubros="rubros" />
 
-      <CommerceBody />
+          <CommerceBody />
+        </div>
+      </div>
+
+      <CommerceCartButton v-if="cart.length" />
     </div>
 
     <ActionButton :commerce="commerce" />
@@ -51,7 +57,6 @@ export default {
     return {
       rubros: [],
       params: null,
-      fab: false,
     }
   },
 
@@ -130,8 +135,13 @@ export default {
   fetchOnServer: false,
 
   computed: {
-    ...mapState(['search', 'commerce']),
+    ...mapState(['search', 'commerce', 'cart']),
     ...mapGetters(['rubrosFiltered']),
+    calcContainerHeight() {
+      return this.commerce.has_footer
+        ? 'height: calc(100vh - 40px)'
+        : 'height: 100vh'
+    },
   },
 
   mounted() {
