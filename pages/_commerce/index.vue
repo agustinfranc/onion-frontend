@@ -26,7 +26,11 @@
 import { mapState, mapGetters } from 'vuex'
 
 export default {
-  async asyncData({ $axios, params, env, error }) {
+  async asyncData({ $axios, params, env, error, store }) {
+    if (store.state.commerce && store.state.commerce.rubros) {
+      return { commerceData: store.state.commerce, params }
+    }
+
     try {
       const url = `${env.apiUrl}${params.commerce}?simplified=true`
 

@@ -10,7 +10,7 @@
       </template>
 
       <v-img
-        height="200"
+        height="150"
         :src="`${item.avatar_dirname}${item.avatar ? item.avatar : ''}`"
         :class="{ disabled: item.disabled }"
       ></v-img>
@@ -99,6 +99,8 @@ export default {
       ++this.quantity
     },
     removeOneItem() {
+      if (!this.quantity) return
+
       --this.quantity
     },
   },

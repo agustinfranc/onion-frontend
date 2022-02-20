@@ -1,6 +1,6 @@
 <template>
   <div class="h-100">
-    <CommerceProduct :item="item" />
+    <CommerceProduct :item="item" :loading="loading" />
   </div>
 </template>
 
@@ -10,9 +10,12 @@ export default {
   data() {
     return {
       item: {},
+      loading: false,
     }
   },
   async fetch() {
+    this.loading = true
+
     try {
       const url = `${this.$nuxt.context.env.apiUrl}products/${this.$route.params.product}`
       const res = await this.$axios.$get(url)
@@ -20,6 +23,8 @@ export default {
     } catch (error) {
       console.error('Error:', error)
     }
+
+    this.loading = false
   },
   fetchOnServer: false,
 }
