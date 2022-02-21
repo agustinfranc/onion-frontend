@@ -1,6 +1,6 @@
 <template>
   <div class="h-100">
-    <CommerceProduct :commerce="commerce" :item="item" :loading="loading" />
+    <Product :commerce="commerce" :item="item" :loading="loading" />
   </div>
 </template>
 
@@ -8,7 +8,6 @@
 import { mapState } from 'vuex'
 
 export default {
-  name: 'Product',
   data() {
     return {
       item: {},

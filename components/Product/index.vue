@@ -114,7 +114,7 @@ export default {
         note: this.note,
       })
 
-      this.$router.push({ path: `/${this.commerce.name}` })
+      this.$router.push({ name: 'commerce___es' })
     },
   },
 }

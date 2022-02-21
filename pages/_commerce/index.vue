@@ -5,21 +5,7 @@
     </template>
 
     <div class="d-flex flex-column" :style="calcContainerHeight">
-      <div class="overflow-y-auto">
-        <template v-if="commerce && commerce.name">
-          <CommerceTitle />
-        </template>
-
-        <div style="position: relative">
-          <template v-if="rubros">
-            <CommerceCategoriesHeader />
-          </template>
-
-          <CommerceCategories :rubros="rubros" />
-
-          <CommerceBody />
-        </div>
-      </div>
+      <CommerceBody :commerce="commerce" :rubros="rubros" />
 
       <CommerceCartButton v-if="cart.length" />
     </div>
