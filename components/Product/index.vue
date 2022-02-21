@@ -18,7 +18,7 @@
       <v-card-title>{{ item.name }}</v-card-title>
 
       <v-card-text>
-        <div class="my-4 text-subtitle-1">
+        <div class="text-subtitle-1">
           <span class="font-weight-bold"> ${{ item.price }} </span>
         </div>
 
