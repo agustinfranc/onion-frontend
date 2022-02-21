@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column h-100">
+  <div class="d-flex flex-column" :style="calcContainerHeight">
     <v-card :loading="loading">
       <template slot="progress">
         <v-progress-linear
@@ -28,7 +28,7 @@
       </v-card-text>
     </v-card>
 
-    <v-container class="d-flex flex flex-column justify-space-between">
+    <v-container class="d-flex flex flex-column overflow-y-auto">
       <v-card class="mb-4">
         <div class="d-flex justify-space-between align-center">
           <v-card-title>Unidades</v-card-title>
@@ -63,8 +63,10 @@
           ></v-textarea>
         </v-card-text>
       </v-card>
+    </v-container>
 
-      <v-btn large color="primary" :disabled="disabled" @click="addToCart"
+    <v-container>
+      <v-btn large block color="primary" :disabled="disabled" @click="addToCart"
         >Agregar al pedido</v-btn
       >
     </v-container>
@@ -96,6 +98,11 @@ export default {
   computed: {
     disabled() {
       return !this.quantity
+    },
+    calcContainerHeight() {
+      return this.commerce.has_footer
+        ? 'height: calc(100vh - 40px)'
+        : 'height: 100vh'
     },
   },
   methods: {
