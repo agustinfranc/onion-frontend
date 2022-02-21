@@ -162,3 +162,11 @@
     display: none;
   }
 }
+
+.disabled .v-image__image.v-image__image--cover {
+  filter: grayscale(100%);
+}
+
+.v-dialog:not(.v-dialog--fullscreen) {
+  max-height: 75%;
+}
