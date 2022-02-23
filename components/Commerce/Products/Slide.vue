@@ -1,15 +1,21 @@
 <template>
   <v-container>
-    <v-slide-group>
+    <v-slide-group v-model="selected">
       <v-slide-item v-for="item in products" :key="`${item.id}-carousel`">
-        <v-card class="ma-2" min-height="370" width="224" max-width="400">
+        <v-card
+          class="ma-2"
+          min-height="370"
+          width="224"
+          max-width="400"
+          @click="openSelectedItemDialog(item.id)"
+        >
           <v-img
             v-if="item.avatar_dirname"
             class="white--text align-end"
             :class="{ disabled: item.disabled }"
             height="200px"
             :src="`${item.avatar_dirname}${item.avatar ? item.avatar : ''}`"
-            @click="showImageDialog(item)"
+            @click="!canOrder ? showImageDialog(item) : ''"
           >
             <div
               v-if="item.disabled"
@@ -90,6 +96,8 @@ export default {
     return {
       // TODO: traer desde BE dentro de commerce
       canOrder: true,
+
+      selected: null,
     }
   },
   computed: {

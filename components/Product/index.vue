@@ -55,7 +55,7 @@
         <v-card-title>¿Necesitas aclarar algo?</v-card-title>
         <v-card-text>
           <v-textarea
-            :value="note"
+            v-model="note"
             name="input-7-1"
             label="Notas al producto"
             counter

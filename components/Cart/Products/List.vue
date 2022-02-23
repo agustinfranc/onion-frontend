@@ -1,7 +1,7 @@
 <template>
   <v-list nav>
     <v-list-item-group color="primary">
-      <v-list-item v-for="(item, index) in items" :key="index" class="mb-2">
+      <v-list-item v-for="(item, index) in cart" :key="index" class="mb-2">
         <v-list-item-avatar v-if="item.avatar_dirname" rounded>
           <v-img
             :src="`${item.avatar_dirname}${item.avatar ? item.avatar : ''}`"
@@ -21,20 +21,23 @@
 
               <!-- Estoy repitiendo codigo de components/Product -->
               <v-btn-toggle class="mr-2">
-                <v-btn fab x-small @click="removeOneItem">
-                  <v-icon>mdi-minus</v-icon>
+                <v-btn fab x-small @click.stop="removeOneItem(item, index)">
+                  <v-icon v-if="item.quantity > 1">mdi-minus</v-icon>
+                  <v-icon v-else>mdi-delete</v-icon>
                 </v-btn>
 
                 <v-btn fab x-small>
                   <span>{{ item.quantity }}</span>
                 </v-btn>
 
-                <v-btn fab x-small @click="addOneItem">
+                <v-btn fab x-small @click.stop="addOneItem(item, index)">
                   <v-icon>mdi-plus</v-icon>
                 </v-btn>
               </v-btn-toggle>
             </div>
           </v-list-item-subtitle>
+
+          <v-list-item-subtitle>{{ item.note }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
     </v-list-item-group>
@@ -45,21 +48,32 @@
 import { mapState } from 'vuex'
 
 export default {
-  props: {
-    items: {
-      type: Array,
-      required: true,
-    },
-  },
   computed: {
-    ...mapState(['commerce']),
+    ...mapState(['commerce', 'cart']),
   },
   methods: {
-    removeOneItem() {
-      //
+    async addOneItem(item, index) {
+      await this.$store.dispatch('updateCart', {
+        item: {
+          ...item,
+          quantity: item.quantity + 1,
+        },
+        index,
+      })
     },
-    addOneItem() {
-      //
+    async removeOneItem(item, index) {
+      if (item.quantity > 1) {
+        await this.$store.dispatch('updateCart', {
+          item: {
+            ...item,
+            quantity: item.quantity - 1,
+          },
+          index,
+        })
+        return
+      }
+
+      await this.$store.dispatch('removeFromCart', { item, index })
     },
   },
 }

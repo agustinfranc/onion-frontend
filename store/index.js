@@ -47,6 +47,14 @@ export const mutations = {
   ADD_PRODUCT(state, payload) {
     state.cart.push(payload)
   },
+  REMOVE_PRODUCT(state, payload) {
+    state.cart.splice(payload.index, 1)
+  },
+  UPDATE_CART(state, payload) {
+    for (const [key, value] of Object.entries(payload.item)) {
+      state.cart[payload.index][key] = value
+    }
+  },
 }
 
 export const actions = {
@@ -64,5 +72,11 @@ export const actions = {
   },
   addToCart({ commit }, payload) {
     commit('ADD_PRODUCT', payload)
+  },
+  removeFromCart({ commit }, payload) {
+    commit('REMOVE_PRODUCT', payload)
+  },
+  updateCart({ commit }, payload) {
+    commit('UPDATE_CART', payload)
   },
 }
