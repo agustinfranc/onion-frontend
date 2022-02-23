@@ -33,7 +33,7 @@ export default {
     ...mapState(['cart']),
     subtotalCalc() {
       return this.cart.reduce(
-        (previous, current) => previous + current.price,
+        (previous, current) => previous + current.price * current.quantity,
         0
       )
     },
