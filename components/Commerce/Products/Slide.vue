@@ -1,10 +1,7 @@
 <template>
   <v-container>
     <v-slide-group>
-      <v-slide-item
-        v-for="item in subrubro.products"
-        :key="`${item.id}-carousel`"
-      >
+      <v-slide-item v-for="item in products" :key="`${item.id}-carousel`">
         <v-card class="ma-2" min-height="370" width="224" max-width="400">
           <v-img
             v-if="item.avatar_dirname"
