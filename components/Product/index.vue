@@ -66,7 +66,12 @@
     </v-container>
 
     <v-container>
-      <v-btn large block color="primary" :disabled="disabled" @click="addToCart"
+      <v-btn
+        large
+        block
+        color="primary"
+        :disabled="disabled || loading"
+        @click="addToCart"
         >Agregar al pedido</v-btn
       >
     </v-container>

@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container id="commerce-products-list">
     <v-list nav three-line class="px-0">
       <v-list-item-group color="primary">
         <v-list-item
@@ -9,7 +9,7 @@
           class="mb-2"
           @click="openSelectedItemDialog(item.id)"
         >
-          <v-list-item-avatar v-if="item.avatar_dirname">
+          <v-list-item-avatar v-if="item.avatar_dirname" rounded>
             <v-img
               :src="`${item.avatar_dirname}${item.avatar ? item.avatar : ''}`"
               :class="{ disabled: item.disabled }"
@@ -142,3 +142,20 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+#commerce-products-list .v-list {
+  .v-avatar.v-list-item__avatar {
+    height: 100px !important;
+    min-width: 100px !important;
+    width: 100px !important;
+  }
+
+  .v-list-item__title {
+    -webkit-line-clamp: 2;
+    white-space: initial;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+  }
+}
+</style>

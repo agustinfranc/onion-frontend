@@ -1,5 +1,7 @@
 <template>
-  <CartProductsList :items="cart" />
+  <div class="overflow-y-auto">
+    <CartProductsList :items="cart" />
+  </div>
 </template>
 
 <script>

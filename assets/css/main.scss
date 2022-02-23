@@ -83,21 +83,6 @@
   }
 }
 
-.v-list {
-  .v-avatar.v-list-item__avatar {
-    border-radius: 4px;
-    height: 100px !important;
-    min-width: 100px !important;
-    width: 100px !important;
-  }
-
-  .v-list-item__title {
-    -webkit-line-clamp: 2;
-    white-space: initial;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-  }
-}
 // TODO: Usar variables
 .theme--light.v-list.v-list--nav {
   background: #f2f2f2;
