@@ -1,3 +1,3 @@
 <template>
-  <h2>Mi pedido</h2>
+  <h2>Mi carrito</h2>
 </template>

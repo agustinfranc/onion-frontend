@@ -56,7 +56,6 @@
         <v-card-text>
           <v-textarea
             v-model="note"
-            name="input-7-1"
             label="Notas al producto"
             counter
             rows="1"

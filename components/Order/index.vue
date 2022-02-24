@@ -1,14 +1,16 @@
 <template>
   <v-container class="d-flex flex-column" :style="calcContainerHeight">
-    <CartTitle />
-
-    <CartProducts />
+    <OrderTitle />
 
     <v-divider class="mb-3"></v-divider>
 
-    <CartDetails />
+    <OrderCommerceDetails class="mb-3" />
 
-    <CartActionButton />
+    <OrderDeliveryDetails class="mb-3" />
+
+    <OrderPayMethod class="mb-auto" />
+
+    <OrderActionButton />
   </v-container>
 </template>
 
