@@ -58,9 +58,6 @@ export default {
         imgSrc: '',
         imgLazySrc: 'https://picsum.photos/id/11/10/6',
       },
-
-      // TODO: traer desde BE dentro de commerce
-      canOrder: true,
     }
   },
   computed: {

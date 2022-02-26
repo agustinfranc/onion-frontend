@@ -7,13 +7,13 @@
           :id="`${item.code}`"
           :key="`${i}-${item.name}`"
           class="mb-2"
-          @click="openSelectedItemDialog(item.id)"
+          @click="commerce.can_order ? openSelectedItemDialog(item.id) : ''"
         >
           <v-list-item-avatar v-if="item.avatar_dirname" rounded>
             <v-img
               :src="`${item.avatar_dirname}${item.avatar ? item.avatar : ''}`"
               :class="{ disabled: item.disabled }"
-              @click="!canOrder ? showImageDialog(item) : ''"
+              @click="!commerce.can_order ? showImageDialog(item) : ''"
             >
               <div
                 v-if="item.disabled"
@@ -116,12 +116,6 @@ export default {
       type: Array,
       required: true,
     },
-  },
-  data() {
-    return {
-      // TODO: traer desde BE dentro de commerce
-      canOrder: true,
-    }
   },
   computed: {
     ...mapState(['commerce']),

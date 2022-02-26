@@ -7,7 +7,7 @@
           min-height="370"
           width="224"
           max-width="400"
-          @click="openSelectedItemDialog(item.id)"
+          @click="commerce.can_order ? openSelectedItemDialog(item.id) : ''"
         >
           <v-img
             v-if="item.avatar_dirname"
@@ -15,7 +15,7 @@
             :class="{ disabled: item.disabled }"
             height="200px"
             :src="`${item.avatar_dirname}${item.avatar ? item.avatar : ''}`"
-            @click="!canOrder ? showImageDialog(item) : ''"
+            @click="!commerce.can_order ? showImageDialog(item) : ''"
           >
             <div
               v-if="item.disabled"
@@ -94,9 +94,6 @@ export default {
   },
   data() {
     return {
-      // TODO: traer desde BE dentro de commerce
-      canOrder: true,
-
       selected: null,
     }
   },
