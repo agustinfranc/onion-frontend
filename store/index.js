@@ -1,6 +1,10 @@
 export const state = () => ({
   cart: [],
   commerce: {},
+  order: {
+    address: {},
+    branch: {},
+  },
   search: '',
   title: 'Onion',
 })
@@ -35,6 +39,12 @@ export const getters = {
 }
 
 export const mutations = {
+  SAVE_ADDRESS(state, payload) {
+    state.order.address = payload
+  },
+  SAVE_COMMERCE_BRANCH(state, payload) {
+    state.order.branch = payload
+  },
   SET_DATA(state, payload) {
     state.commerce = payload
   },
@@ -78,5 +88,11 @@ export const actions = {
   },
   updateCart({ commit }, payload) {
     commit('UPDATE_CART', payload)
+  },
+  saveAddress({ commit }, payload) {
+    commit('SAVE_ADDRESS', payload)
+  },
+  saveCommerceBranch({ commit }, payload) {
+    commit('SAVE_COMMERCE_BRANCH', payload)
   },
 }
