@@ -2,7 +2,7 @@
   <div>
     <v-card>
       <v-card-title class="justify-space-between">
-        <span>Direccion de entrega</span>
+        <span>Dirección de entrega</span>
         <OrderSelectionButton
           :highlight="!!order.address.address"
           @click="setAddress"

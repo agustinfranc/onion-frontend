@@ -20,7 +20,7 @@
           :src="commerce.cover_dirname"
         ></v-img>
         <div v-if="order.branch.name">
-          <h3>{{ order.branch.name }}</h3>
+          <h3>{{ order.branch.fullname }}</h3>
           <h4 v-if="order.branch.address">{{ order.branch.address }}</h4>
         </div>
         <div v-else>

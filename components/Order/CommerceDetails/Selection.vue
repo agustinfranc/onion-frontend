@@ -12,7 +12,7 @@
           <v-list-item v-for="branch in commerce.branches" :key="branch.id">
             <v-list-item-content>
               <v-list-item-title>
-                {{ branch.name }}
+                {{ branch.fullname }}
               </v-list-item-title>
               <v-list-item-subtitle>
                 {{ branch.address }}
