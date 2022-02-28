@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <v-container>
     <v-btn
       large
       block
@@ -9,7 +9,7 @@
       :disabled="!cart.length"
       >Continuar</v-btn
     >
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -21,3 +21,12 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.container {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  background: inherit;
+}
+</style>

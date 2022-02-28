@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-auto">
+  <div>
     <v-container class="d-flex justify-space-between">
       <span>Subtotal:</span>
       <span>${{ subtotalCalc }}</span>

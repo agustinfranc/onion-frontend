@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-y-auto">
+  <div>
     <template v-if="commerce && commerce.name">
       <CommerceTitle />
     </template>

@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <v-container>
     <v-btn large block color="primary" :disabled="disabled" @click="submitOrder"
       >Hacer pedido ${{ subtotalCalc }}</v-btn
     >
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -39,3 +39,12 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.container {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  background: inherit;
+}
+</style>

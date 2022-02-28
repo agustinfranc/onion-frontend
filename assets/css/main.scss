@@ -2,6 +2,10 @@
   text-decoration: none;
 }
 
+.v-main__wrap > div {
+  background: inherit;
+}
+
 .v-toolbar {
   /* .v-toolbar__image .v-image__image {
     filter: blur(2px);

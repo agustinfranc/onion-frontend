@@ -4,11 +4,13 @@
       <CommerceSkeleton />
     </template>
 
-    <div class="d-flex flex-column" :style="calcContainerHeight">
-      <CommerceBody :commerce="commerce" :rubros="rubros" />
+    <CommerceBody
+      :commerce="commerce"
+      :rubros="rubros"
+      style="padding-bottom: 68px"
+    />
 
-      <CommerceCartButton v-if="cart.length" />
-    </div>
+    <CommerceCartButton v-if="cart.length" />
 
     <ActionButton :commerce="commerce" />
   </div>

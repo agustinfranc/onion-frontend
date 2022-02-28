@@ -5,3 +5,12 @@
     >
   </v-container>
 </template>
+
+<style lang="scss" scoped>
+.container {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  background: inherit;
+}
+</style>
