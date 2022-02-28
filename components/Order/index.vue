@@ -1,17 +1,17 @@
 <template>
-  <v-container class="d-flex flex-column" :style="calcContainerHeight">
-    <OrderTitle />
+  <div>
+    <OrderHeader />
 
-    <v-divider class="mb-3"></v-divider>
+    <v-container class="d-flex flex-column" :style="calcContainerHeight">
+      <OrderCommerceDetails class="mb-3" />
 
-    <OrderCommerceDetails class="mb-3" />
+      <OrderDeliveryDetails class="mb-3" />
 
-    <OrderDeliveryDetails class="mb-3" />
+      <OrderPayMethod class="mb-auto" />
 
-    <OrderPayMethod class="mb-auto" />
-
-    <OrderActionButton />
-  </v-container>
+      <OrderActionButton />
+    </v-container>
+  </div>
 </template>
 
 <script>

@@ -1,15 +1,17 @@
 <template>
-  <v-container class="d-flex flex-column" :style="calcContainerHeight">
-    <CartTitle />
+  <div>
+    <CartHeader />
 
-    <CartProducts />
+    <v-container class="d-flex flex-column" :style="calcContainerHeight">
+      <CartProducts />
 
-    <v-divider class="mb-3"></v-divider>
+      <v-divider class="mb-3"></v-divider>
 
-    <CartDetails />
+      <CartDetails />
 
-    <CartActionButton />
-  </v-container>
+      <CartActionButton />
+    </v-container>
+  </div>
 </template>
 
 <script>
