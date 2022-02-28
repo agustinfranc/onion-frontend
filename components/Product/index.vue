@@ -13,7 +13,13 @@
         height="150"
         :src="`${item.avatar_dirname}${item.avatar ? item.avatar : ''}`"
         :class="{ disabled: item.disabled }"
-      ></v-img>
+      >
+        <v-app-bar flat color="transparent">
+          <v-btn small fab nuxt :to="{ name: 'commerce___es' }">
+            <v-icon>mdi-arrow-left</v-icon>
+          </v-btn>
+        </v-app-bar></v-img
+      >
 
       <v-card-title>{{ item.name }}</v-card-title>
 
