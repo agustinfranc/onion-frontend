@@ -4,6 +4,7 @@ export const state = () => ({
   order: {
     address: {},
     branch: {},
+    payMethod: {},
   },
   search: '',
   title: 'Onion',
@@ -44,6 +45,9 @@ export const mutations = {
   },
   SAVE_COMMERCE_BRANCH(state, payload) {
     state.order.branch = payload
+  },
+  SAVE_PAY_METHOD(state, payload) {
+    state.order.payMethod = payload
   },
   SET_DATA(state, payload) {
     state.commerce = payload
@@ -94,5 +98,8 @@ export const actions = {
   },
   saveCommerceBranch({ commit }, payload) {
     commit('SAVE_COMMERCE_BRANCH', payload)
+  },
+  savePayMethod({ commit }, payload) {
+    commit('SAVE_PAY_METHOD', payload)
   },
 }
