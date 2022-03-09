@@ -1,10 +1,10 @@
 export class OrderService {
-  static sendOrder({ cart, order }) {
+  static sendOrder({ cart, order, preference }) {
     const origin = 'https://api.whatsapp.com'
     const pathname = '/send'
 
     const phone = this.getPhoneNumber(order)
-    const text = this.getText(cart, order)
+    const text = this.getText({ cart, order, preference })
 
     const query = { phone, text }
     const params = new URLSearchParams(query)
@@ -19,7 +19,7 @@ export class OrderService {
     return order.branch.whatsapp_number
   }
 
-  static getText(cart, order) {
+  static getText({ cart, order, preference }) {
     const message = []
     const separator = '\n'
 
@@ -27,7 +27,7 @@ export class OrderService {
     this.setProductDetails(message, cart)
     this.setOptionalOrderNote(message, order)
     this.setOrderTotal(message, cart)
-    this.setPayMethod(message)
+    this.setPayMethod(message, order, preference)
     this.setDeliveryAddress(message, order)
 
     return message.join(separator)
@@ -82,9 +82,14 @@ export class OrderService {
     message.push('')
   }
 
-  static setPayMethod(message) {
+  static setPayMethod(message, order, preference) {
     message.push('Forma de pago:')
-    message.push('Efectivo')
+    message.push(order.payMethod.name)
+
+    if (order.payMethod.name === 'MercadoPago') {
+      message.push(preference.init_point)
+    }
+
     message.push('')
   }
 

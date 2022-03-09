@@ -8,7 +8,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { OrderService } from '@/services/order.service'
+import { FacadeService } from '@/services/facade.service'
 
 export default {
   computed: {
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     submitOrder() {
-      OrderService.sendOrder({
+      FacadeService.sendOrder({
         commerce: this.commerce,
         cart: this.cart,
         order: this.order,
