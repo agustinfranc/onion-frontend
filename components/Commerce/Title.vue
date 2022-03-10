@@ -5,7 +5,10 @@
     :style="`background-image: linear-gradient(to top, rgba(30, 30, 30, 0.2), rgba(99, 99, 99, 0)), url(${commerce.cover_dirname});`"
   >
     <div class="d-flex flex-column align-end justify-end" style="height: 100%">
-      <div class="ma-3 mb-auto" style="position: fixed; top: 0; z-index: 2">
+      <div
+        class="ma-3 mb-auto"
+        style="position: fixed; top: 0; right: 0; z-index: 2"
+      >
         <v-btn
           v-if="!searchField"
           fab
