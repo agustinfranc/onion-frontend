@@ -8,14 +8,10 @@
       <div
         class="ma-3 mb-auto"
         style="position: fixed; top: 0; right: 0; z-index: 2"
+        @mouseover="showSeachField"
+        @mouseout="hideSeachField"
       >
-        <v-btn
-          v-if="!searchField"
-          fab
-          small
-          @mouseover="showSeachField"
-          @mouseout="hideSeachField"
-        >
+        <v-btn v-if="!searchField" fab small>
           <v-icon>mdi-magnify</v-icon>
         </v-btn>
 
