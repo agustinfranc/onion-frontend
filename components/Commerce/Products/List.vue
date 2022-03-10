@@ -30,7 +30,7 @@
             <v-list-item-title v-html="item.name"></v-list-item-title>
 
             <v-list-item-subtitle>
-              <v-tooltip bottom close-delay="500">
+              <v-tooltip v-if="!commerce.can_order" bottom close-delay="500">
                 <template #activator="{ on, attrs }">
                   <span
                     v-bind="attrs"
@@ -40,6 +40,7 @@
                 </template>
                 <span v-html="item.description"></span>
               </v-tooltip>
+              <span v-else v-html="item.description"></span>
             </v-list-item-subtitle>
 
             <div>
