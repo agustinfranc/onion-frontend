@@ -62,5 +62,10 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      fab: false,
+    }
+  },
 }
 </script>

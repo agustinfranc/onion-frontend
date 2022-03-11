@@ -28,6 +28,7 @@ export default {
    ** Dinamic Routes
    ** See https://nuxtjs.org/api/configuration-generate
    */
+  //  Used for static mode
   generate: {
     routes() {
       const url = process.env.API_URL
@@ -91,21 +92,22 @@ export default {
       //   "data-ad-client": "ca-pub-9710451698739069",
       //   src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
       // },
-      {
-        src: '/js/pixel.js',
-      },
+      // Pixel desactivado por el uso de cookies, queremos evitar el uso abusivo de seguimiento
+      // {
+      //   src: '/js/pixel.js',
+      // },
     ],
   },
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/main.scss'],
+  css: ['@/assets/css/main.scss', '@/assets/css/helpers.scss'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    { src: '~/plugins/flickity', ssr: false, mode: 'client' }, // ? used in landind
+    { src: '~/plugins/flickity', ssr: false, mode: 'client' }, // ? used in landing
   ],
   /*
    ** Auto import components

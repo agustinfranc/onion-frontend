@@ -4,19 +4,13 @@
       <CommerceSkeleton />
     </template>
 
-    <template v-if="commerce && commerce.name">
-      <CommerceTitle />
-    </template>
+    <CommerceBody
+      :commerce="commerce"
+      :rubros="rubros"
+      style="padding-bottom: 68px"
+    />
 
-    <div style="position: relative">
-      <template v-if="rubros">
-        <CommerceCategoriesHeader />
-      </template>
-
-      <CommerceCategories :rubros="rubros" />
-
-      <CommerceBody />
-    </div>
+    <CommerceCartButton v-if="cart.length" />
 
     <ActionButton :commerce="commerce" />
   </div>
@@ -26,7 +20,11 @@
 import { mapState, mapGetters } from 'vuex'
 
 export default {
-  async asyncData({ $axios, params, env, error }) {
+  async asyncData({ $axios, params, env, error, store }) {
+    if (store.state.commerce && store.state.commerce.rubros) {
+      return { commerceData: store.state.commerce, params }
+    }
+
     try {
       const url = `${env.apiUrl}${params.commerce}?simplified=true`
 
@@ -47,7 +45,6 @@ export default {
     return {
       rubros: [],
       params: null,
-      fab: false,
     }
   },
 
@@ -126,8 +123,13 @@ export default {
   fetchOnServer: false,
 
   computed: {
-    ...mapState(['search', 'commerce']),
+    ...mapState(['search', 'commerce', 'cart']),
     ...mapGetters(['rubrosFiltered']),
+    calcContainerHeight() {
+      return this.commerce.has_footer
+        ? 'height: calc(100vh - 40px)'
+        : 'height: 100vh'
+    },
   },
 
   mounted() {
@@ -158,7 +160,7 @@ export default {
 .theme--light.v-application .theme--parent,
 .theme--light.v-application .v-main__wrap,
 .theme--light.v-application .v-main__wrap .background-default {
-  background: #ffffff;
+  background: #f2f2f2;
   color: rgba(0, 0, 0, 0.87);
 }
 
