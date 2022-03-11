@@ -88,6 +88,7 @@ export class OrderService {
 
     if (order.payMethod.name === 'MercadoPago') {
       message.push(preference.init_point)
+      message.push('(Hacé click en el link de arriba para pagar tu pedido)')
     }
 
     message.push('')

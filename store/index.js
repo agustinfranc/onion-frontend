@@ -4,6 +4,7 @@ export const state = () => ({
   order: {
     address: {},
     branch: {},
+    note: '',
     payMethod: {},
   },
   search: '',
@@ -40,13 +41,16 @@ export const getters = {
 }
 
 export const mutations = {
-  SAVE_ADDRESS(state, payload) {
+  SET_ADDRESS(state, payload) {
     state.order.address = payload
   },
-  SAVE_COMMERCE_BRANCH(state, payload) {
+  SET_COMMERCE_BRANCH(state, payload) {
     state.order.branch = payload
   },
-  SAVE_PAY_METHOD(state, payload) {
+  SET_ORDER_NOTE(state, payload) {
+    state.order.note = payload
+  },
+  SET_PAY_METHOD(state, payload) {
     state.order.payMethod = payload
   },
   SET_DATA(state, payload) {
@@ -94,12 +98,15 @@ export const actions = {
     commit('UPDATE_CART', payload)
   },
   saveAddress({ commit }, payload) {
-    commit('SAVE_ADDRESS', payload)
+    commit('SET_ADDRESS', payload)
   },
   saveCommerceBranch({ commit }, payload) {
-    commit('SAVE_COMMERCE_BRANCH', payload)
+    commit('SET_COMMERCE_BRANCH', payload)
+  },
+  saveOrderNote({ commit }, payload) {
+    commit('SET_ORDER_NOTE', payload)
   },
   savePayMethod({ commit }, payload) {
-    commit('SAVE_PAY_METHOD', payload)
+    commit('SET_PAY_METHOD', payload)
   },
 }

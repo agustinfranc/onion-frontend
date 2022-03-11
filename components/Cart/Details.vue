@@ -10,10 +10,10 @@
       <v-card-text>
         <v-textarea
           v-model="note"
-          name="input-7-1"
           label="Notas al pedido"
           counter
           rows="1"
+          @change="setOrderNote"
         ></v-textarea>
       </v-card-text>
     </v-card>
@@ -36,6 +36,11 @@ export default {
         (previous, current) => previous + current.price * current.quantity,
         0
       )
+    },
+  },
+  methods: {
+    setOrderNote(note) {
+      this.$store.dispatch('saveOrderNote', note)
     },
   },
 }
