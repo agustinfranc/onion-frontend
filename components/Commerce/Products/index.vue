@@ -68,7 +68,9 @@ export default {
     showImageDialog(item) {
       if (!item.avatar_dirname) return
 
-      this.imageDialog.imgSrc = item.avatar_dirname + item.avatar
+      this.imageDialog.imgSrc = `${item.avatar_dirname}${
+        item.avatar ? item.avatar : ''
+      }`
       this.imageDialog.show = true
     },
     openSelectedItemDialog(id) {
