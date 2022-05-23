@@ -9,7 +9,11 @@
           active-class="active-item--custom"
           color="primary"
         >
-          <v-list-item v-for="payMethod in payMethods" :key="payMethod.id">
+          <v-list-item
+            v-for="payMethod in payMethods"
+            :key="payMethod.id"
+            :disabled="payMethod.disabled"
+          >
             <v-list-item-content>
               <v-list-item-title>
                 {{ payMethod.name }}
@@ -36,22 +40,31 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data() {
     return {
       selected: undefined,
-      payMethods: [
+    }
+  },
+  computed: {
+    ...mapState(['order']),
+    payMethods() {
+      return [
         {
           id: 1,
           name: 'Efectivo',
+          disabled: false,
         },
         {
           id: 2,
           name: 'MercadoPago',
           subtitle: 'Dinero en cuenta, Tarjeta de Débito, Tarjeta de Crédito',
+          disabled: !this.order.branch?.mp_enabled,
         },
-      ],
-    }
+      ]
+    },
   },
   methods: {
     async select() {
