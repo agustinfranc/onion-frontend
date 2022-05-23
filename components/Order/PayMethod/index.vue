@@ -5,6 +5,7 @@
       <OrderSelectionButton
         :highlight="!!order.payMethod.name"
         :highlight-text="'Seleccionar'"
+        :disabled="!order.branch.id"
         @click="setPayMethod"
       />
     </v-card-title>

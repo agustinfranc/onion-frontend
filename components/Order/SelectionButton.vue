@@ -1,6 +1,7 @@
 <template>
   <v-btn
     depressed
+    :disabled="disabled"
     :color="highlight ? 'light' : 'success'"
     @click="$emit('click')"
     >{{ highlight ? 'Cambiar' : highlightText }}</v-btn
@@ -11,6 +12,10 @@
 export default {
   props: {
     highlight: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
       type: Boolean,
       default: false,
     },
