@@ -15,7 +15,7 @@
           <v-list-item-subtitle>
             <div class="d-flex justify-space-between">
               <span class="mt-1 text-body-2"
-                >{{ commerce.currency ? ' ' + commerce.currency.symbol : ''
+                >{{ commerce.currency ? commerce.currency.symbol + ' ' : ''
                 }}{{ item.price }}</span
               >
 
