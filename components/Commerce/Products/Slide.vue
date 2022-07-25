@@ -67,8 +67,9 @@
                 outlined
                 label
               >
-                {{ price.name ? price.name + ' ' : '' }}
-                <br v-if="price.name && price.price" />
+                <span v-if="price.name" class="mr-3"
+                  >{{ price.name ? price.name + ' ' : '' }}
+                </span>
                 <span v-if="price.price">
                   {{ commerce.currency ? commerce.currency.symbol + ' ' : ''
                   }}{{ price.price.toFixed(2) }}
