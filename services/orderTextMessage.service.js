@@ -42,10 +42,17 @@ export class OrderTextMessage {
         `$${product.price * product.quantity}`,
       ]
       if (product.note) array.push(product.note)
+      if (product.options) this.setProductOptions(array, product)
 
       message.push(array.join(' - '))
     })
     message.push('')
+  }
+
+  static setProductOptions(array, product) {
+    return Object.values(product.options).forEach((option) =>
+      array.push(option.name)
+    )
   }
 
   static setOptionalOrderNote(message, order) {

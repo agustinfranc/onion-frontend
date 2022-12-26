@@ -14,26 +14,39 @@
 
           <v-list-item-subtitle>
             <div class="d-flex justify-space-between">
-              <span class="mt-1 text-body-2"
-                >{{ commerce.currency ? commerce.currency.symbol + ' ' : ''
-                }}{{ item.price }}</span
-              >
+              <div>
+                <span class="mt-1 text-body-2"
+                  >{{ commerce.currency ? commerce.currency.symbol + ' ' : '$'
+                  }}{{ item.price }}</span
+                >
+                <template v-if="item.options">
+                  <p
+                    v-for="option in item.options"
+                    :key="`option_${option.id}`"
+                    class="mb-0 text-body-2"
+                  >
+                    {{ option.name }}
+                  </p>
+                </template>
+              </div>
 
-              <!-- Estoy repitiendo codigo de components/Product -->
-              <v-btn-toggle class="mr-2">
-                <v-btn fab x-small @click.stop="removeOneItem(item, index)">
-                  <v-icon v-if="item.quantity > 1">mdi-minus</v-icon>
-                  <v-icon v-else>mdi-delete</v-icon>
-                </v-btn>
+              <div>
+                <!-- Estoy repitiendo codigo de components/Product -->
+                <v-btn-toggle class="mr-2">
+                  <v-btn fab x-small @click.stop="removeOneItem(item, index)">
+                    <v-icon v-if="item.quantity > 1">mdi-minus</v-icon>
+                    <v-icon v-else>mdi-delete</v-icon>
+                  </v-btn>
 
-                <v-btn fab x-small>
-                  <span>{{ item.quantity }}</span>
-                </v-btn>
+                  <v-btn fab x-small>
+                    <span>{{ item.quantity }}</span>
+                  </v-btn>
 
-                <v-btn fab x-small @click.stop="addOneItem(item, index)">
-                  <v-icon>mdi-plus</v-icon>
-                </v-btn>
-              </v-btn-toggle>
+                  <v-btn fab x-small @click.stop="addOneItem(item, index)">
+                    <v-icon>mdi-plus</v-icon>
+                  </v-btn>
+                </v-btn-toggle>
+              </div>
             </div>
           </v-list-item-subtitle>
 

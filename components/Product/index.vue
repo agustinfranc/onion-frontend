@@ -57,6 +57,33 @@
         </div>
       </v-card>
 
+      <!-- Options -->
+      <template v-if="item.product_options_groupes">
+        <v-card
+          v-for="groupe in item.product_options_groupes"
+          :key="`groupe_${groupe.id}`"
+          class="mb-4"
+        >
+          <v-card-title>{{ groupe.name }}</v-card-title>
+          <v-card-subtitle>
+            {{ groupe.description }}
+          </v-card-subtitle>
+
+          <v-card-text>
+            <v-form ref="form" v-model="valid">
+              <v-radio-group v-model="form[groupe.id]">
+                <v-radio
+                  v-for="option in groupe.product_options"
+                  :key="`option_${option.id}`"
+                  :label="option.name"
+                  :value="option"
+                ></v-radio>
+              </v-radio-group>
+            </v-form>
+          </v-card-text>
+        </v-card>
+      </template>
+
       <v-card class="mb-auto">
         <v-card-title>¿Necesitas aclarar algo?</v-card-title>
         <v-card-text>
@@ -103,6 +130,8 @@ export default {
     return {
       note: null,
       quantity: 1,
+      form: {},
+      valid: true,
     }
   },
   computed: {
@@ -129,6 +158,7 @@ export default {
         ...this.item,
         quantity: this.quantity,
         note: this.note,
+        options: this.form,
       })
 
       this.$router.push({ name: 'commerce___es' })
