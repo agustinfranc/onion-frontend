@@ -32,15 +32,11 @@
             <v-list-item-subtitle>
               <v-tooltip v-if="!commerce.can_order" bottom close-delay="500">
                 <template #activator="{ on, attrs }">
-                  <span
-                    v-bind="attrs"
-                    v-on="on"
-                    v-html="item.description"
-                  ></span>
+                  <span v-bind="attrs" v-on="on">{{ item.description }}</span>
                 </template>
-                <span v-html="item.description"></span>
+                <span>{{ item.description }}</span>
               </v-tooltip>
-              <span v-else v-html="item.description"></span>
+              <span v-else>{{ item.description }}</span>
             </v-list-item-subtitle>
 
             <div>

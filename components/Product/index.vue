@@ -9,7 +9,19 @@
         ></v-progress-linear>
       </template>
 
+      <div v-if="item.youtube_id" id="youtube-iframe">
+        <iframe
+          width="560"
+          height="315"
+          :src="`https://www.youtube.com/embed/${item.youtube_id}`"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
       <v-img
+        v-if="!item.youtube_id"
         height="150"
         :src="`${item.avatar_dirname}${item.avatar ? item.avatar : ''}`"
         :class="{ disabled: item.disabled }"
@@ -28,8 +40,8 @@
           <span class="font-weight-bold"> ${{ item.price }} </span>
         </div>
 
-        <div>
-          {{ item.description }}
+        <div class="description-container">
+          <span v-html="item.description"></span>
         </div>
       </v-card-text>
     </v-card>
@@ -166,3 +178,10 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.description-container {
+  max-height: 35vh;
+  overflow-y: auto;
+}
+</style>

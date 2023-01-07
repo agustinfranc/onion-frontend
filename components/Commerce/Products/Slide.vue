@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-slide-group v-model="selected">
+    <v-slide-group v-model="selected" show-arrows>
       <v-slide-item v-for="item in products" :key="`${item.id}-carousel`">
         <v-card
           class="ma-2"
@@ -44,10 +44,11 @@
           >
             <v-tooltip bottom>
               <template #activator="{ on, attrs }">
-                <span v-bind="attrs" v-on="on" v-html="item.description">
+                <span v-bind="attrs" v-on="on">
+                  {{ item.description }}
                 </span>
               </template>
-              <span v-html="item.description"></span>
+              <span>{{ item.description }}</span>
             </v-tooltip>
           </v-card-subtitle>
 
