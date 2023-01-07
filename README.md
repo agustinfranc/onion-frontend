@@ -8,13 +8,13 @@ Onion is a company in which we take care of digitizing your business to anticipa
 
 ## Requirements
 
-Node v16
+Node v14
 
 ## Build Setup
 
 ```bash
 # use node 16
-nvm use 16
+nvm use 14
 
 # install dependencies
 $ yarn
