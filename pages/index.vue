@@ -630,13 +630,6 @@ export default {
     return {
       commerces: [
         {
-          id: 39,
-          name: 'Mikkos',
-          avatar:
-            'https://api.onion.ar/storage/images/wVrxZAgYZRuSORad8QdfM8TQdJ31OE0zqxsk0g8A.jpg',
-          url: 'https://onion.ar/mikkos',
-        },
-        {
           id: 38,
           name: 'La Playa',
           avatar:
@@ -678,29 +671,10 @@ export default {
           url: 'https://onion.ar/desembarco',
         },
         {
-          id: 3,
-          name: 'Gusto',
-          avatar:
-            'https://api.onion.ar/storage/images/1xraJQYYiLJWOGHjDj8gafK6A53cSoKFQmoW54Iw.jpg',
-          url: 'https://onion.ar/gusto',
-        },
-        {
-          id: 4,
-          name: 'Pepper',
-          avatar: 'img/gallery/pepper.jpg',
-          url: 'https://onion.ar/pepper',
-        },
-        {
           id: 5,
           name: 'Colonial',
           avatar: 'img/gallery/colonial.png',
           url: 'https://colonial.onion.com.ar',
-        },
-        {
-          id: 9,
-          name: 'Café del Encuentro',
-          avatar: 'img/gallery/encuentro.png',
-          url: 'https://onion.ar/cafedelencuentro',
         },
         {
           id: 10,
