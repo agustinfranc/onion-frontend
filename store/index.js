@@ -6,6 +6,9 @@ export const state = () => ({
     branch: {},
     note: '',
     payMethod: {},
+    client: {
+      name: undefined,
+    },
   },
   search: '',
   title: 'Onion',
@@ -62,6 +65,9 @@ export const mutations = {
   SET_SEARCH(state, payload) {
     state.search = payload
   },
+  SET_CLIENT(state, payload) {
+    state.order.client = payload
+  },
   ADD_PRODUCT(state, payload) {
     state.cart.push(payload)
   },
@@ -108,5 +114,8 @@ export const actions = {
   },
   savePayMethod({ commit }, payload) {
     commit('SET_PAY_METHOD', payload)
+  },
+  saveClient({ commit }, payload) {
+    commit('SET_CLIENT', payload)
   },
 }

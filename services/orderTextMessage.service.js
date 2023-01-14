@@ -3,7 +3,7 @@ export class OrderTextMessage {
     const message = []
     const separator = '\n'
 
-    this.setTitle(message)
+    this.setTitle(message, order)
     this.setProductDetails(message, cart)
     this.setOptionalOrderNote(message, order)
     this.setOrderTotal(message, cart)
@@ -28,8 +28,11 @@ export class OrderTextMessage {
     return array.join(', ')
   }
 
-  static setTitle(message) {
-    message.push('Realicé un pedido a través de onion.ar')
+  static setTitle(message, order) {
+    message.push('Hola, realicé un pedido a través de onion.ar')
+
+    this.setClientDetails(message, order)
+
     message.push('Este es el detalle:')
     message.push('')
   }
@@ -60,6 +63,12 @@ export class OrderTextMessage {
 
     message.push('Nota al pedido:')
     message.push(order.note)
+    message.push('')
+  }
+
+  static setClientDetails(message, order) {
+    message.push('Nombre y apellido: ')
+    message.push(order.client.name)
     message.push('')
   }
 
