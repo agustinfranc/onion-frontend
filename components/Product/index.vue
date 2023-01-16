@@ -82,15 +82,27 @@
           </v-card-subtitle>
 
           <v-card-text>
-            <v-form ref="form" v-model="valid">
-              <v-radio-group v-model="form[groupe.id]">
-                <v-radio
+            <v-form v-model="valid">
+              <template v-if="!groupe.multiple">
+                <v-radio-group v-model="form[groupe.id]">
+                  <v-radio
+                    v-for="option in groupe.product_options"
+                    :key="`option_${option.id}`"
+                    :label="option.name"
+                    :value="option"
+                  ></v-radio>
+                </v-radio-group>
+              </template>
+
+              <template v-else>
+                <v-checkbox
                   v-for="option in groupe.product_options"
                   :key="`option_${option.id}`"
                   :label="option.name"
+                  @change="(item) => onChangeCheckbox(item, option)"
                   :value="option"
-                ></v-radio>
-              </v-radio-group>
+                ></v-checkbox>
+              </template>
             </v-form>
           </v-card-text>
         </v-card>
@@ -174,6 +186,19 @@ export default {
       })
 
       this.$router.push({ name: 'commerce___es' })
+    },
+    onChangeCheckbox(item, option) {
+      if (!this.form[option.product_options_groupe_id]) {
+        this.form[option.product_options_groupe_id] = []
+      }
+
+      const i = this.form[option.product_options_groupe_id].findIndex(
+        (e) => e.id === option.id
+      )
+
+      i >= 0
+        ? this.form[option.product_options_groupe_id].splice(i, 1)
+        : this.form[option.product_options_groupe_id].push(option)
     },
   },
 }

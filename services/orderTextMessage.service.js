@@ -54,7 +54,9 @@ export class OrderTextMessage {
 
   static setProductOptions(array, product) {
     return Object.values(product.options).forEach((option) =>
-      array.push(option.name)
+      Array.isArray(option)
+        ? option.forEach((item) => array.push(item.name))
+        : array.push(option.name)
     )
   }
 
