@@ -676,18 +676,6 @@ export default {
           avatar: 'img/gallery/flambo.png',
           url: 'https://onion.ar/flambo',
         },
-        {
-          id: 13,
-          name: 'Wine Not',
-          avatar: 'https://recursos.onion.com.ar/img/winenot/background.jpg',
-          url: 'https://onion.ar/winenot',
-        },
-        {
-          id: 14,
-          name: 'The Address',
-          avatar: 'img/gallery/theaddress.jpg',
-          url: 'https://onion.ar/en/theaddress',
-        },
       ],
       flickityOptions: {
         prevNextButtons: false,
