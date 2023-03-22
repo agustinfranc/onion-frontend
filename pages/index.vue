@@ -682,7 +682,7 @@ export default {
         pageDots: false,
         cellAlign: 'left',
         contain: true,
-        autoPlay: true,
+        // autoPlay: true,
         // any options from Flickity can be used
       },
     }
