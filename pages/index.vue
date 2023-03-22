@@ -339,7 +339,7 @@
               <div class="prising_header">
                 <h3>Inicial</h3>
                 <!-- Starter -->
-                <span>$1200</span>
+                <!-- <span>$1200</span> -->
               </div>
               <ul>
                 <li>Carta Digital con QR</li>
@@ -368,7 +368,7 @@
               <div class="prising_header green_header">
                 <h3>Basico</h3>
                 <!-- Basic -->
-                <span>Proximamente</span>
+                <!-- <span>Proximamente</span> -->
               </div>
               <ul>
                 <li>App Web de Pedidos con Carta Digital QR</li>
@@ -630,6 +630,26 @@ export default {
     return {
       commerces: [
         {
+          id: 1,
+          name: 'Marlon',
+          avatar:
+            'https://api.onion.ar/storage/images/QKyxo1mKnsoZzC1u0MWDjjnujrLXIQ2srPgNvaK3.jpg',
+          url: 'https://onion.ar/marlon',
+        },
+        {
+          id: 2,
+          name: 'Desembarco',
+          avatar: 'img/gallery/desembarco.jpg',
+          url: 'https://onion.ar/desembarco',
+        },
+        {
+          id: 12,
+          name: 'The Little Bar',
+          avatar:
+            'https://api.onion.ar/storage/images/c2lW0q0ofnCVYtm2a50F2KRFLkGcGfmx14U3rqQe.jpg',
+          url: 'https://onion.ar/thelittlebar',
+        },
+        {
           id: 38,
           name: 'La Playa',
           avatar:
@@ -649,32 +669,6 @@ export default {
           avatar:
             'https://api.onion.ar/storage/images/boke7WGRYdYHfBWEn5HWlKZRwAByoPJqB6ai1hYk.jpg',
           url: 'https://onion.ar/ribsalrio',
-        },
-        {
-          id: 1,
-          name: 'Marlon',
-          avatar:
-            'https://api.onion.ar/storage/images/QKyxo1mKnsoZzC1u0MWDjjnujrLXIQ2srPgNvaK3.jpg',
-          url: 'https://onion.ar/marlon',
-        },
-        {
-          id: 12,
-          name: 'The Little Bar',
-          avatar:
-            'https://api.onion.ar/storage/images/c2lW0q0ofnCVYtm2a50F2KRFLkGcGfmx14U3rqQe.jpg',
-          url: 'https://onion.ar/thelittlebar',
-        },
-        {
-          id: 2,
-          name: 'Desembarco',
-          avatar: 'img/gallery/desembarco.jpg',
-          url: 'https://onion.ar/desembarco',
-        },
-        {
-          id: 5,
-          name: 'Colonial',
-          avatar: 'img/gallery/colonial.png',
-          url: 'https://colonial.onion.com.ar',
         },
         {
           id: 10,
