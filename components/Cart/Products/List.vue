@@ -20,13 +20,25 @@
                   }}{{ item.price }}</span
                 >
                 <template v-if="item.options">
-                  <p
-                    v-for="option in item.options"
-                    :key="`option_${option.id}`"
-                    class="mb-0 text-body-2"
-                  >
-                    {{ option.name }}
-                  </p>
+                  <template v-for="option in item.options">
+                    <p
+                      v-if="option.id"
+                      :key="`option_${option.id}`"
+                      class="mb-0 text-body-2"
+                    >
+                      {{ option.name }}
+                    </p>
+
+                    <template v-else>
+                      <p
+                        v-for="o in option"
+                        :key="`option_${o.id}`"
+                        class="mb-0 text-body-2"
+                      >
+                        {{ o.name }} {{ o.quantity ?? '' }}
+                      </p>
+                    </template>
+                  </template>
                 </template>
               </div>
 

@@ -83,7 +83,8 @@
 
           <v-card-text>
             <v-form v-model="valid">
-              <template v-if="!groupe.multiple">
+              <!-- To select just one item -->
+              <template v-if="groupe.required">
                 <v-radio-group v-model="form[groupe.id]">
                   <v-radio
                     v-for="option in groupe.product_options"
@@ -94,14 +95,50 @@
                 </v-radio-group>
               </template>
 
-              <template v-else>
+              <!-- To select multiple items -->
+              <template v-else-if="groupe.multiple">
                 <v-checkbox
                   v-for="option in groupe.product_options"
                   :key="`option_${option.id}`"
                   :label="option.name"
-                  @change="(item) => onChangeCheckbox(item, option)"
                   :value="option"
+                  @change="(item) => onChangeCheckbox(item, option)"
                 ></v-checkbox>
+              </template>
+
+              <!-- To select the number of items. Usefull for products like docena de empanadas -->
+              <template v-else-if="groupe.countable">
+                <template v-for="option in groupe.product_options">
+                  <div
+                    :key="`option_${option.id}`"
+                    class="d-flex justify-space-between mb-2"
+                  >
+                    <span>{{ option.name }}</span>
+
+                    <v-btn-toggle>
+                      <v-btn fab x-small @click="removeOneOption(option)">
+                        <v-icon>mdi-minus</v-icon>
+                      </v-btn>
+
+                      <v-btn fab x-small>
+                        <span class="text-subtitle-2">
+                          {{
+                            form[option.product_options_groupe_id] &&
+                            form[option.product_options_groupe_id][option.id]
+                              ? form[option.product_options_groupe_id][
+                                  option.id
+                                ].quantity
+                              : 0
+                          }}
+                        </span>
+                      </v-btn>
+
+                      <v-btn fab x-small @click="addOneOption(option)">
+                        <v-icon>mdi-plus</v-icon>
+                      </v-btn>
+                    </v-btn-toggle>
+                  </div>
+                </template>
               </template>
             </v-form>
           </v-card-text>
@@ -150,6 +187,7 @@ export default {
       default: false,
     },
   },
+
   data() {
     return {
       note: null,
@@ -158,6 +196,7 @@ export default {
       valid: true,
     }
   },
+
   computed: {
     disabled() {
       return !this.quantity
@@ -168,6 +207,7 @@ export default {
         : 'height: 100vh'
     },
   },
+
   methods: {
     addOneItem() {
       ++this.quantity
@@ -177,6 +217,7 @@ export default {
 
       --this.quantity
     },
+
     async addToCart() {
       await this.$store.dispatch('addToCart', {
         ...this.item,
@@ -187,6 +228,7 @@ export default {
 
       this.$router.push({ name: 'commerce___es' })
     },
+
     onChangeCheckbox(item, option) {
       if (!this.form[option.product_options_groupe_id]) {
         this.form[option.product_options_groupe_id] = []
@@ -199,6 +241,34 @@ export default {
       i >= 0
         ? this.form[option.product_options_groupe_id].splice(i, 1)
         : this.form[option.product_options_groupe_id].push(option)
+    },
+
+    addOneOption(option) {
+      if (!this.form[option.product_options_groupe_id]) {
+        this.$set(this.form, option.product_options_groupe_id, {})
+      }
+
+      !this.form[option.product_options_groupe_id][option.id]
+        ? this.$set(this.form, option.product_options_groupe_id, {
+            ...this.form[option.product_options_groupe_id],
+            [option.id]: {
+              ...option,
+              quantity: 1,
+            },
+          })
+        : this.form[option.product_options_groupe_id][option.id].quantity++
+    },
+    removeOneOption(option) {
+      if (this.form[option.product_options_groupe_id][option.id].quantity > 1) {
+        this.form[option.product_options_groupe_id][option.id].quantity--
+        return
+      }
+
+      delete this.form[option.product_options_groupe_id][option.id]
+
+      this.$set(this.form, option.product_options_groupe_id, {
+        ...this.form[option.product_options_groupe_id],
+      })
     },
   },
 }
