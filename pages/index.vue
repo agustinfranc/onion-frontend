@@ -342,7 +342,7 @@
                 <!-- <span>$1200</span> -->
               </div>
               <ul>
-                <li>Carta Digital con QR</li>
+                <li>Menu Digital con QR</li>
                 <li>Se muestran fotos, categorías, promociones</li>
                 <li>Mostrá tu marca, tu logo y tus datos generales</li>
                 <li>Colores a tu elección</li>
@@ -371,7 +371,7 @@
                 <!-- <span>Proximamente</span> -->
               </div>
               <ul>
-                <li>App Web de Pedidos con Carta Digital QR</li>
+                <li>App Web de Pedidos con Menu Digital QR</li>
                 <!-- <li>Usá tu propio dominio</li> -->
                 <li>Se muestran fotos, categorías, promociones</li>
                 <!-- <li>Colores a tu elección </li> -->
@@ -682,7 +682,7 @@ export default {
         pageDots: false,
         cellAlign: 'left',
         contain: true,
-        autoPlay: true,
+        // autoPlay: true,
         // any options from Flickity can be used
       },
     }
