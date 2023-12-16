@@ -3,9 +3,10 @@ export const state = () => ({
   commerce: {},
   order: {
     address: {},
-    branch: {},
+    branch: null,
     note: '',
     payMethod: {},
+    deliveryMethod: null,
     client: {
       name: undefined,
     },
@@ -49,12 +50,16 @@ export const mutations = {
   },
   SET_COMMERCE_BRANCH(state, payload) {
     state.order.branch = payload
+    state.order.deliveryMethod = null
   },
   SET_ORDER_NOTE(state, payload) {
     state.order.note = payload
   },
   SET_PAY_METHOD(state, payload) {
     state.order.payMethod = payload
+  },
+  SET_DELIVERY_METHOD(state, payload) {
+    state.order.deliveryMethod = payload
   },
   SET_DATA(state, payload) {
     state.commerce = payload
@@ -117,5 +122,8 @@ export const actions = {
   },
   saveClient({ commit }, payload) {
     commit('SET_CLIENT', payload)
+  },
+  saveDeliveryMethod({ commit }, payload) {
+    commit('SET_DELIVERY_METHOD', payload)
   },
 }

@@ -14,11 +14,19 @@ export default {
   computed: {
     ...mapState(['commerce', 'cart', 'order']),
     disabled() {
-      return (
+      if (
         !this.cart.length ||
-        !this.order.branch.name ||
-        !this.order.address.address
-      )
+        !this.order.branch ||
+        !this.order.deliveryMethod
+      ) {
+        return true
+      }
+
+      if (this.order.deliveryMethod.id === 1) {
+        return !this.order.address.address
+      }
+
+      return false
     },
     // TODO: solucionar: repito codigo de components/Cart/Details
     subtotalCalc() {

@@ -5,7 +5,7 @@
         <span>Sucursal</span>
         <OrderSelectionButton
           v-if="commerce.branches && commerce.branches.length"
-          :highlight="!!order.branch.name"
+          :highlight="!!order.branch"
           :highlight-text="'Seleccionar'"
           @click="selectCommerce"
         />
@@ -19,7 +19,7 @@
           class="rounded mr-3"
           :src="commerce.cover_dirname"
         ></v-img>
-        <div v-if="order.branch.name">
+        <div v-if="order.branch">
           <h3>{{ order.branch.fullname }}</h3>
           <h4 v-if="order.branch.address">{{ order.branch.address }}</h4>
         </div>

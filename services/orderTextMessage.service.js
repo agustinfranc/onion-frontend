@@ -97,8 +97,12 @@ export class OrderTextMessage {
   }
 
   static setDeliveryAddress(message, order) {
-    message.push('Dirección:')
-    message.push(this.getDeliveryAddress(order))
+    message.push(`${order.deliveryMethod.name}: `)
+
+    order.deliveryMethod.id === 1
+      ? message.push(this.getDeliveryAddress(order))
+      : message.push(order.branch.address)
+
     message.push('')
   }
 }
