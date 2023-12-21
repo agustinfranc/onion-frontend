@@ -213,7 +213,6 @@ export default {
     headers: {
       common: {
         Accept: 'application/json',
-        'X-Requested-With': 'XMLHttpRequest',
       },
     },
   },
