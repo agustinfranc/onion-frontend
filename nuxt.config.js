@@ -205,19 +205,6 @@ export default {
     },
   },
 
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {
-    headers: {
-      common: {
-        Accept: 'application/json',
-        'X-Requested-With': 'XMLHttpRequest',
-      },
-    },
-  },
-
   gtm: {
     id: 'GTM-KM4BNSW', // Used as fallback if no runtime config is provided
   },
