@@ -107,9 +107,7 @@ export default {
     },
 
     isVogliamoDel() {
-      return (
-        this.order.branch?.name === 'programmable-systematic-processimprovement'
-      )
+      return this.order.branch?.name === 'vogliamo-del'
     },
   },
 
