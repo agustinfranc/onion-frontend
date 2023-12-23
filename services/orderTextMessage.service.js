@@ -90,7 +90,12 @@ export class OrderTextMessage {
 
     if (order.payMethod.name === 'MercadoPago') {
       message.push(preference.init_point)
+      message.push('')
       message.push('(Hacé click en el link de arriba para pagar tu pedido)')
+      message.push('')
+      message.push(
+        'No te olvides de adjuntarnos el comprobante del pago por favor :)'
+      )
     }
 
     message.push('')
@@ -102,6 +107,11 @@ export class OrderTextMessage {
     order.deliveryMethod.id === 1
       ? message.push(this.getDeliveryAddress(order))
       : message.push(order.branch.address)
+
+    if (order.deliveryMethod.selectedTimeOption) {
+      message.push('Horario de retiro: ')
+      message.push(order.deliveryMethod.selectedTimeOption)
+    }
 
     message.push('')
   }

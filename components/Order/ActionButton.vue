@@ -17,7 +17,9 @@ export default {
       if (
         !this.cart.length ||
         !this.order.branch ||
-        !this.order.deliveryMethod
+        !this.order.deliveryMethod ||
+        !this.order.payMethod ||
+        !this.order.client.name
       ) {
         return true
       }

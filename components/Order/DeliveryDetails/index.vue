@@ -39,6 +39,9 @@
           <div v-else>
             <h3>Retiro en el local</h3>
             <h4>{{ order.branch.address }}</h4>
+            <h4 v-if="order.deliveryMethod?.selectedTimeOption">
+              {{ order.deliveryMethod.selectedTimeOption }}
+            </h4>
           </div>
         </v-card-text>
       </v-card>
