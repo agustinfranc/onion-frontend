@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column" :style="calcContainerHeight">
+  <div class="d-flex flex-column pb-16" :style="calcContainerHeight">
     <v-card :loading="loading">
       <template slot="progress">
         <v-progress-linear

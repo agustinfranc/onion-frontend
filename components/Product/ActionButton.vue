@@ -31,5 +31,6 @@ export default {
   position: fixed;
   bottom: 40px;
   left: 0;
+  max-width: initial;
 }
 </style>
