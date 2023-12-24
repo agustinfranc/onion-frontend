@@ -158,16 +158,11 @@
       </v-card>
     </v-container>
 
-    <v-container>
-      <v-btn
-        large
-        block
-        color="primary"
-        :disabled="disabled || loading"
-        @click="addToCart"
-        >Agregar al pedido</v-btn
-      >
-    </v-container>
+    <ProductActionButton
+      :disabled="disabled"
+      :loading="loading"
+      @add-to-cart="addToCart"
+    />
   </div>
 </template>
 
