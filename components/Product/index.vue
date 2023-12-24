@@ -161,7 +161,7 @@
     <ProductActionButton
       :disabled="disabled"
       :loading="loading"
-      @add-to-cart="addToCart"
+      @addToCart="addToCart"
     />
   </div>
 </template>
@@ -214,6 +214,8 @@ export default {
     },
 
     async addToCart() {
+      console.log('hola')
+
       await this.$store.dispatch('addToCart', {
         ...this.item,
         quantity: this.quantity,
