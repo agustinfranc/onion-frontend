@@ -11,13 +11,13 @@
           color="primary"
         >
           <v-list-item
-            v-for="payMethod in deliveryMethods"
-            :key="payMethod.id"
-            :disabled="payMethod.disabled"
+            v-for="method in deliveryMethods"
+            :key="method.id"
+            :disabled="method.disabled"
           >
             <v-list-item-content>
               <v-list-item-title>
-                {{ payMethod.name }}
+                {{ method.name }}
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>

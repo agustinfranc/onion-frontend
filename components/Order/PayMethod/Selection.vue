@@ -63,6 +63,14 @@ export default {
           subtitle: 'Dinero en cuenta, Tarjeta de Débito, Tarjeta de Crédito',
           disabled: !this.order.branch?.mp_enabled,
         },
+        {
+          id: 3,
+          name: 'Transferencia',
+          subtitle: 'Transferencia bancaria (alias)',
+          disabled:
+            !this.order.branch?.mp_enabled &&
+            this.order.branch?.name !== 'vogliamo-del',
+        },
       ]
     },
   },

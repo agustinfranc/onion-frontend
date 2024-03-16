@@ -98,6 +98,15 @@ export class OrderTextMessage {
       )
     }
 
+    if (order.payMethod.name === 'Transferencia') {
+      message.push('')
+      message.push('Nuestro alias es: VOGLIAMO.PIZZERIA')
+      message.push('')
+      message.push(
+        'No te olvides de adjuntarnos el comprobante de pago por favor :)'
+      )
+    }
+
     message.push('')
   }
 
