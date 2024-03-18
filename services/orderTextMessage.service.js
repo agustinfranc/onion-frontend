@@ -100,7 +100,11 @@ export class OrderTextMessage {
 
     if (order.payMethod.name === 'Transferencia') {
       message.push('')
-      message.push('Nuestro alias es: VOGLIAMO.PIZZERIA')
+      const alias =
+        order.branch?.name === 'vogliamo-del'
+          ? 'VOGLIAMO.PIZZERIA'
+          : 'laherenciapizzeria'
+      message.push(`Nuestro alias es: ${alias}`)
       message.push('')
       message.push(
         'No te olvides de adjuntarnos el comprobante de pago por favor :)'

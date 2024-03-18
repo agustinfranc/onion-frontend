@@ -68,8 +68,8 @@ export default {
           name: 'Transferencia',
           subtitle: 'Transferencia bancaria (alias)',
           disabled:
-            !this.order.branch?.mp_enabled &&
-            this.order.branch?.name !== 'vogliamo-del',
+            this.order.branch?.name !== 'vogliamo-del' ||
+            this.order.branch?.name !== 'la-herencia',
         },
       ]
     },
