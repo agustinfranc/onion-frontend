@@ -145,6 +145,11 @@ export default {
         name: 'Español',
         iso: 'es-ES',
       },
+      {
+        code: 'ar',
+        name: 'العربية',
+        iso: 'ar-AR',
+      },
     ],
     defaultLocale: 'es',
     vueI18n: {
@@ -199,6 +204,30 @@ export default {
             visible: 'Visible',
             disabled: 'No disponible',
             description: 'Descripción',
+          },
+        },
+        ar: {
+          welcome: 'مرحبا',
+          settings: 'الإعدادات',
+          details: 'التفاصيل',
+          search: 'بحث',
+          error: 'حدث خطأ ما',
+          categories: 'الفئات',
+          subcategories: 'الفئات الفرعية',
+          meta: {
+            description:
+              '| الوصول إلى قائمتنا الرقمية | تم تطويرها بواسطة بصلة',
+          },
+          product: {
+            title: 'المنتج',
+            code: 'الرمز',
+            name: 'الاسم',
+            category: 'الفئة',
+            subcategory: 'الفئة الفرعية',
+            price: 'السعر',
+            visible: 'مرئي',
+            disabled: 'معطل',
+            description: 'الوصف',
           },
         },
       },
