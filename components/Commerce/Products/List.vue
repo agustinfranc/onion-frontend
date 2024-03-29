@@ -20,7 +20,7 @@
                 class="fill-height d-flex flex-column justify-center"
               >
                 <v-chip x-small class="ma-2" color="red" text-color="white">
-                  {{ $t('product.disabled') }}
+                  {{ $t('Disabled') }}
                 </v-chip>
               </div>
             </v-img>

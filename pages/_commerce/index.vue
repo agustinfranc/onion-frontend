@@ -80,7 +80,7 @@ export default {
           hid: 'description',
           name: 'description',
           content: `${this.commerceData.fullname} ${this.$t(
-            'meta.description'
+            '| Access to our digital menu | Developed by Onion'
           )}`,
         },
         {
@@ -107,7 +107,7 @@ export default {
           hid: 'og:description',
           property: 'og:description',
           content: `${this.commerceData.fullname} ${this.$t(
-            'meta.description'
+            '| Access to our digital menu | Developed by Onion'
           )}`,
         },
       ],
