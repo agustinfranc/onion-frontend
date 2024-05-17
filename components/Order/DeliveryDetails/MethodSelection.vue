@@ -53,27 +53,16 @@ export default {
     return {
       selected: undefined,
       selectedTimeOption: undefined,
-
-      items: [
-        '19:30 - 20:00',
-        '20:00 - 20:15',
-        '20:15 - 20:30',
-        '20:30 - 20:45',
-        '20:45 - 21:00',
-        '21:00 - 21:15',
-        '21:15 - 21:30',
-        '21:30 - 21:45',
-        '21:45 - 22:00',
-        '22:00 - 22:15',
-        '22:15 - 22:30',
-        '22:30 - 23:00',
-        '23:00 - 23:30',
-        '23:30 - 00:00',
-      ],
     }
   },
   computed: {
     ...mapState(['order']),
+
+    items() {
+      return this.order.branch?.commerce_branch_order_time_options
+        .filter((item) => !item.disabled)
+        .map((item) => `${item.start_time} - ${item.end_time}`)
+    },
 
     deliveryMethods() {
       return [
