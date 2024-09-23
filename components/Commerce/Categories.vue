@@ -4,6 +4,7 @@
       <v-chip-group column>
         <v-chip
           v-for="rubro in rubrosFiltered"
+          small
           :key="rubro.name"
           :color="rubro.pivot.highlighted ? 'orange' : ''"
         >

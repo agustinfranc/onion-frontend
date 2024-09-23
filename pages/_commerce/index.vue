@@ -123,7 +123,7 @@ export default {
   fetchOnServer: false,
 
   computed: {
-    ...mapState(['search', 'commerce', 'cart']),
+    ...mapState(['commerce', 'cart']),
     ...mapGetters(['rubrosFiltered']),
     calcContainerHeight() {
       return this.commerce.has_footer
